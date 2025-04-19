@@ -1,0 +1,23 @@
+Options -Indexes
+DirectoryIndex login.php
+
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.(php)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Activation du module de réécriture
+RewriteEngine On
+RewriteBase /digita-marketing/admin/
+
+# Ne pas rediriger si c'est déjà login.php ou si on est déjà connecté
+RewriteCond %{REQUEST_URI} !login\.php$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{HTTP_COOKIE} !admin=true
+RewriteRule ^ login.php [L]

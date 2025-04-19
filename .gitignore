@@ -1,0 +1,42 @@
+# Dependencies
+/vendor/
+/node_modules/
+composer.phar
+phpunit.phar
+
+# Environment
+.env
+.env.backup
+
+# IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Testing
+/phpunit.xml.dist
+.phpunit.result.cache
+/coverage/
+
+# Logs
+/logs/*
+!/logs/.gitkeep
+*.log
+
+# Cache
+/cache/*
+!/cache/.gitkeep
+
+# Uploads
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
