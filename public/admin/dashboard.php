@@ -1,12 +1,14 @@
 <?php
-require_once __DIR__ . '/../../src/includes/config.php';
-session_start();
-
-if (!isset($_SESSION['admin'])) {
-    header('Location: login.php');
-    exit;
+ini_set('session.cookie_path', '/digita-marketing/');
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
 }
-
+require_once __DIR__ . '/../../config/config.php';
+require_once __DIR__ . '/../../includes/auth.php';
+if (!isUserLoggedIn()) {
+    header('Location: /digita-marketing/connexion.php');
+    exit();
+}
 // Statistiques factices pour la démo
 $stats = [
     'visits' => rand(1000, 5000),

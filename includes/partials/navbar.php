@@ -7,10 +7,8 @@ $navbarBg = in_array($uri, $homeUris) ? 'bg-white' : 'bg-white'; // Toujours bla
 ?>
 <nav class="navbar navbar-expand-lg navbar-light <?= $navbarBg ?> fixed-top shadow-sm" style="top:0;z-index:1100;">
   <div class="container-fluid px-5">
-    <a class="navbar-brand d-flex align-items-center" href="/digita-marketing/#logos">
-      <img src="/digita-marketing/assets/images/logo.png" alt="Digita Logo" width="56" height="56" class="me-2">
-      <span class="fw-bold" style="font-size:2rem; color:#FFD700; letter-spacing:2px;">DIGITA</span>
-      <span class="ms-2" style="font-size:1.1rem; color:#232323;">- Marketing Digital</span>
+    <a class="navbar-brand d-flex align-items-center" href="/digita-marketing/#hero">
+      <img src="/digita-marketing/assets/images/logo.png" alt="Digita Logo" width="256.6" height="59.3" class="me-2">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

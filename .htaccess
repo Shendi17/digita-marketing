@@ -3,9 +3,10 @@
     RewriteBase /digita-marketing/
     
     # Redirection vers index.php si le fichier/dossier n'existe pas
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php [QSA,L]
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^ index.php [QSA,L]
 </IfModule>
 
 # Protection des dossiers

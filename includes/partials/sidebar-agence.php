@@ -27,10 +27,42 @@
   filter: none !important;
   opacity: 1 !important;
 }
+.sidebar-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+.sidebar-btns .btn-connexion {
+  background: #222;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  font-weight: 600;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-btns .btn-connexion:hover {
+  background: #FFD700;
+  color: #222;
+}
+.sidebar-btns .btn-inscription {
+  background: #FFD700;
+  color: #222;
+  border: 2px solid #FFD700;
+  font-weight: 600;
+  padding: 0.75rem 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.sidebar-btns .btn-inscription:hover {
+  background: #222;
+  color: #FFD700;
+}
 </style>
 <aside id="sidebar-agence" class="sidebar-agence bg-white shadow-lg" style="transform: translateX(100%); opacity:0; pointer-events:none; transition:transform 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s;">
   <div class="d-flex align-items-center mb-4">
-    <img src="/digita-marketing/assets/images/logo.png" alt="Digita Logo" width="48" height="48" class="me-2">
+    <img src="/digita-marketing/assets/images/digita.png" alt="Digita Logo" width="48" height="48" class="me-2">
     <div>
       <span class="fw-bold" style="font-size:1.5rem; color:#FFD700; letter-spacing:2px;">DIGITA</span><br>
       <span style="font-size:1rem; color:#222;">Marketing Digital</span>
@@ -38,20 +70,35 @@
     <button class="btn-close ms-auto" aria-label="Fermer" onclick="fermerSidebarAgence()"></button>
   </div>
   <nav class="nav flex-column mb-4">
-    <a class="nav-link py-2" href="/digita-marketing/pages/about.php">À propos</a>
-    <a class="nav-link py-2" href="/digita-marketing/pages/services.php">Services</a>
-    <a class="nav-link py-2" href="/digita-marketing/pages/team.php">Équipe</a>
-    <a class="nav-link py-2" href="/digita-marketing/pages/contact.php">Contact</a>
+    <a class="nav-link py-2" href="/digita-marketing/blog">Blog</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Actualités & conseils</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/boutique">Boutique</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Produits & services</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/solution">Solution</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Outils & solutions</div>
+
+    <hr class="my-3">
+
+    <a class="nav-link py-2" href="/digita-marketing/a-propos">A propos</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Apprendre à nous connaître</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/services">Services</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Découvrir nos services</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/contact">Contact</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Prendre contact</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/support">Support</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Nous pouvons vous aider</div>
+
+    <a class="nav-link py-2" href="/digita-marketing/tarifs">Tarifs</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Trouver une offre</div>
   </nav>
-  <div class="mt-auto">
-    <h6 class="fw-bold mb-2">Coordonnées De L’agence</h6>
-    <p class="mb-1 small">Email: <a href="mailto:digita@gmail.com">digita@gmail.com</a></p>
-    <div class="mb-2">
-      <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
-    <small class="text-muted">Copyright 2025. With Love By <a href="#" style="color:#FFD700;">Zytheme</a></small>
+  <div class="mt-auto sidebar-btns">
+    <a href="/digita-marketing/connexion" class="btn btn-connexion w-100 mb-0">Connexion</a>
+    <a href="/digita-marketing/inscription" class="btn btn-inscription w-100">Inscription</a>
   </div>
 </aside>
 <!-- Overlay -->

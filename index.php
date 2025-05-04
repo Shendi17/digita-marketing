@@ -57,6 +57,46 @@ $router->get('/contact', function() {
     require_once __DIR__ . '/includes/footer.php';
 });
 
+// Page Support
+$router->get('/support', function() {
+    require_once __DIR__ . '/includes/header.php';
+    require_once __DIR__ . '/includes/navbar.php';
+    require_once __DIR__ . '/pages/support.php';
+    require_once __DIR__ . '/includes/footer.php';
+});
+
+// Page Tarifs
+$router->get('/tarifs', function() {
+    require_once __DIR__ . '/includes/header.php';
+    require_once __DIR__ . '/includes/navbar.php';
+    require_once __DIR__ . '/pages/tarifs.php';
+    require_once __DIR__ . '/includes/footer.php';
+});
+
+// Page Blog
+$router->get('/blog', function() {
+    require_once __DIR__ . '/includes/header.php';
+    require_once __DIR__ . '/includes/navbar.php';
+    require_once __DIR__ . '/pages/blog.php';
+    require_once __DIR__ . '/includes/footer.php';
+});
+
+// Page Boutique
+$router->get('/boutique', function() {
+    require_once __DIR__ . '/includes/header.php';
+    require_once __DIR__ . '/includes/navbar.php';
+    require_once __DIR__ . '/pages/boutique.php';
+    require_once __DIR__ . '/includes/footer.php';
+});
+
+// Page Solution
+$router->get('/solution', function() {
+    require_once __DIR__ . '/includes/header.php';
+    require_once __DIR__ . '/includes/navbar.php';
+    require_once __DIR__ . '/pages/solution.php';
+    require_once __DIR__ . '/includes/footer.php';
+});
+
 // Page 404
 $router->setNotFound(function() {
     http_response_code(404);

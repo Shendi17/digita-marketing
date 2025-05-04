@@ -10,7 +10,7 @@
                             123 Rue du Marketing <br>
                             75000 Paris, France<br><br>
                             <strong>Téléphone:</strong> +33 1 23 45 67 89<br>
-                            <strong>Email:</strong> <span style="color:#FFD700;">contact@digitamarketing.com</span><br>
+                            <strong>Email:</strong> <span style="color:#FFD700;">contact@digita-marketing.com</span><br>
                         </p>
                         <div class="social-links mt-3">
                             <a href="#" class="twitter"><i class="bi bi-twitter" style="color:#FFD700;"></i></a>

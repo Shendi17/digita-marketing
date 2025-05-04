@@ -1,0 +1,8 @@
+
+je pense qu'il faut améliorer la stucture du projet avant de continuer, 
+je veux que tu enléves le code en dur dans les templates, et que tu crées les fichier css respectifs dans les bons dossier pour les éléments 
+ il faut un dossiers "pages" pour la logique métier,
+un dossier templates pour les templates
+il nous faut aussi un layout principal ,si ce n'est pas déja fait, 
+
+proposes moi un restucturation pour améliorer la clarté du projet et pour permettre une meilleur gestion des éléments modulaires

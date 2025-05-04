@@ -117,17 +117,32 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll();
 
-    // Smooth scroll pour les liens d'ancrage
+    // Smooth scroll pour les liens d'ancrage avec offset dynamique (navbar fixe)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            // Si c'est juste # ou #hero, on scroll tout en haut
+            if(href === '#' || href === '#hero') {
+                e.preventDefault();
+                window.scrollTo({top: 0, behavior: 'smooth'});
+                return;
+            }
+            // Sinon scroll vers la section cible
+            const target = document.querySelector(href);
             if (target) {
-                const headerHeight = header.offsetHeight;
-                const elementPosition = target.getBoundingClientRect().top;
+                e.preventDefault();
+                const header = document.querySelector('header');
+                const navbar = document.querySelector('.navbar');
+                // Prendre la hauteur de la navbar fixe
+                let headerHeight = 0;
+                if(navbar && getComputedStyle(navbar).position === 'fixed') {
+                    headerHeight = navbar.offsetHeight;
+                } else if(header) {
+                    headerHeight = header.offsetHeight;
+                }
+                const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
                 const offsetPosition = elementPosition - headerHeight;
-
-                window.scrollBy({
+                window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
                 });

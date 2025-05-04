@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../../src/includes/config.php';
+require_once __DIR__ . '/../../config/config.php';
 
 // Vérification de l'authentification
 session_start();
 if (!isset($_SESSION['admin'])) {
-    header('Location: login.php');
+    header('Location: /digita-marketing/connexion');
     exit;
 }
 
