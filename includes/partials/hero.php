@@ -1,8 +1,8 @@
 <!-- HERO avec slider texte pur, fond animé parfaitement ajusté à la hauteur du HERO -->
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center position-relative scroll-offset" style="min-height: 100vh; position:relative; overflow:hidden;">
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center position-relative scroll-offset" >
   <!-- Fond animé SVG (ondes fluides) ajusté dynamiquement à la hauteur du HERO -->
-  <div id="hero-bg-anim" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;">
-    <svg viewBox="0 0 1440 320" width="100%" height="100%" preserveAspectRatio="none" style="display:block;">
+  <div id="hero-bg-anim" >
+    <svg viewBox="0 0 1440 320" width="100%" height="100%" preserveAspectRatio="none" >
       <defs>
         <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stop-color="#2563eb" stop-opacity="0.9"/>
@@ -14,21 +14,21 @@
       </path>
     </svg>
   </div>
-  <div class="container position-relative" style="z-index:1;max-width:1100px;">
+  <div class="container position-relative" >
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6500">
       <div class="carousel-inner">
         <!-- Slide 1 (texte original) -->
         <div class="carousel-item active">
-          <div class="mx-auto text-center p-5" style="background:rgba(30,32,48,0.55);border-radius:2.2rem;max-width:900px;">
+          <div class="mx-auto text-center p-5" >
             <div class="mb-4">
-              <img src="/digita-marketing/assets/images/identite/logo.png" alt="Logo Digita" style="height:90px;width:auto;filter:drop-shadow(0 4px 18px #d4af37a0);">
+              <img src="/digita-marketing/assets/images/identite/logo.png" alt="Logo Digita" >
             </div>
-            <h1 class="fw-bold d-flex align-items-center justify-content-center mb-2" style="color:#fff;letter-spacing:2px;font-size:2.8rem;gap:0.7em;text-shadow:0 2px 14px #23252699;">
-              <i class="fas fa-crown" style="color:#FFD700;font-size:2.7rem;"></i>
+            <h1 class="fw-bold d-flex align-items-center justify-content-center mb-2" >
+              <i class="fas fa-crown" ></i>
               Des Réalisations Uniques
             </h1>
-            <h2 class="fw-bold mb-2" style="color:#FFD700;font-size:2.1rem;letter-spacing:1.5px;text-shadow:0 2px 14px #23252699;">Pour <span style="color:#2563eb;">BOOSTER</span> Vos Possibilités</h2>
-            <p class="lead mb-2" style="color:#fff;font-size:1.35rem;text-shadow:0 1px 6px #23252699;">Entrepreneur ou Chef d’Entreprise</p>
+            <h2 class="fw-bold mb-2" >Pour <span >BOOSTER</span> Vos Possibilités</h2>
+            <p class="lead mb-2" >Entrepreneur ou Chef d’Entreprise</p>
             <p class="mb-3" style="color:#fff;font-size:1.18rem;text-shadow:0 1px 6px #23252699;">Sublimez votre identité visuelle et performez dans vos affaires grâce à nos solutions adaptées</p>
             <div class="d-flex justify-content-center align-items-center gap-4 mt-3">
               <a href="#contact" class="btn btn-primary btn-lg px-5" style="background:#2563eb;border:none;font-size:1.2rem;">Contactez-nous</a>
@@ -38,7 +38,7 @@
         </div>
         <!-- Slide 2 (texte capture 1) -->
         <div class="carousel-item">
-          <div class="mx-auto text-center p-5" style="background:rgba(30,32,48,0.55);border-radius:2.2rem;max-width:900px;">
+          <div class="mx-auto text-center p-5" >
             <h1 class="fw-bold mb-3" style="color:#fff;letter-spacing:2px;font-size:2.8rem;line-height:1.13;text-shadow:0 2px 14px #23252699;">
               De Véritables Solutions Sur-Mesure<br>Pour Augmentez Vos Performances
             </h1>
@@ -48,7 +48,7 @@
         </div>
         <!-- Slide 3 (texte capture 2) -->
         <div class="carousel-item">
-          <div class="mx-auto text-center p-5" style="background:rgba(30,32,48,0.55);border-radius:2.2rem;max-width:900px;">
+          <div class="mx-auto text-center p-5" >
             <h1 class="fw-bold mb-3" style="color:#FFD700;letter-spacing:2px;font-size:2.8rem;line-height:1.13;text-shadow:0 2px 14px #23252699;">
               Votre Agence De Création Web<br>À La Réunion
             </h1>

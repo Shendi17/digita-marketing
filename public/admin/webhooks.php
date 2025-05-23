@@ -56,21 +56,7 @@ $currentConfig = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuration des Webhooks - Digita Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .webhook-card {
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .webhook-card .card-header {
-            font-weight: bold;
-        }
-        .form-check {
-            margin: 15px 0;
-        }
-        .alert {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/digita-marketing/assets/css/webhooks.css">
 </head>
 <body class="bg-light">
     <div class="container py-5">

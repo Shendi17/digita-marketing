@@ -5,10 +5,13 @@
     <link rel="icon" type="image/png" href="/digita-marketing/assets/images/digita.png">
     <!-- Correction du chemin CSS pour WAMP/public -->
     <link rel="stylesheet" href="/digita-marketing/assets/css/style.css?v=20250417">
+    <link rel="stylesheet" href="/digita-marketing/assets/css/home.css?v=20250417">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Font Awesome désactivé pour test conflit icônes Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <style>

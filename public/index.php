@@ -3,7 +3,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/digit
     require_once __DIR__ . '/../connexion.php';
     exit;
 }
-echo '<div style="background:lime;padding:8px;font-weight:bold;">DASHBOARD.PHP INCLUS !</div>';
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../includes/Router.php';
 

@@ -1,7 +1,7 @@
 <?php
-// Page Tarifs - à personnaliser
-require_once __DIR__ . '/../includes/header.php';
-require_once __DIR__ . '/../includes/partials/navbar.php';
+$pageTitle = 'Tarifs';
+$extraCss = ['/digita-marketing/assets/css/tarifs.css'];
+ob_start();
 ?>
 <section class="py-5">
   <div class="container">
@@ -15,4 +15,4 @@ require_once __DIR__ . '/../includes/partials/navbar.php';
     <p>Pour un devis personnalisé, contactez-nous directement.</p>
   </div>
 </section>
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php $content = ob_get_clean(); require __DIR__ . '/layout.php'; ?>

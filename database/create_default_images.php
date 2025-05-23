@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config/config.php';
 
 // Création du dossier images si nécessaire
-$team_image_dir = __DIR__ . '/../public/assets/images/team';
+$team_image_dir = __DIR__ . '/../assets/images/team';
 if (!is_dir($team_image_dir)) {
     mkdir($team_image_dir, 0777, true);
 }

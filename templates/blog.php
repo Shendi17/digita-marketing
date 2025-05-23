@@ -1,10 +1,12 @@
 <?php
-require_once __DIR__ . '/../includes/header.php';
+$pageTitle = 'Blog';
+$extraCss = ['/digita-marketing/assets/css/blog.css'];
+ob_start();
 ?>
 <section id="logo" class="py-5 bg-light" data-aos="fade-down">
   <div class="container">
-    <h2 class="section-title-icon fw-bold d-flex align-items-center justify-content-center mb-4" style="color:#2563eb;font-size:2.1rem;gap:0.5em;">
-      <i class="fas fa-user-tie me-2" style="color:#2563eb;"></i>À propos
+    <h2 class="section-title-icon fw-bold d-flex align-items-center justify-content-center mb-4">
+      <i class="fas fa-user-tie me-2"></i>À propos
     </h2>
     <span class="section-title-separator"></span>
     <h2 class="mb-4 text-primary">Bienvenue chez Digita</h2>
@@ -16,7 +18,4 @@ require_once __DIR__ . '/../includes/header.php';
     </ul>
   </div>
 </section>
-<?php
-require_once __DIR__ . '/../includes/partials/navbar.php';
-require_once __DIR__ . '/../includes/footer.php';
-?>
+<?php $content = ob_get_clean(); require __DIR__ . '/layout.php'; ?>

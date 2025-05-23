@@ -1,7 +1,7 @@
 <?php
-// Page Support - à personnaliser
-require_once __DIR__ . '/../includes/header.php';
-require_once __DIR__ . '/../includes/partials/navbar.php';
+$pageTitle = 'Support';
+$extraCss = ['/digita-marketing/assets/css/support.css'];
+ob_start();
 ?>
 <section class="py-5">
   <div class="container">
@@ -16,11 +16,11 @@ require_once __DIR__ . '/../includes/partials/navbar.php';
 </section>
 <section id="ecommerce-team" class="py-5 bg-alt" data-aos="fade-right">
   <div class="container">
-    <h2 class="section-title-icon fw-bold d-flex align-items-center justify-content-center mb-4" style="color:#FFD700;font-size:2.1rem;gap:0.5em;">
-      <i class="fas fa-shopping-cart me-2" style="color:#FFD700;"></i>L'équipe E-Commerce
+    <h2 class="section-title-icon fw-bold d-flex align-items-center justify-content-center mb-4">
+      <i class="fas fa-shopping-cart me-2"></i>L'équipe E-Commerce
     </h2>
     <span class="section-title-separator"></span>
     <!-- Ajoute ici le contenu de la section équipe e-commerce -->
   </div>
 </section>
-<?php require_once __DIR__ . '/../includes/footer.php'; ?>
+<?php $content = ob_get_clean(); require __DIR__ . '/layout.php'; ?>

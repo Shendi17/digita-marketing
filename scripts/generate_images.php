@@ -1,7 +1,7 @@
 <?php
 
 // Chemin vers le dossier des images
-$imagesPath = __DIR__ . '/../public/assets/images';
+$imagesPath = __DIR__ . '/../assets/images';
 
 // Créer le dossier s'il n'existe pas
 if (!file_exists($imagesPath)) {

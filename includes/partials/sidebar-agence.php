@@ -1,71 +1,11 @@
 <!-- Sidebar latéral agence -->
-<style>
-#sidebar-agence.sidebar-agence {
-  position: fixed !important;
-  top: 0 !important;
-  right: 0 !important;
-  width: 300px !important;
-  height: 100vh !important;
-  z-index: 1200 !important;
-  background: #fff !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow-y: auto !important;
-}
-#sidebar-agence.sidebar-agence a,
-#sidebar-agence.sidebar-agence .nav-link {
-  color: #222 !important;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-#sidebar-agence.sidebar-agence a:hover,
-#sidebar-agence.sidebar-agence .nav-link:hover {
-  color: #d4af37 !important;
-  text-decoration: underline;
-}
-#sidebar-agence.sidebar-agence .btn-close {
-  filter: none !important;
-  opacity: 1 !important;
-}
-.sidebar-btns {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
-}
-.sidebar-btns .btn-connexion {
-  background: #222;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  font-weight: 600;
-  padding: 0.75rem 0.5rem;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
-}
-.sidebar-btns .btn-connexion:hover {
-  background: #FFD700;
-  color: #222;
-}
-.sidebar-btns .btn-inscription {
-  background: #FFD700;
-  color: #222;
-  border: 2px solid #FFD700;
-  font-weight: 600;
-  padding: 0.75rem 0.5rem;
-  border-radius: 8px;
-  transition: background 0.2s, color 0.2s;
-}
-.sidebar-btns .btn-inscription:hover {
-  background: #222;
-  color: #FFD700;
-}
-</style>
-<aside id="sidebar-agence" class="sidebar-agence bg-white shadow-lg" style="transform: translateX(100%); opacity:0; pointer-events:none; transition:transform 0.4s cubic-bezier(.4,2,.3,1), opacity 0.3s;">
+<link rel="stylesheet" href="/digita-marketing/assets/css/sidebar-agence.css">
+<aside id="sidebar-agence" class="sidebar-agence bg-white shadow-lg" style="transform: translateX(100%); opacity:0; pointer-events:none;">
   <div class="d-flex align-items-center mb-4">
     <img src="/digita-marketing/assets/images/digita.png" alt="Digita Logo" width="48" height="48" class="me-2">
     <div>
-      <span class="fw-bold" style="font-size:1.5rem; color:#FFD700; letter-spacing:2px;">DIGITA</span><br>
-      <span style="font-size:1rem; color:#222;">Marketing Digital</span>
+      <span class="fw-bold" >DIGITA</span><br>
+      <span >Marketing Digital</span>
     </div>
     <button class="btn-close ms-auto" aria-label="Fermer" onclick="fermerSidebarAgence()"></button>
   </div>
@@ -102,7 +42,7 @@
   </div>
 </aside>
 <!-- Overlay -->
-<div id="sidebar-overlay" onclick="fermerSidebarAgence()" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.3);z-index:1199;display:none;"></div>
+<div id="sidebar-overlay" onclick="fermerSidebarAgence()" ></div>
 <!-- Bouton pour ouvrir le menu latéral (à placer dans le header/navbar) -->
 <!-- <button class="btn btn-link" onclick="ouvrirSidebarAgence()">Menu Agence</button> -->
 <script>

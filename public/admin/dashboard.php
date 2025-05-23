@@ -24,61 +24,7 @@ $stats = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Digita Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        .navbar-brand {
-            font-weight: bold;
-            color: #2563EB !important;
-        }
-        .nav-link {
-            color: #1F2937;
-            padding: 0.5rem 1rem;
-            margin: 0.2rem 0;
-            border-radius: 0.375rem;
-        }
-        .nav-link:hover {
-            background-color: #F3F4F6;
-            color: #2563EB;
-        }
-        .nav-link.active {
-            background-color: #EFF6FF;
-            color: #2563EB;
-            font-weight: 500;
-        }
-        .stat-card {
-            border: 1px solid #E5E7EB;
-            border-radius: 0.5rem;
-            transition: transform 0.2s;
-        }
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .card {
-            border: 1px solid #E5E7EB;
-            border-radius: 0.5rem;
-        }
-        .card-header {
-            background-color: #F9FAFB;
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .btn-primary {
-            background-color: #2563EB;
-            border-color: #2563EB;
-        }
-        .btn-primary:hover {
-            background-color: #1D4ED8;
-            border-color: #1D4ED8;
-        }
-        .btn-outline-primary {
-            color: #2563EB;
-            border-color: #2563EB;
-        }
-        .btn-outline-primary:hover {
-            background-color: #2563EB;
-            border-color: #2563EB;
-        }
-    </style>
+    <link rel="stylesheet" href="/digita-marketing/assets/css/dashboard.css">
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">

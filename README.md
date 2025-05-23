@@ -91,3 +91,30 @@ La maintenance automatique s'exécute quotidiennement à 2h du matin pour :
 ## 📝 License
 
 Copyright © 2025 Digita. Tous droits réservés.
+
+## 🗂️ Structure du projet
+
+- `public/` : Dossier public (assets, index.php, scripts accessibles depuis le web)
+- `public/assets/` : Images, CSS, JS, polices, etc.
+- `includes/` : Logique métier PHP (contrôleurs, fragments dynamiques)
+- `includes/partials/` : Partiels dynamiques réutilisables (navbar, hero, footer, etc.)
+- `templates/` : Templates de pages (structure HTML principale)
+- `templates/partials/` : Partiels de rendu statiques (header, footer)
+- `pages/` : Logique métier des pages (routeurs, contrôleurs)
+- `database/` : Scripts SQL et d'initialisation de la base
+- `tests/` : Tests unitaires et d'intégration
+- `config/` : Fichiers de configuration
+
+## 🔒 Sécurité
+
+- Les fichiers sensibles (`.env`, scripts d'init, etc.) doivent rester hors du dossier `public/`.
+- Supprimez ou protégez les scripts d'initialisation (`create_admin.php`, `init_db.php`, etc.) après usage.
+- Ne laissez jamais de fichiers comme `phpinfo.php` ou des tests dans l'environnement de production.
+- Utilisez `.gitignore` pour éviter de versionner les fichiers de configuration sensibles.
+
+## 🧹 Bonnes pratiques
+
+- Gardez la structure des dossiers claire et à jour.
+- Placez tous les assets (JS, CSS, images) dans `public/assets/`.
+- Nettoyez régulièrement les fichiers/dossiers temporaires et les logs.
+- Documentez toute modification structurelle majeure dans ce README.
