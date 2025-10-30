@@ -1,1 +1,20 @@
-/* Styles spécifiques à la page Services */
+/* ==================== SERVICES STYLES ==================== */
+
+/* Hero Section - Bleu (conservé) */
+.services-hero {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+/* Services Icon Circle - Remplace style inline */
+.services-icon-circle {
+    width: 60px;
+    height: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-hero {
+        padding-top: 100px !important;
+    }
+}

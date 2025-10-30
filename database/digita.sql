@@ -34,5 +34,5 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Insertion d'un utilisateur admin par défaut (mot de passe: admin123)
-INSERT INTO users (username, password, email, role) VALUES 
+INSERT IGNORE INTO users (username, password, email, role) VALUES 
 ('admin', '$2y$10$8K1p/95btF6Uz3qE6pXqO.ZXA3ZB3xk.6BwXOF8M1qTvjUuG3YyDi', 'admin@digita-marketing.com', 'admin');

@@ -1,15 +1,37 @@
-# Digita Marketing - Système de Gestion des Tâches
+# 🚀 Digita Marketing - Plateforme Digitale Complète
 
-Système de gestion des tâches marketing pour l'agence Digita, permettant de gérer et suivre les campagnes marketing, les newsletters et les performances.
+Plateforme web complète pour l'agence Digita Marketing, offrant des services de marketing digital, formations en ligne, blog professionnel et boutique e-commerce.
 
-## 🚀 Fonctionnalités
+## ✨ Fonctionnalités Principales
 
-- Gestion des tâches marketing
-- Système de newsletters
-- Suivi des performances
-- Génération de rapports
-- API RESTful
-- Interface d'administration
+### 🎓 Formations en Ligne
+- 382 formations professionnelles
+- Système d'inscription et de progression
+- Catégories multiples (SEO, Social Media, Design, etc.)
+- Interface d'apprentissage interactive
+
+### 📝 Blog Professionnel
+- 382 articles liés aux formations
+- Système de catégories et tags
+- Recherche avancée
+- Sidebar dynamique avec filtres
+
+### 🛍️ Boutique E-commerce
+- Catalogue de produits digitaux
+- Système de panier
+- Gestion des commandes
+
+### 📊 Dashboard Admin
+- Gestion des formations et articles
+- Statistiques et analytics
+- Gestion des utilisateurs
+- Campagnes email marketing
+
+### 🎨 Design & UX
+- Interface moderne et responsive
+- Architecture MVC complète
+- 0 styles inline (100% CSS classes)
+- Optimisé pour tous les devices
 
 ## 📋 Prérequis
 
@@ -45,10 +67,17 @@ cd digita-marketing
 
 1. Accéder à l'application :
 ```
-http://waohost/digita-marketing/
+http://digita-marketing.local/
 ```
 
-2. Se connecter avec :
+2. Pages principales :
+- **Accueil** : `/`
+- **Blog** : `/blog`
+- **Formations** : `/formations`
+- **Services** : `/services`
+- **Dashboard Admin** : `/admin/dashboard`
+
+3. Connexion admin :
 - Email : admin@digita.fr
 - Mot de passe : Admin123!
 
@@ -63,7 +92,7 @@ Exécuter les tests :
 
 La documentation de l'API est disponible à :
 ```
-http://waohost/digita-marketing/api-docs/ui.php
+http://digita.local/api-docs/ui.php
 ```
 
 ## 🔄 Pipeline CI/CD
@@ -92,18 +121,42 @@ La maintenance automatique s'exécute quotidiennement à 2h du matin pour :
 
 Copyright © 2025 Digita. Tous droits réservés.
 
-## 🗂️ Structure du projet
+## 🗂️ Structure du Projet
 
-- `public/` : Dossier public (assets, index.php, scripts accessibles depuis le web)
-- `public/assets/` : Images, CSS, JS, polices, etc.
-- `includes/` : Logique métier PHP (contrôleurs, fragments dynamiques)
-- `includes/partials/` : Partiels dynamiques réutilisables (navbar, hero, footer, etc.)
-- `templates/` : Templates de pages (structure HTML principale)
-- `templates/partials/` : Partiels de rendu statiques (header, footer)
-- `pages/` : Logique métier des pages (routeurs, contrôleurs)
-- `database/` : Scripts SQL et d'initialisation de la base
-- `tests/` : Tests unitaires et d'intégration
-- `config/` : Fichiers de configuration
+```
+digita-marketing/
+├── app/
+│   ├── Controllers/        # Contrôleurs MVC
+│   ├── Models/            # Modèles de données
+│   └── Views/             # Vues (blog, formations, admin, etc.)
+│
+├── public/
+│   ├── assets/
+│   │   ├── css/          # Fichiers CSS (hero-unified, global-layout, etc.)
+│   │   ├── js/           # JavaScript
+│   │   └── images/       # Images et médias
+│   └── index.php         # Point d'entrée
+│
+├── includes/
+│   ├── Database.php      # Classe de connexion BDD
+│   ├── ViewHelper.php    # Helper pour les vues
+│   └── partials/         # Fragments réutilisables (navbar, footer)
+│
+├── config/
+│   └── database.php      # Configuration BDD
+│
+├── database/
+│   ├── migrations/       # Scripts de migration
+│   └── seeds/           # Données de test
+│
+├── docs/                 # 📚 Documentation
+│   ├── audits/          # Audits (MVC, Responsive, CSS)
+│   ├── guides/          # Guides d'utilisation
+│   ├── migrations/      # Historique migrations
+│   └── corrections/     # Historique corrections
+│
+└── tests/               # Tests unitaires
+```
 
 ## 🔒 Sécurité
 
@@ -112,9 +165,51 @@ Copyright © 2025 Digita. Tous droits réservés.
 - Ne laissez jamais de fichiers comme `phpinfo.php` ou des tests dans l'environnement de production.
 - Utilisez `.gitignore` pour éviter de versionner les fichiers de configuration sensibles.
 
-## 🧹 Bonnes pratiques
+## 🎯 Optimisations Appliquées
 
-- Gardez la structure des dossiers claire et à jour.
-- Placez tous les assets (JS, CSS, images) dans `public/assets/`.
-- Nettoyez régulièrement les fichiers/dossiers temporaires et les logs.
-- Documentez toute modification structurelle majeure dans ce README.
+### Architecture
+- ✅ **MVC Complet** : 100% des pages en architecture MVC
+- ✅ **0 Styles Inline** : Toutes les classes CSS externalisées
+- ✅ **Hero Unifié** : Système de hero sections cohérent
+- ✅ **Classes Utilitaires** : `.icon-*`, `.sticky-nav`, `.icon-circle`
+
+### Performance
+- ✅ **Cache Busting** : Versioning automatique des CSS/JS
+- ✅ **Responsive** : 100% compatible mobile/tablette/desktop
+- ✅ **Optimisation CSS** : Réduction de 29% des `!important`
+- ✅ **Code Propre** : 0 duplication, 0 conflit
+
+### Contenu
+- ✅ **382 Formations** : Toutes catégorisées et complètes
+- ✅ **382 Articles** : 100% liés aux formations
+- ✅ **Génération Auto** : Objectifs de formation automatiques
+
+## 🧹 Nettoyage du Projet
+
+Pour nettoyer et réorganiser le projet :
+
+```powershell
+.\nettoyage-projet.ps1
+```
+
+Ce script va :
+- Créer la structure `docs/` organisée
+- Déplacer tous les fichiers MD dans les bons dossiers
+- Supprimer les scripts temporaires
+- Supprimer les fichiers obsolètes
+
+## 📚 Documentation
+
+Voir le dossier [`docs/`](docs/) pour :
+- **Audits** : Analyses MVC, Responsive, Conflits CSS
+- **Guides** : Quick Start, Features, Optimisation
+- **Migrations** : Historique des migrations MVC
+- **Corrections** : Historique des corrections
+
+## 🧹 Bonnes Pratiques
+
+- Gardez la structure des dossiers claire et à jour
+- Placez tous les assets (JS, CSS, images) dans `public/assets/`
+- Utilisez les classes CSS utilitaires plutôt que les styles inline
+- Documentez toute modification structurelle majeure dans ce README
+- Exécutez `nettoyage-projet.ps1` régulièrement pour maintenir l'ordre

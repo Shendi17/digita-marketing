@@ -1,0 +1,343 @@
+/* Styles spécifiques aux formations */
+
+/* Correction texte visible sur fond clair */
+section.py-5 h2,
+section.py-5 h3,
+section.py-5 h4,
+section.py-5 p,
+section.py-5 label,
+.container h2,
+.container h3,
+.container h4,
+.container p,
+.container label,
+.form-control::placeholder {
+    color: #2d3748 !important;
+}
+
+.form-control {
+    color: #2d3748 !important;
+    background-color: #fff !important;
+}
+
+/* Bouton "Nous contacter" style uniforme */
+.btn-outline-primary,
+a.btn-outline-primary {
+    color: #fff !important;
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+.btn-outline-primary:hover,
+a.btn-outline-primary:hover {
+    background-color: #0a58ca !important;
+    border-color: #0a58ca !important;
+}
+
+/* Hero Section - Identique au blog */
+.formations-hero,
+.hero-section {
+    margin-top: 80px !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+    max-height: 250px !important;
+    background: linear-gradient(135deg, #010f35 10%, #0c0292 50%, #1e40af 90%) !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 !important;
+}
+
+/* Texte blanc dans le hero */
+.hero-section h1,
+.hero-section p,
+.hero-section .lead {
+    color: #ffffff !important;
+}
+
+/* Effet de profondeur sur le hero */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Liens breadcrumb dans hero */
+.hero-section .breadcrumb {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-section .breadcrumb-item a {
+    color: #ffffff !important;
+    text-decoration: none;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-section .breadcrumb-item a:hover {
+    text-decoration: underline;
+    color: #ffffff !important;
+}
+
+/* Sidebar Catégories - Gestion du débordement et espacements */
+.list-group-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 0.75rem 1rem;
+}
+
+.list-group-item .category-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0.5rem;
+}
+
+.list-group-item .badge {
+    flex-shrink: 0;
+}
+
+.col-lg-4 .list-group-item {
+    overflow: hidden;
+    height: auto !important;
+}
+
+/* Assurer que la sidebar ne dépasse pas */
+.col-lg-4 {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.col-lg-4 .card {
+    overflow: hidden;
+    height: auto !important;
+    min-height: auto !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Limiter la hauteur de la liste des catégories */
+.col-lg-4 .list-group {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Scrollbar personnalisée pour la liste */
+.col-lg-4 .list-group::-webkit-scrollbar {
+    width: 6px;
+}
+
+.col-lg-4 .list-group::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 3px;
+}
+
+.col-lg-4 .list-group::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Cards formations - Identique au blog */
+.formations-category-page .card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.formations-category-page .row.g-4 .col-md-6 .card {
+    height: 100%;
+}
+
+.formations-category-page .card-body {
+    padding: 1.5rem;
+}
+
+.formations-category-page .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.formations-category-page .card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Hero Section Index (page principale) */
+.formations-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #c8cdfc 100%) !important;
+    min-height: 350px !important;
+    margin-top: 0 !important;
+    padding: 120px 0 60px 0 !important;
+    position: relative;
+    overflow: hidden;
+    max-height: none !important;
+}
+
+.formations-hero h1,
+.formations-hero p,
+.formations-hero .lead {
+    color: #000000 !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Barre de recherche dans le hero */
+.formations-hero .search-form .form-control {
+    background-color: #fff !important;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.formations-hero .search-form .btn-light {
+    background-color: #1a237e;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+}
+
+.formations-hero .search-form .btn-light:hover {
+    background-color: #0d47a1;
+}
+
+/* Section CTA "Nous contacter" */
+section.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+section.bg-gradient h2,
+section.bg-gradient p,
+section.bg-gradient .lead {
+    color: #fff !important;
+}
+
+.search-form .input-group {
+    max-width: 600px;
+}
+
+/* Catégories */
+.categories-scroll {
+    scrollbar-width: thin;
+}
+
+.categories-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.categories-scroll::-webkit-scrollbar-thumb {
+    background: #f093fb;
+    border-radius: 3px;
+}
+
+/* Cards */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* Badges de niveau */
+.badge.bg-success {
+    background-color: #48bb78 !important;
+}
+
+.badge.bg-warning {
+    background-color: #ed8936 !important;
+}
+
+.badge.bg-danger {
+    background-color: #f56565 !important;
+}
+
+/* Prix */
+.text-primary {
+    color: #f093fb !important;
+}
+
+/* Sticky sidebar */
+.sticky-top {
+    position: sticky;
+}
+
+/* Accordion */
+.accordion-button:not(.collapsed) {
+    background-color: #f093fb;
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: #f093fb;
+}
+
+/* Progress bar */
+.progress {
+    background-color: #e2e8f0;
+}
+
+.progress-bar {
+    background-color: #48bb78;
+}
+
+/* Module cards */
+.accordion-item {
+    border-color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.accordion-item:first-of-type,
+.accordion-item:last-of-type {
+    border-radius: 0.5rem;
+}
+
+/* Liste des leçons */
+.list-group-item {
+    border-color: #e2e8f0;
+}
+
+.list-group-item i.bi-play-circle {
+    font-size: 1.2rem;
+}
+
+/* CTA Button */
+.btn-primary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .formations-hero {
+        min-height: 300px;
+        padding: 80px 0 40px 0;
+    }
+    
+    .formations-hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .sticky-top {
+        position: relative !important;
+    }
+}
+
+/* Gradient backgrounds */
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}

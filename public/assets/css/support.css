@@ -1,1 +1,20 @@
-/* Styles spécifiques à la page Support */
+/* ==================== SUPPORT STYLES ==================== */
+
+/* Hero Section - Bleu (conservé) */
+.support-hero {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+/* Support Icon Circle - Remplace style inline */
+.support-icon-circle {
+    width: 70px;
+    height: 70px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .support-hero {
+        padding-top: 100px !important;
+    }
+}

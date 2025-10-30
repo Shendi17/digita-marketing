@@ -1,0 +1,148 @@
+/* ==================== COMPOSANTS RÉUTILISABLES ==================== */
+
+/* Icônes Hero - Grande icône décorative dans les sections hero */
+.hero-icon {
+    font-size: 10rem;
+    opacity: 0.2;
+}
+
+/* Icône vide - Pour les états vides (pas de résultats, etc.) */
+.empty-icon {
+    font-size: 5rem;
+    opacity: 0.3;
+}
+
+/* Icône moyenne - Pour les CTA et sections */
+.medium-icon {
+    font-size: 3rem;
+}
+
+/* Icône grande - Pour les vidéos et contenus */
+.large-icon {
+    font-size: 5rem;
+}
+
+/* Images des cartes */
+.card-img-article {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Placeholder pour cartes sans image */
+.card-img-placeholder {
+    height: 200px;
+}
+
+.card-img-placeholder i {
+    font-size: 4rem;
+    opacity: 0.5;
+}
+
+/* Barres de progression */
+.progress-thin {
+    height: 8px;
+}
+
+.progress-medium {
+    height: 25px;
+}
+
+/* Sticky sidebar */
+.sticky-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+/* Placeholder vidéo */
+.video-placeholder {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 0.5rem;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+}
+
+.video-placeholder i {
+    font-size: 5rem;
+}
+
+/* Section CTA */
+.cta-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cta-section h2 {
+    color: #000000;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #1a1a1a;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.cta-section .btn {
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Cartes avec dégradé */
+.card-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.card-gradient .btn-light {
+    background-color: white;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.card-gradient .btn-light:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-2px);
+}
+
+/* Bouton toggle sidebar agence - Rond */
+.btn-agence-toggle {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    border: 2px solid #d4af37 !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+    padding: 0 !important;
+    min-width: 48px !important;
+}
+
+.btn-agence-toggle:hover {
+    background-color: #d4af37 !important;
+    transform: scale(1.1);
+}
+
+.btn-agence-toggle:hover svg {
+    fill: #000000 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-icon {
+        font-size: 6rem;
+    }
+    
+    .empty-icon {
+        font-size: 3rem;
+    }
+    
+    .large-icon {
+        font-size: 3rem;
+    }
+    
+    .card-img-article,
+    .card-img-placeholder {
+        height: 180px;
+    }
+}

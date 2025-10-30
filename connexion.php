@@ -1,6 +1,9 @@
 <?php
-ini_set('session.cookie_path', '/digita-marketing/');
+// Configuration et démarrage de session (seulement si pas encore active)
 if (session_status() === PHP_SESSION_NONE) {
+    ini_set('session.cookie_path', '/');
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.use_strict_mode', 1);
     session_start();
 }
 require_once __DIR__ . '/config/config.php';
@@ -8,7 +11,7 @@ require_once __DIR__ . '/includes/auth.php';
 
 // Si déjà connecté, rediriger vers le dashboard
 if (isUserLoggedIn()) {
-    header('Location: /digita-marketing/admin/dashboard');
+    header('Location: /admin/dashboard');
     exit();
 }
 
@@ -21,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $db->fetch('SELECT * FROM users WHERE email = ?', [$email]);
     if ($user && password_verify($password, $user['password'])) {
         if (loginUser($email, $password)) {
-            header('Location: /digita-marketing/admin/dashboard');
+            header('Location: /admin/dashboard');
             exit();
         } else {
             $error = "Erreur interne.";
@@ -38,7 +41,7 @@ require_once __DIR__ . '/includes/partials/header.php';
         <?php if($error): ?>
             <div class="alert alert-danger py-2 px-3 mb-2"><?=$error?></div>
         <?php endif; ?>
-        <form method="post" action="/digita-marketing/connexion" autocomplete="on">
+        <form method="post" action="/connexion" autocomplete="on">
             <div class="mb-3">
                 <label for="email" class="form-label">Adresse Email</label>
                 <input type="email" class="form-control" id="email" name="email" required autofocus>
@@ -50,7 +53,7 @@ require_once __DIR__ . '/includes/partials/header.php';
             <button type="submit" class="btn btn-primary w-100">Se connecter</button>
         </form>
         <div class="mt-3 text-center">
-            <a href="/digita-marketing/inscription.php">Créer un compte</a>
+            <a href="/inscription">Créer un compte</a>
         </div>
     </div>
 </div>

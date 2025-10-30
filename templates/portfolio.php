@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Portfolio';
-$extraCss = ['/digita-marketing/assets/css/portfolio.css'];
+$extraCss = ['/assets/css/portfolio.css'];
 ob_start();
 ?>
 <!-- Ton contenu principal ici, sans header/footer ni style inline -->

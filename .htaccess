@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /digita-marketing/
+    RewriteBase /
     
     # Redirection vers index.php si le fichier/dossier n'existe pas
     RewriteCond %{REQUEST_FILENAME} -f [OR]

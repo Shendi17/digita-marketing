@@ -247,7 +247,8 @@ section {
     margin-bottom: 2rem;
 }
 
-/* Footer */
+/* Footer - Styles gérés dans footer.php et global-layout.css */
+/* Règles commentées pour éviter les conflits
 footer {
     background: linear-gradient(135deg, var(--primary-color) 0%, #1a1a1a 100%);
     padding: 6rem 0 3rem;
@@ -263,6 +264,7 @@ footer h5 {
 footer p, footer a {
     color: rgba(255, 255, 255, 0.8);
 }
+*/
 
 .social-links a {
     font-size: 1.8rem;
@@ -438,4 +440,35 @@ section h2.section-title-icon {
   padding: 0;
   margin-top: 2.2rem;
   margin-bottom: 1.2rem;
+}
+
+/* ==================== BOUTON MENU AGENCE (SIDEBAR) ==================== */
+.btn-agence-toggle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #d4af37 !important;
+    background-color: transparent !important;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin-left: 1rem;
+}
+
+.btn-agence-toggle:hover {
+    background-color: #d4af37 !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-agence-toggle:hover svg {
+    fill: #fff !important;
+}
+
+.btn-agence-toggle:focus {
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+    outline: none;
+}
+
+.btn-agence-toggle svg {
+    transition: fill 0.3s ease;
 }

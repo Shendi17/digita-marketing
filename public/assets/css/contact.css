@@ -1,1 +1,20 @@
-/* Styles spécifiques à la page Contact */
+/* ==================== CONTACT STYLES ==================== */
+
+/* Hero Section - Bleu (conservé) */
+.contact-hero {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+/* Contact Icon Circle - Remplace style inline */
+.contact-icon-circle {
+    width: 70px;
+    height: 70px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-hero {
+        padding-top: 100px !important;
+    }
+}

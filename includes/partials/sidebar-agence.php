@@ -1,45 +1,78 @@
 <!-- Sidebar latéral agence -->
-<link rel="stylesheet" href="/digita-marketing/assets/css/sidebar-agence.css">
+<link rel="stylesheet" href="/assets/css/sidebar-agence.css">
 <aside id="sidebar-agence" class="sidebar-agence bg-white shadow-lg" style="transform: translateX(100%); opacity:0; pointer-events:none;">
-  <div class="d-flex align-items-center mb-4">
-    <img src="/digita-marketing/assets/images/digita.png" alt="Digita Logo" width="48" height="48" class="me-2">
+  <div class="d-flex align-items-center mb-3">
+    <img src="/assets/images/digita.png" alt="Digita Logo" width="48" height="48" class="me-2">
     <div>
-      <span class="fw-bold" >DIGITA</span><br>
-      <span >Marketing Digital</span>
+      <span class="fw-bold">DIGITA</span><br>
+      <span>Marketing Digital</span>
     </div>
     <button class="btn-close ms-auto" aria-label="Fermer" onclick="fermerSidebarAgence()"></button>
   </div>
+  
+  <?php
+  // Vérifier si l'utilisateur est connecté (session déjà démarrée dans header.php)
+  $isLoggedIn = isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+  $userEmail = $_SESSION['user_email'] ?? '';
+  $userRole = $_SESSION['user_role'] ?? '';
+  
+  ?>
+  
+  <!-- Boutons utilisateur (en haut sous le logo) -->
+  <div class="sidebar-user-section mb-3">
+    <?php if ($isLoggedIn): ?>
+      <!-- Utilisateur connecté -->
+      <div class="user-info bg-light p-3 rounded mb-2">
+        <div class="d-flex align-items-center mb-2">
+          <i class="bi bi-person-circle text-primary me-2" style="font-size: 1.5rem;"></i>
+          <div class="flex-grow-1">
+            <small class="text-muted d-block">Connecté en tant que</small>
+            <strong class="small"><?= htmlspecialchars(explode('@', $userEmail)[0]) ?></strong>
+          </div>
+        </div>
+        <?php if ($userRole === 'admin'): ?>
+          <span class="badge bg-primary small">
+            <i class="bi bi-shield-check"></i> Admin
+          </span>
+        <?php endif; ?>
+      </div>
+      <a href="/admin/dashboard" class="btn btn-primary w-100 mb-2">
+        <i class="bi bi-speedometer2"></i> Dashboard
+      </a>
+      <a href="/admin/logout" class="btn btn-outline-danger w-100">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+      </a>
+    <?php else: ?>
+      <!-- Utilisateur non connecté -->
+      <a href="/connexion" class="btn btn-connexion w-100 mb-2">
+        <i class="bi bi-box-arrow-in-right"></i> Connexion
+      </a>
+      <a href="/inscription" class="btn btn-inscription w-100">
+        <i class="bi bi-person-plus"></i> Inscription
+      </a>
+    <?php endif; ?>
+  </div>
+  
+  <hr class="my-3">
+  
   <nav class="nav flex-column mb-4">
-    <a class="nav-link py-2" href="/digita-marketing/blog">Blog</a>
+    <a class="nav-link py-2" href="/blog">Blog</a>
     <div class="sidebar-desc small mb-2 ms-3 text-muted">Actualités & conseils</div>
 
-    <a class="nav-link py-2" href="/digita-marketing/boutique">Boutique</a>
+    <a class="nav-link py-2" href="/boutique">Boutique</a>
     <div class="sidebar-desc small mb-2 ms-3 text-muted">Produits & services</div>
 
-    <a class="nav-link py-2" href="/digita-marketing/solution">Solution</a>
+    <a class="nav-link py-2" href="/solution">Solution</a>
     <div class="sidebar-desc small mb-2 ms-3 text-muted">Outils & solutions</div>
 
     <hr class="my-3">
 
-    <a class="nav-link py-2" href="/digita-marketing/a-propos">A propos</a>
-    <div class="sidebar-desc small mb-2 ms-3 text-muted">Apprendre à nous connaître</div>
+    <a class="nav-link py-2" href="/outils">Outils</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Ressources & outils gratuits</div>
 
-    <a class="nav-link py-2" href="/digita-marketing/services">Services</a>
-    <div class="sidebar-desc small mb-2 ms-3 text-muted">Découvrir nos services</div>
-
-    <a class="nav-link py-2" href="/digita-marketing/contact">Contact</a>
-    <div class="sidebar-desc small mb-2 ms-3 text-muted">Prendre contact</div>
-
-    <a class="nav-link py-2" href="/digita-marketing/support">Support</a>
-    <div class="sidebar-desc small mb-2 ms-3 text-muted">Nous pouvons vous aider</div>
-
-    <a class="nav-link py-2" href="/digita-marketing/tarifs">Tarifs</a>
-    <div class="sidebar-desc small mb-2 ms-3 text-muted">Trouver une offre</div>
+    <a class="nav-link py-2" href="/formation">Formation</a>
+    <div class="sidebar-desc small mb-2 ms-3 text-muted">Apprendre & se former</div>
   </nav>
-  <div class="mt-auto sidebar-btns">
-    <a href="/digita-marketing/connexion" class="btn btn-connexion w-100 mb-0">Connexion</a>
-    <a href="/digita-marketing/inscription" class="btn btn-inscription w-100">Inscription</a>
-  </div>
 </aside>
 <!-- Overlay -->
 <div id="sidebar-overlay" onclick="fermerSidebarAgence()" ></div>

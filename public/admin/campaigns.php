@@ -3,7 +3,7 @@ require_once __DIR__ . '/../../config/config.php';
 session_start();
 
 if (!isset($_SESSION['admin'])) {
-    header('Location: /digita-marketing/connexion');
+    header('Location: /connexion');
     exit;
 }
 
@@ -48,7 +48,7 @@ $action = $_GET['action'] ?? '';
     <title>Campagnes - Digita Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/digita-marketing/assets/css/campaigns.css">
+    <link rel="stylesheet" href="/assets/css/campaigns.css">
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">

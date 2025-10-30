@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Documentation API Digita Marketing</title>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@5.9.0/swagger-ui.css">
-    <link rel="stylesheet" href="/digita-marketing/assets/css/ui.css">
+    <link rel="stylesheet" href="/assets/css/ui.css">
 </head>
 <body>
     <div id="swagger-ui"></div>

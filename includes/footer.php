@@ -3,7 +3,7 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="footer-info">
                         <h3 style="color:#FFD700;">Digita Marketing</h3>
                         <p style="color:#fff;">
@@ -13,10 +13,10 @@
                             <strong>Email:</strong> <span style="color:#FFD700;">contact@digita-marketing.com</span><br>
                         </p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bi bi-twitter" style="color:#FFD700;"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook" style="color:#FFD700;"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram" style="color:#FFD700;"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin" style="color:#FFD700;"></i></a>
+                            <a href="#" class="twitter" data-aos="zoom-in" data-aos-delay="200"><i class="bi bi-twitter" style="color:#FFD700;"></i></a>
+                            <a href="#" class="facebook" data-aos="zoom-in" data-aos-delay="300"><i class="bi bi-facebook" style="color:#FFD700;"></i></a>
+                            <a href="#" class="instagram" data-aos="zoom-in" data-aos-delay="400"><i class="bi bi-instagram" style="color:#FFD700;"></i></a>
+                            <a href="#" class="linkedin" data-aos="zoom-in" data-aos-delay="500"><i class="bi bi-linkedin" style="color:#FFD700;"></i></a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="container">
-        <div class="copyright">
+        <div class="copyright" data-aos="fade-up" data-aos-delay="300">
             <span style="color:#FFD700;">&copy; Copyright <strong>Digita Marketing</strong>. Tous droits réservés</span>
         </div>
     </div>
@@ -39,7 +39,7 @@
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="/digita-marketing/assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 
 <!-- Initialisation AOS -->
 <script>AOS.init({ duration: 700, once: true });</script>

@@ -1,42 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Crée l'overlay s'il n'existe pas
+  let overlay = document.querySelector('.sidebar-onglet-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'sidebar-onglet-overlay';
+    document.body.appendChild(overlay);
+  }
+
   // Fonction pour fermer tous les popups
   function closeAllPopups() {
+    // Ferme tous les popups en fullscreen (qui peuvent être dans le body)
+    document.querySelectorAll('.sidebar-onglet-popup-content.popup-fullscreen').forEach(popup => {
+      popup.classList.remove('popup-fullscreen');
+      
+      // Remet le popup dans son conteneur d'origine
+      if (popup.dataset.originalParent) {
+        const originalParent = document.querySelector(`[data-popup-id="${popup.dataset.originalParent}"]`);
+        if (originalParent) {
+          originalParent.appendChild(popup);
+        }
+      }
+      
+      popup.removeAttribute('style');
+    });
+    
     // Retire la classe active de tous les onglets
     document.querySelectorAll('.sidebar-onglet-with-popup').forEach(tab => {
       tab.classList.remove('active-popup');
-      
-      // Récupère le popup
-      const popup = tab.querySelector('.sidebar-onglet-popup-content');
-      if (!popup) return;
-      
-      // Si le popup est en mode plein écran, on le remet à sa place
-      if (popup.classList.contains('popup-fullscreen')) {
-        popup.classList.remove('popup-fullscreen');
-        
-        // Remet le popup à sa position d'origine
-        if (popup._originalParent) {
-          if (popup._originalNext && popup._originalNext.parentNode === popup._originalParent) {
-            popup._originalParent.insertBefore(popup, popup._originalNext);
-          } else {
-            popup._originalParent.appendChild(popup);
-          }
-        }
-      }
     });
+    
+    // Cache l'overlay
+    overlay.classList.remove('active');
   }
 
-
   // Initialisation des popups
-  document.querySelectorAll('.sidebar-onglet-with-popup').forEach(tab => {
+  document.querySelectorAll('.sidebar-onglet-with-popup').forEach((tab, index) => {
     const btn = tab.querySelector('.sidebar-onglet-link');
     const popup = tab.querySelector('.sidebar-onglet-popup-content');
     
     if (!btn || !popup) return;
 
-    // Sauvegarde la position d'origine du popup
-    if (!popup._originalParent) {
-      popup._originalParent = popup.parentNode;
-      popup._originalNext = popup.nextSibling;
+    // Marque le conteneur avec un ID unique
+    tab.dataset.popupId = `popup-container-${index}`;
+    popup.dataset.originalParent = `popup-container-${index}`;
+
+    // Crée le bouton de fermeture s'il n'existe pas
+    let closeBtn = popup.querySelector('.sidebar-onglet-close');
+    if (!closeBtn) {
+      closeBtn = document.createElement('span');
+      closeBtn.className = 'sidebar-onglet-close';
+      closeBtn.title = 'Fermer';
+      closeBtn.innerHTML = '&times;';
+      popup.appendChild(closeBtn);
     }
 
     // Gestion du clic sur l'onglet
@@ -53,12 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
       // Ferme les autres popups
       closeAllPopups();
       
+      // Déplace le popup dans le body pour éviter les problèmes de CSS hérité
+      document.body.appendChild(popup);
+      
       // Active ce popup
       tab.classList.add('active-popup');
-      
-      // Passe en mode plein écran
       popup.classList.add('popup-fullscreen');
-      document.body.appendChild(popup);
+      
+      // Affiche l'overlay
+      overlay.classList.add('active');
     });
 
     // Gestion de la flèche d'expansion
@@ -72,10 +90,23 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
         }
         
+        // Déplace le popup dans le body
+        document.body.appendChild(popup);
+        
         // Passe en mode plein écran
         tab.classList.add('active-popup');
         popup.classList.add('popup-fullscreen');
-        document.body.appendChild(popup);
+        
+        // Affiche l'overlay
+        overlay.classList.add('active');
+      });
+    }
+
+    // Gestion du bouton de fermeture
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeAllPopups();
       });
     }
 
@@ -85,10 +116,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Ferme les popups quand on clique sur l'overlay
+  overlay.addEventListener('click', function() {
+    closeAllPopups();
+  });
+
   // Ferme les popups quand on clique en dehors
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.sidebar-onglet-popup-content') && 
-        !e.target.closest('.sidebar-onglet-link')) {
+        !e.target.closest('.sidebar-onglet-link') &&
+        !e.target.classList.contains('sidebar-onglet-overlay')) {
       closeAllPopups();
     }
   });

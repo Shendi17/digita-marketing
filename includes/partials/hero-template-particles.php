@@ -54,11 +54,11 @@
       </div>
       <!-- Colonne image FIXE -->
       <div class="col-lg-6 d-flex align-items-center justify-content-center mb-4 mb-lg-0 px-5 px-md-6 px-lg-7" style="min-width:320px; border:none; box-shadow:none; outline:none; padding-left: 0 !important; padding-right: 0 !important; max-width: 48%;">
-        <img src="/digita-marketing/assets/images/identite/logo.png" alt="Logo Digita" class="img-fluid floating-logo hero-img-responsive" style="aspect-ratio: 1 / 1; border-radius: 50%; max-width: 420px; max-height: 60vh; width: auto; height: auto; display: block; object-fit: cover; margin: 0 auto;">
+        <img src="/assets/images/identite/logo.png" alt="Logo Digita" class="img-fluid floating-logo hero-img-responsive" style="aspect-ratio: 1 / 1; border-radius: 50%; max-width: 420px; max-height: 60vh; width: auto; height: auto; display: block; object-fit: cover; margin: 0 auto;">
       </div>
     </div>
   </div>
-  <link rel="stylesheet" href="/digita-marketing/assets/css/hero-template-particles.css">
+  <link rel="stylesheet" href="/assets/css/hero-template-particles.css">
   <script>
     // Animation particules/lignes simple (canvas)
     const canvas = document.getElementById('heroParticles');

@@ -21,7 +21,7 @@
         <div class="carousel-item active">
           <div class="mx-auto text-center p-5" >
             <div class="mb-4">
-              <img src="/digita-marketing/assets/images/identite/logo.png" alt="Logo Digita" >
+              <img src="/assets/images/identite/logo.png" alt="Logo Digita" >
             </div>
             <h1 class="fw-bold d-flex align-items-center justify-content-center mb-2" >
               <i class="fas fa-crown" ></i>

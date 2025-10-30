@@ -1,1 +1,20 @@
-/* Styles spécifiques à la page Tarifs */
+/* ==================== TARIFS STYLES ==================== */
+
+/* Hero Section - Bleu (conservé) */
+.tarifs-hero {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+/* Tarifs Icon Circle - Remplace style inline */
+.tarifs-icon-circle {
+    width: 60px;
+    height: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tarifs-hero {
+        padding-top: 100px !important;
+    }
+}

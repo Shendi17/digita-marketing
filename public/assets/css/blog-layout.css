@@ -1,0 +1,517 @@
+/* ==================== STYLES BLOG LAYOUT ==================== */
+
+/* Compensation pour le header fixe */
+.page-hero {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+/* Hero Section Blog */
+.page-hero.hero-blog {
+    background: linear-gradient(135deg, #ffffff 0%, #c8cdfc 100%);
+    min-height: 350px;
+    padding: 100px 0 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero h1,
+.page-hero p,
+.page-hero .lead {
+    color: #000000 !important;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Hero Section Catégorie Blog - Identique aux formations */
+.blog-category-hero {
+    margin-top: 80px !important;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+    max-height: 250px !important;
+    background: linear-gradient(135deg, #010f35 10%, #0c0292 50%, #1e40af 90%) !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 !important;
+}
+
+/* Texte blanc dans le hero */
+.blog-category-hero h1,
+.blog-category-hero p,
+.blog-category-hero .lead {
+    color: #ffffff !important;
+}
+
+/* Effet de profondeur sur le hero */
+.blog-category-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.blog-category-hero .breadcrumb-item a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.blog-category-hero .breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+/* Sidebar Catégories - Gestion du débordement */
+.list-group-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    padding: 0.75rem 1rem;
+}
+
+.list-group-item .category-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0.5rem;
+}
+
+.list-group-item .badge {
+    flex-shrink: 0;
+}
+
+/* Assurer que la sidebar ne dépasse pas */
+.col-lg-4 {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.col-lg-4 .card {
+    overflow: hidden;
+    height: auto !important;
+    min-height: auto !important;
+    position: relative;
+    z-index: 1;
+}
+
+.col-lg-4 .list-group-item {
+    overflow: hidden;
+    height: auto !important;
+}
+
+/* Limiter la hauteur de la liste des catégories */
+.col-lg-4 .list-group {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Éviter le chevauchement entre colonnes */
+.blog-article-page .row {
+    position: relative;
+}
+
+.blog-article-page .col-lg-8,
+.blog-article-page .col-lg-4 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Barre de recherche dans le hero */
+.page-hero .search-form .form-control {
+    background-color: #fff !important;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+.page-hero .search-form .btn-light {
+    background-color: #1a237e;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+}
+
+.page-hero .search-form .btn-light:hover {
+    background-color: #0d47a1;
+}
+
+/* Section Catégories */
+.py-4.bg-light {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #e9ecef !important;
+    padding: 1.5rem 0 !important;
+}
+
+/* Boutons des catégories (style formations) */
+.py-4.bg-light .btn {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.py-4.bg-light .btn-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.py-4.bg-light .btn-primary:hover {
+    background-color: #0a58ca !important;
+    border-color: #0a58ca !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.py-4.bg-light .btn-outline-primary {
+    border-color: #0d6efd !important;
+    color: #0d6efd !important;
+    background-color: #fff !important;
+}
+
+.py-4.bg-light .btn-outline-primary:hover {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Icônes dans les boutons */
+.py-4.bg-light .btn i {
+    font-size: 1.1rem;
+}
+
+/* Emojis dans les boutons catégories */
+.py-4.bg-light .btn .category-icon {
+    font-size: 1.2rem;
+    margin-right: 0.25rem;
+}
+
+/* Badge de compteur dans les boutons */
+.py-4.bg-light .btn .badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.py-4.bg-light .btn-outline-primary .badge {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.py-4.bg-light .btn-outline-primary:hover .badge {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Icônes dans les badges */
+.badge i {
+    font-size: 1rem;
+}
+
+/* Conteneur de catégories avec scroll horizontal */
+.overflow-auto {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.overflow-auto::-webkit-scrollbar {
+    height: 6px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* Section principale */
+.main-content {
+    margin-top: 0 !important;
+    padding-top: 3rem;
+}
+
+.main-content h2 {
+    color: #2d3748 !important;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Cartes d'articles */
+.card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Seulement les cartes d'articles dans les grilles ont height: 100% */
+.row.g-4 .col-md-6 .card,
+.row.g-3 .col-md-4 .card {
+    height: 100%;
+}
+
+/* Les cartes de sidebar ont une hauteur automatique */
+.col-lg-4 .card {
+    height: auto !important;
+    max-height: none !important;
+}
+
+/* La carte de contenu principal de l'article a une hauteur auto */
+.blog-article-page .col-lg-8 > .card {
+    height: auto !important;
+}
+
+/* Désactiver l'effet hover sur la carte de contenu principal */
+.blog-article-page .col-lg-8 > .card:hover {
+    transform: none !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Titre de l'article dans le header - VISIBLE */
+.blog-article-page .card-body header h1 {
+    display: block !important;
+    margin-top: 0;
+    line-height: 1.2;
+    letter-spacing: normal;
+    position: relative;
+    z-index: 2;
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* S'assurer qu'il n'y a pas de pseudo-éléments qui dupliquent */
+.blog-article-page .card-body header h1::before,
+.blog-article-page .card-body header h1::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* CACHER SEULEMENT le H1 dupliqué dans le contenu de l'article */
+.blog-article-page .article-content h1 {
+    display: none !important;
+}
+
+/* FORCER l'espacement pour éviter que le contenu passe sous le navbar */
+article.blog-article-page {
+    margin-top: 0 !important;
+    padding-top: 120px !important;
+}
+
+article.blog-article-page .container {
+    padding-top: 2rem !important;
+}
+
+/* S'assurer que le breadcrumb ne remonte pas */
+article.blog-article-page .breadcrumb {
+    margin-top: 0 !important;
+}
+
+/* Désactiver TOUS les effets hover sur le titre et son conteneur */
+.blog-article-page .card-body:hover h1,
+.blog-article-page .card-body header:hover h1,
+.blog-article-page h1:hover {
+    transform: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.blog-article-page .card-body:hover h1::before,
+.blog-article-page .card-body:hover h1::after,
+.blog-article-page h1:hover::before,
+.blog-article-page h1:hover::after {
+    content: none !important;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: #2d3748 !important;
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.card-text {
+    color: #4a5568 !important;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.card-text.text-muted {
+    color: #718096 !important;
+    font-size: 0.8125rem;
+}
+
+/* Badges dans les cartes */
+.card-body .badge {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.card-body .badge.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.card-body .badge.bg-success {
+    background-color: #198754 !important;
+}
+
+.card-body .badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Boutons dans les cartes */
+.card .btn-primary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.card .btn-primary:hover {
+    background-color: #0a58ca !important;
+    border-color: #0a58ca !important;
+    transform: translateX(4px);
+}
+
+/* Section CTA */
+.cta-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.cta-section h2 {
+    color: #000000;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.cta-section p {
+    color: #1a1a1a;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.cta-section .btn {
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+}
+
+/* Icône hero */
+.hero-icon {
+    font-size: 10rem;
+    opacity: 0.2;
+}
+
+/* Images des cartes articles */
+.card-img-article {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Placeholder image pour articles sans image */
+.card-img-placeholder {
+    height: 200px;
+}
+
+.card-img-placeholder i {
+    font-size: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-hero.hero-blog {
+        min-height: 300px;
+        padding: 80px 0 40px 0;
+    }
+    
+    .page-hero h1 {
+        font-size: 2rem !important;
+    }
+    
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.75rem;
+    }
+    
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+/* Fix pour le toggle button du navbar */
+.navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0.25rem 0.75rem !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    width: 1.5em !important;
+    height: 1.5em !important;
+}
+
+/* Afficher le toggle sur mobile/tablette uniquement */
+@media (max-width: 991px) {
+    .navbar-toggler.d-lg-none {
+        display: inline-block !important;
+    }
+}
+
+/* Note: Les styles du bouton Menu Agence sont maintenant dans style.css (fichier global) */
+
+/* Protection du border-radius du bouton Menu Agence */
+.btn-agence-toggle {
+    border-radius: 50% !important;
+}

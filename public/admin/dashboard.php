@@ -1,21 +1,8 @@
 <?php
-ini_set('session.cookie_path', '/digita-marketing/');
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+// Redirection vers le nouveau dashboard MVC
 require_once __DIR__ . '/../../config/config.php';
-require_once __DIR__ . '/../../includes/auth.php';
-if (!isUserLoggedIn()) {
-    header('Location: /digita-marketing/connexion.php');
-    exit();
-}
-// Statistiques factices pour la démo
-$stats = [
-    'visits' => rand(1000, 5000),
-    'contacts' => rand(50, 200),
-    'campaigns' => rand(5, 20),
-    'tasks' => rand(20, 100)
-];
+header('Location: ' . SITE_URL . '/admin/dashboard');
+exit();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,7 +11,7 @@ $stats = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Digita Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/digita-marketing/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
 </head>
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">

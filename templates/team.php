@@ -1,6 +1,6 @@
 <?php
 $pageTitle = 'Équipe';
-$extraCss = ['/digita-marketing/assets/css/team.css'];
+$extraCss = ['/assets/css/team.css'];
 ob_start();
 ?>
 <!-- Ton contenu principal ici, sans header/footer ni style inline -->

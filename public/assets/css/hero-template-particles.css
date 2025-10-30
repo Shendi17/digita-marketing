@@ -8,7 +8,7 @@
   100% { transform: translateY(0px); }
 }
 #hero {
-  background: linear-gradient(rgba(30,32,48,0.38), rgba(30,32,48,0.48)), url('/digita-marketing/assets/images/contenu/arrière-plan-digita-unsplash.jpg') center center/cover no-repeat !important;
+  background: linear-gradient(rgba(30,32,48,0.38), rgba(30,32,48,0.48)), url('/assets/images/contenu/arrière-plan-digita-unsplash.jpg') center center/cover no-repeat !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;

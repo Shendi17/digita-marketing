@@ -3,13 +3,13 @@
 define('ENVIRONMENT', 'development');
 
 // Informations de la base de données
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'digita_marketing');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+if (!defined('DB_HOST')) define('DB_HOST', 'localhost');
+if (!defined('DB_NAME')) define('DB_NAME', 'digita_marketing');
+if (!defined('DB_USER')) define('DB_USER', 'root');
+if (!defined('DB_PASS')) define('DB_PASS', '');
 
 // Configuration du site
-define('SITE_URL', '/digita-marketing');
+define('SITE_URL', '');
 
 // Configuration du cache
 define('CACHE_TIME', 3600); // 1 heure

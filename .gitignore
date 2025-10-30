@@ -40,3 +40,8 @@ phpunit.phar
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Test files
+test_*.php
+check_*.php
+fix_*.php
