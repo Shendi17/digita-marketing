@@ -33,12 +33,32 @@ Plateforme web complète pour l'agence Digita Marketing, offrant des services de
 - 0 styles inline (100% CSS classes)
 - Optimisé pour tous les devices
 
-## 📋 Prérequis
+## 📦 Installation
+
+### Prérequis
 
 - PHP 8.2+
 - MySQL 8.0+
-- Wampserver 3.2+
-- Composer (pour les dépendances)
+- Apache/Nginx (mod_rewrite)
+- Composer
+
+### Installation Rapide
+
+```powershell
+# 1. Configurer .env
+# Éditer .env et changer DB_HOST=localhost
+
+# 2. Importer base de données
+.\scripts\setup\import-database.ps1
+
+# 3. Tester
+php scripts\setup\test-system.php
+
+# 4. Configurer CRON (optionnel)
+.\scripts\setup\setup-cron-windows.ps1
+```
+
+**Documentation complète:** `INSTALLATION.md`
 
 ## 🔧 Installation
 

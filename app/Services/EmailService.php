@@ -44,6 +44,26 @@ class EmailService {
     }
     
     /**
+     * Envoyer une confirmation de commande
+     */
+    public function sendOrderConfirmation($to, $orderId) {
+        $subject = 'Confirmation de commande #' . $orderId;
+        $message = $this->getOrderConfirmationTemplate($orderId);
+        
+        return $this->send($to, $subject, $message);
+    }
+    
+    /**
+     * Envoyer un email de panier abandonné
+     */
+    public function sendAbandonedCart($to, $cartItems) {
+        $subject = 'Votre panier vous attend chez Digita Marketing';
+        $message = $this->getAbandonedCartTemplate($cartItems);
+        
+        return $this->send($to, $subject, $message);
+    }
+    
+    /**
      * Envoyer une confirmation d'abonnement newsletter
      */
     public function sendNewsletterConfirmation($to) {

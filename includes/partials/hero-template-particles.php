@@ -1,64 +1,64 @@
 <!-- HERO Template avec animation particules/lignes moderne, fond animé en plein écran, contenu centré, sans bords arrondis -->
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center position-relative scroll-offset p-0 m-0" style="min-height: 100vh; background: transparent; overflow:visible; padding-top:1.2rem; border:none; box-shadow:none; outline:none;">
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center position-relative scroll-offset p-0 m-0 hero-particles-section">
   <!-- Fond animé particules/lignes via canvas, ENTIÈREMENT en arrière-plan, couvre tout l'écran -->
-  <canvas id="heroParticles" style="position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none;margin:0;padding:0; border:none; box-shadow:none; outline:none;"></canvas>
+  <canvas id="heroParticles" class="hero-particles-canvas"></canvas>
   <canvas id="heroGrid" class="grid-anim"></canvas>
-  <div class="container-fluid position-relative p-0 m-0" style="width:100vw;max-width:100vw;">
-    <div class="row align-items-center flex-lg-row flex-column-reverse g-0 w-100 m-0" style="border:none; box-shadow:none; outline:none; margin-left: 0 !important; margin-right: 0 !important; padding-left: 4vw !important; padding-right: 4vw !important;">
+  <div class="container-fluid position-relative p-0 m-0 hero-particles-container">
+    <div class="row align-items-center flex-lg-row flex-column-reverse g-0 w-100 m-0 hero-particles-row">
       <!-- Colonne texte SLIDER -->
-      <div class="col-lg-6 d-flex flex-column align-items-start justify-content-center px-5 px-md-6 px-lg-7" style="min-width:320px; border:none; box-shadow:none; outline:none; padding-left: 0 !important; padding-right: 0 !important;">
-        <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel" data-bs-interval="6500" style="border:none; box-shadow:none; outline:none;">
-          <div class="carousel-inner" style="border:none; box-shadow:none; outline:none;">
+      <div class="col-lg-6 d-flex flex-column align-items-start justify-content-center px-5 px-md-6 px-lg-7 hero-text-column">
+        <div id="heroCarousel" class="carousel slide w-100 hero-carousel" data-bs-ride="carousel" data-bs-interval="6500">
+          <div class="carousel-inner hero-carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active">
-              <h1 class="fw-bold mb-2" style="letter-spacing:1.5px;font-size:3.2rem;line-height:1.13;margin-bottom:1.1rem;">
-                <i class="fas fa-crown" style="color:#FFD700;font-size:2.7rem;vertical-align:middle;margin-right:0.5rem;"></i>
-                Des <span style="color:#FFD700;">Réalisations Uniques</span>
+              <h1 class="fw-bold mb-2 hero-slide-title">
+                <i class="fas fa-crown hero-slide-title-icon"></i>
+                Des <span class="hero-highlight-gold">Réalisations Uniques</span>
               </h1>
-              <h2 class="fw-bold mb-2" style="font-size:2.1rem;margin-bottom:0.7rem;">
-                Pour <span style="color:#2563eb;">BOOSTER</span> Vos <span style="color:#FFD700;font-weight:bold;">Possibilités</span>
+              <h2 class="fw-bold mb-2 hero-slide-subtitle">
+                Pour <span class="hero-highlight-blue">BOOSTER</span> Vos <span class="hero-highlight-gold-bold">Possibilités</span>
               </h2>
-              <p class="lead mb-3" style="font-size:1.13rem;margin-bottom:1.2rem;">
-                Entrepreneur ou Chef d’Entreprise<br>
-                Sublimez votre <span style="color:#FFD700;font-weight:bold;">identité visuelle</span> et <span style="color:#2563eb;font-weight:bold;">performez</span> dans vos affaires grâce à nos <span style="color:#FFD700;font-weight:bold;">solutions adaptées</span>
+              <p class="lead mb-3 hero-slide-text">
+                Entrepreneur ou Chef d'Entreprise<br>
+                Sublimez votre <span class="hero-highlight-gold-bold">identité visuelle</span> et <span class="hero-highlight-blue-bold">performez</span> dans vos affaires grâce à nos <span class="hero-highlight-gold-bold">solutions adaptées</span>
               </p>
               <div class="d-flex gap-3 mt-2">
-                <a href="#contact" class="btn btn-primary btn-lg px-4" style="background:#2563eb;border:none;font-size:1.09rem;">Contactez-nous</a>
-                <a href="#videos" class="btn btn-circle btn-light d-flex align-items-center justify-content-center" style="width:52px;height:52px;border-radius:50%;background:#fff;color:#232323;font-size:1.5rem;"><i class="fas fa-play"></i></a>
+                <a href="#contact" class="btn btn-primary btn-lg px-4 hero-btn-primary">Contactez-nous</a>
+                <a href="#videos" class="btn btn-circle btn-light d-flex align-items-center justify-content-center hero-btn-circle"><i class="fas fa-play"></i></a>
               </div>
             </div>
             <!-- Slide 2 -->
             <div class="carousel-item">
-              <h1 class="fw-bold mb-2" style="letter-spacing:1.5px;font-size:3.2rem;line-height:1.13;margin-bottom:1.1rem;">
-                De <span style="color:#FFD700;">Véritables Solutions</span> <span style='color:#FFD700;'>Sur-Mesure</span><br>
-                Pour <span style='color:#2563eb;'>Augmentez Vos Performances</span>
+              <h1 class="fw-bold mb-2 hero-slide-title">
+                De <span class="hero-highlight-gold">Véritables Solutions</span> <span class="hero-highlight-gold">Sur-Mesure</span><br>
+                Pour <span class="hero-highlight-blue">Augmentez Vos Performances</span>
               </h1>
-              <p class="lead mb-3" style="font-size:1.13rem;margin-bottom:1.2rem;">
-                Nous sommes là pour vous aider à <span style="color:#FFD700;font-weight:bold;">atteindre vos objectifs</span><br>
-                Et même <span style="color:#2563eb;font-weight:bold;">aller plus loin</span>
+              <p class="lead mb-3 hero-slide-text">
+                Nous sommes là pour vous aider à <span class="hero-highlight-gold-bold">atteindre vos objectifs</span><br>
+                Et même <span class="hero-highlight-blue-bold">aller plus loin</span>
               </p>
-              <a href="#contact" class="btn btn-primary btn-lg px-4" style="background:#2563eb;border:none;font-size:1.09rem;">Je commence dès maintenant</a>
+              <a href="#contact" class="btn btn-primary btn-lg px-4 hero-btn-primary">Je commence dès maintenant</a>
             </div>
             <!-- Slide 3 -->
             <div class="carousel-item">
-              <h1 class="fw-bold mb-2" style="letter-spacing:1.5px;font-size:3.2rem;line-height:1.13;margin-bottom:1.1rem;">
-                Votre Agence De <span style="color:#FFD700;">Création Web</span><br><span style='color:#2563eb;'>À La Réunion</span>
+              <h1 class="fw-bold mb-2 hero-slide-title">
+                Votre Agence De <span class="hero-highlight-gold">Création Web</span><br><span class="hero-highlight-blue">À La Réunion</span>
               </h1>
-              <p class="lead mb-3" style="font-size:1.13rem;margin-bottom:1.2rem;">
-                Pour les <span style='color:#FFD700;font-weight:bold;'>entrepreneurs ambitieux</span><br>qui ont des <span style='color:#2563eb;font-weight:bold;'>projets de développement</span>
+              <p class="lead mb-3 hero-slide-text">
+                Pour les <span class="hero-highlight-gold-bold">entrepreneurs ambitieux</span><br>qui ont des <span class="hero-highlight-blue-bold">projets de développement</span>
               </p>
-              <a href="#contact" class="btn btn-primary btn-lg px-4" style="background:#2563eb;border:none;font-size:1.09rem;">Contactez Nous Maintenant</a>
+              <a href="#contact" class="btn btn-primary btn-lg px-4 hero-btn-primary">Contactez Nous Maintenant</a>
             </div>
           </div>
         </div>
       </div>
       <!-- Colonne image FIXE -->
-      <div class="col-lg-6 d-flex align-items-center justify-content-center mb-4 mb-lg-0 px-5 px-md-6 px-lg-7" style="min-width:320px; border:none; box-shadow:none; outline:none; padding-left: 0 !important; padding-right: 0 !important; max-width: 48%;">
-        <img src="/assets/images/identite/logo.png" alt="Logo Digita" class="img-fluid floating-logo hero-img-responsive" style="aspect-ratio: 1 / 1; border-radius: 50%; max-width: 420px; max-height: 60vh; width: auto; height: auto; display: block; object-fit: cover; margin: 0 auto;">
+      <div class="col-lg-6 d-flex align-items-center justify-content-center mb-4 mb-lg-0 px-5 px-md-6 px-lg-7 hero-image-column">
+        <img src="/assets/images/identite/logo.png" alt="Logo Digita" class="img-fluid floating-logo hero-img-responsive hero-logo-image">
       </div>
     </div>
   </div>
-  <link rel="stylesheet" href="/assets/css/hero-template-particles.css">
+  <link rel="stylesheet" href="/assets/css/hero-particles-clean.css">
   <script>
     // Animation particules/lignes simple (canvas)
     const canvas = document.getElementById('heroParticles');

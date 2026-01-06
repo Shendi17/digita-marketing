@@ -213,16 +213,28 @@ $router->get('/cookies', function() {
 
 // Page Connexion
 $router->get('/connexion', function() {
-    require_once __DIR__ . '/../connexion.php';
+    require_once __DIR__ . '/../app/Controllers/AuthController.php';
+    $controller = new AuthController();
+    $controller->showLogin();
 });
 
 $router->post('/connexion', function() {
-    require_once __DIR__ . '/../connexion.php';
+    require_once __DIR__ . '/../app/Controllers/AuthController.php';
+    $controller = new AuthController();
+    $controller->login();
 });
 
 // Page Inscription
 $router->get('/inscription', function() {
-    require_once __DIR__ . '/../inscription.php';
+    require_once __DIR__ . '/../app/Controllers/AuthController.php';
+    $controller = new AuthController();
+    $controller->showRegister();
+});
+
+$router->post('/inscription', function() {
+    require_once __DIR__ . '/../app/Controllers/AuthController.php';
+    $controller = new AuthController();
+    $controller->register();
 });
 
 // ========================================
