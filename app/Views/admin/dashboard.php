@@ -176,6 +176,75 @@
         </div>
     </div>
 
+    <!-- Content Stats -->
+    <div class="row g-4 mb-4">
+        <!-- Articles -->
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+                <div class="stat-icon bg-primary-subtle">
+                    <i class="bi bi-file-earmark-text-fill text-primary"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-label">Articles de blog</div>
+                    <div class="stat-value"><?= number_format($stats['articles']['total'] ?? 0) ?></div>
+                    <div class="stat-details">
+                        <span class="badge bg-success"><?= $stats['articles']['published'] ?? 0 ?> publiés</span>
+                        <span class="badge bg-warning"><?= $stats['articles']['draft'] ?? 0 ?> brouillons</span>
+                    </div>
+                    <div class="stat-footer">
+                        <small class="text-muted">
+                            <i class="bi bi-eye"></i> <?= number_format($stats['articles']['total_views'] ?? 0) ?> vues totales
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formations -->
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-card">
+                <div class="stat-icon bg-success-subtle">
+                    <i class="bi bi-mortarboard-fill text-success"></i>
+                </div>
+                <div class="stat-content">
+                    <div class="stat-label">Formations</div>
+                    <div class="stat-value"><?= number_format($stats['formations']['total'] ?? 0) ?></div>
+                    <div class="stat-details">
+                        <span class="badge bg-success"><?= $stats['formations']['published'] ?? 0 ?> publiées</span>
+                        <span class="badge bg-info"><?= $stats['formations']['total_enrolled'] ?? 0 ?> inscrits</span>
+                    </div>
+                    <div class="stat-footer">
+                        <small class="text-muted">
+                            <i class="bi bi-collection"></i> <?= $stats['formations']['total_modules'] ?? 0 ?> modules, <?= $stats['formations']['total_lessons'] ?? 0 ?> leçons
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accès rapide Articles -->
+        <div class="col-lg-3 col-md-6">
+            <a href="/admin/articles" class="quick-action-card h-100 d-block text-decoration-none">
+                <div class="icon-wrapper bg-primary-subtle">
+                    <i class="bi bi-pencil-square text-primary"></i>
+                </div>
+                <h6 class="mt-3 mb-0">Gérer les articles</h6>
+                <p class="text-muted small mb-0">Créer, modifier, publier</p>
+            </a>
+        </div>
+
+        <!-- Accès rapide Formations -->
+        <div class="col-lg-3 col-md-6">
+            <a href="/admin/formations" class="quick-action-card h-100 d-block text-decoration-none">
+                <div class="icon-wrapper bg-success-subtle">
+                    <i class="bi bi-mortarboard text-success"></i>
+                </div>
+                <h6 class="mt-3 mb-0">Gérer les formations</h6>
+                <p class="text-muted small mb-0">Créer, modifier, publier</p>
+            </a>
+        </div>
+    </div>
+
     <!-- Content Row -->
     <div class="row">
         <!-- Recent Contacts -->

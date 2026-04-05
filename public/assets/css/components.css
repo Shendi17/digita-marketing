@@ -1,5 +1,27 @@
 /* ==================== COMPOSANTS RÉUTILISABLES ==================== */
 
+/* Breadcrumbs */
+.breadcrumb-wrapper {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-wrapper .breadcrumb-item a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.breadcrumb-wrapper .breadcrumb-item a:hover {
+    color: #0d6efd;
+}
+
+.breadcrumb-wrapper .breadcrumb-item.active {
+    color: #495057;
+    font-weight: 500;
+}
+
 /* Icônes Hero - Grande icône décorative dans les sections hero */
 .hero-icon {
     font-size: 10rem;

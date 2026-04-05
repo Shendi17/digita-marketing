@@ -1,145 +1,89 @@
-<!-- Hero Section Outils -->
-<section class="outils-hero">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-3">🛠️ Outils Digita</h1>
-                <p class="lead mb-4">
-                    Des outils puissants et faciles à utiliser pour optimiser votre marketing digital.
-                    Gagnez du temps et boostez vos performances avec notre suite d'outils professionnels.
-                </p>
-                
-                <!-- Barre de recherche -->
-                <form action="/outils/search" method="GET" class="search-form">
-                    <div class="input-group input-group-lg">
-                        <input type="text" name="q" class="form-control" placeholder="Rechercher un outil..." required>
-                        <button class="btn btn-light" type="submit">
-                            <i class="bi bi-search"></i> Rechercher
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-4 text-center d-none d-lg-block">
-                <i class="bi bi-tools hero-icon"></i>
-            </div>
-        </div>
+<!-- Hero Section Outils Gratuits -->
+<section class="py-5" style="padding-top: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container text-center text-white">
+        <h1 class="display-4 fw-bold mb-3">Outils Gratuits</h1>
+        <p class="lead mb-0 opacity-75">
+            Boostez votre marketing digital avec nos outils gratuits propulsés par l'IA
+        </p>
     </div>
 </section>
 
-<!-- Catégories d'Outils -->
-<section class="py-4 bg-light border-bottom">
-    <div class="container">
-        <div class="categories-scroll d-flex gap-2 overflow-auto pb-2">
-            <a href="/outils" class="btn btn-outline-primary">
-                <i class="bi bi-grid-3x3"></i> Tous
-            </a>
-            <a href="/outils/categorie/seo" class="btn btn-outline-primary">
-                <i class="bi bi-search"></i> SEO
-            </a>
-            <a href="/outils/categorie/reseaux-sociaux" class="btn btn-outline-primary">
-                <i class="bi bi-share"></i> Réseaux Sociaux
-            </a>
-            <a href="/outils/categorie/analytics" class="btn btn-outline-primary">
-                <i class="bi bi-graph-up"></i> Analytics
-            </a>
-            <a href="/outils/categorie/automation" class="btn btn-outline-primary">
-                <i class="bi bi-robot"></i> Automation
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Outils Populaires -->
+<!-- Outils Gratuits -->
 <section class="py-5">
     <div class="container">
-        <h3 class="mb-4"><i class="bi bi-fire text-danger"></i> Outils Populaires</h3>
         <div class="row g-4">
-            <!-- Outil 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm hover-lift">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <i class="bi bi-search large-icon text-primary"></i>
+            <!-- Audit SEO -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 text-center">
+                    <div class="card-body d-flex flex-column">
+                        <div class="mb-3">
+                            <div class="rounded-circle bg-primary bg-opacity-10 d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-search fs-2 text-primary"></i>
                             </div>
-                            <span class="badge bg-danger">
-                                <i class="bi bi-fire"></i> Populaire
-                            </span>
                         </div>
-                        <h5 class="card-title">Analyseur SEO</h5>
-                        <p class="card-text text-muted">Analysez et optimisez le référencement de votre site web en quelques clics.</p>
-                        <ul class="list-unstyled small mb-3">
-                            <li><i class="bi bi-check-circle text-success"></i> Audit SEO complet</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Suggestions d'amélioration</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Suivi des positions</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Analyse des concurrents</li>
-                        </ul>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-primary fw-bold">Gratuit</span>
-                            <a href="/outils/analyseur-seo" class="btn btn-sm btn-primary">
-                                Essayer <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
+                        <h5 class="card-title fw-bold">Audit SEO Gratuit</h5>
+                        <p class="card-text text-muted small flex-grow-1">Analysez le SEO de votre site en 10 points : title, meta, H1, images, HTTPS, vitesse, mobile, Open Graph, liens, Schema.org.</p>
+                        <span class="badge bg-success mb-3">100% Gratuit</span>
+                        <a href="/outils/audit-seo" class="btn btn-primary">
+                            <i class="bi bi-search"></i> Lancer l'audit
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Outil 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm hover-lift">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <i class="bi bi-share large-icon text-success"></i>
+            <!-- Générateur Meta -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 text-center">
+                    <div class="card-body d-flex flex-column">
+                        <div class="mb-3">
+                            <div class="rounded-circle bg-success bg-opacity-10 d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-file-earmark-text fs-2 text-success"></i>
                             </div>
-                            <span class="badge bg-danger">
-                                <i class="bi bi-fire"></i> Populaire
-                            </span>
                         </div>
-                        <h5 class="card-title">Planificateur Réseaux Sociaux</h5>
-                        <p class="card-text text-muted">Planifiez et publiez vos contenus sur tous vos réseaux sociaux depuis une seule interface.</p>
-                        <ul class="list-unstyled small mb-3">
-                            <li><i class="bi bi-check-circle text-success"></i> Multi-plateformes</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Calendrier éditorial</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Publication automatique</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Statistiques détaillées</li>
-                        </ul>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-success fw-bold">29€/mois</span>
-                            <a href="/outils/planificateur-reseaux" class="btn btn-sm btn-success">
-                                Essayer <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
+                        <h5 class="card-title fw-bold">Générateur Meta IA</h5>
+                        <p class="card-text text-muted small flex-grow-1">Générez des meta descriptions SEO optimisées pour vos pages grâce à l'intelligence artificielle.</p>
+                        <span class="badge bg-info mb-3">Propulsé par IA</span>
+                        <a href="/outils/meta-generator" class="btn btn-success">
+                            <i class="bi bi-magic"></i> Générer
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Outil 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm hover-lift">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div>
-                                <i class="bi bi-graph-up large-icon text-warning"></i>
+            <!-- Calculateur ROI -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 text-center">
+                    <div class="card-body d-flex flex-column">
+                        <div class="mb-3">
+                            <div class="rounded-circle bg-warning bg-opacity-10 d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-calculator fs-2 text-warning"></i>
                             </div>
-                            <span class="badge bg-danger">
-                                <i class="bi bi-fire"></i> Populaire
-                            </span>
                         </div>
-                        <h5 class="card-title">Dashboard Analytics</h5>
-                        <p class="card-text text-muted">Centralisez toutes vos données marketing dans un tableau de bord unique et intuitif.</p>
-                        <ul class="list-unstyled small mb-3">
-                            <li><i class="bi bi-check-circle text-success"></i> Données en temps réel</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Rapports personnalisés</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Intégrations multiples</li>
-                            <li><i class="bi bi-check-circle text-success"></i> Export des données</li>
-                        </ul>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="text-warning fw-bold">49€/mois</span>
-                            <a href="/outils/dashboard-analytics" class="btn btn-sm btn-warning">
-                                Essayer <i class="bi bi-arrow-right"></i>
-                            </a>
+                        <h5 class="card-title fw-bold">Calculateur ROI</h5>
+                        <p class="card-text text-muted small flex-grow-1">Estimez le retour sur investissement de vos campagnes marketing : clics, conversions, revenus, ROAS.</p>
+                        <span class="badge bg-success mb-3">100% Gratuit</span>
+                        <a href="/outils/roi-calculator" class="btn btn-warning text-dark">
+                            <i class="bi bi-calculator"></i> Calculer
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendrier Éditorial -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm border-0 text-center">
+                    <div class="card-body d-flex flex-column">
+                        <div class="mb-3">
+                            <div class="rounded-circle bg-danger bg-opacity-10 d-inline-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="bi bi-calendar3 fs-2 text-danger"></i>
+                            </div>
                         </div>
+                        <h5 class="card-title fw-bold">Calendrier Éditorial IA</h5>
+                        <p class="card-text text-muted small flex-grow-1">Générez un planning de publication complet pour votre blog avec titres, mots-clés et types de contenu.</p>
+                        <span class="badge bg-info mb-3">Propulsé par IA</span>
+                        <a href="/outils/calendrier-editorial" class="btn btn-danger">
+                            <i class="bi bi-calendar3"></i> Générer
+                        </a>
                     </div>
                 </div>
             </div>
@@ -147,68 +91,38 @@
     </div>
 </section>
 
-<!-- Tous les Outils -->
+<!-- Pourquoi nos outils -->
 <section class="py-5 bg-light">
     <div class="container">
-        <h3 class="mb-4">Tous nos outils</h3>
-        <div class="row g-4">
-            <!-- Outil SEO -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <i class="bi bi-search medium-icon text-primary mb-3"></i>
-                        <h6 class="card-title">Générateur de Mots-Clés</h6>
-                        <p class="card-text small text-muted">Trouvez les meilleurs mots-clés pour votre SEO</p>
-                        <a href="/outils/generateur-mots-cles" class="btn btn-sm btn-outline-primary">Accéder</a>
-                    </div>
-                </div>
+        <h2 class="text-center fw-bold mb-5">Pourquoi utiliser nos outils ?</h2>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <i class="bi bi-lightning-charge fs-1 text-primary mb-3 d-block"></i>
+                <h5 class="fw-bold">Instantané</h5>
+                <p class="text-muted">Résultats en quelques secondes, sans inscription obligatoire.</p>
             </div>
-
-            <!-- Outil Email -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <i class="bi bi-envelope medium-icon text-success mb-3"></i>
-                        <h6 class="card-title">Email Marketing</h6>
-                        <p class="card-text small text-muted">Créez et envoyez des campagnes email efficaces</p>
-                        <a href="/outils/email-marketing" class="btn btn-sm btn-outline-success">Accéder</a>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <i class="bi bi-robot fs-1 text-success mb-3 d-block"></i>
+                <h5 class="fw-bold">Propulsé par l'IA</h5>
+                <p class="text-muted">Nos outils utilisent l'intelligence artificielle pour des résultats précis.</p>
             </div>
-
-            <!-- Outil Design -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <i class="bi bi-palette medium-icon text-warning mb-3"></i>
-                        <h6 class="card-title">Créateur de Visuels</h6>
-                        <p class="card-text small text-muted">Créez des visuels professionnels facilement</p>
-                        <a href="/outils/createur-visuels" class="btn btn-sm btn-outline-warning">Accéder</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Outil Automation -->
-            <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <i class="bi bi-robot medium-icon text-danger mb-3"></i>
-                        <h6 class="card-title">Automation Marketing</h6>
-                        <p class="card-text small text-muted">Automatisez vos tâches marketing répétitives</p>
-                        <a href="/outils/automation" class="btn btn-sm btn-outline-danger">Accéder</a>
-                    </div>
-                </div>
+            <div class="col-md-4">
+                <i class="bi bi-gift fs-1 text-danger mb-3 d-block"></i>
+                <h5 class="fw-bold">100% Gratuit</h5>
+                <p class="text-muted">Aucun frais caché. Utilisez nos outils autant que vous le souhaitez.</p>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
-<?php 
-$ctaTitle = 'Besoin d\'un Outil Personnalisé ?';
-$ctaText = 'Nous développons des outils sur-mesure adaptés à vos besoins spécifiques.';
-$ctaLink = '/contact';
-$ctaButton = 'Demander un devis';
-$projectRoot = dirname(dirname(dirname(__DIR__)));
-require_once $projectRoot . '/includes/partials/cta-section.php'; 
-?>
+<section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Besoin d'un accompagnement personnalisé ?</h2>
+        <p class="lead mb-4 opacity-75">Nos experts en marketing digital sont là pour vous aider à atteindre vos objectifs.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="/projets/brief" class="btn btn-light btn-lg"><i class="bi bi-rocket"></i> Créer un projet</a>
+            <a href="/contact" class="btn btn-outline-light btn-lg"><i class="bi bi-envelope"></i> Nous contacter</a>
+        </div>
+    </div>
+</section>

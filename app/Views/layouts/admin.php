@@ -37,6 +37,30 @@
                             <i class="bi bi-grid-fill"></i> Dashboard
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?= in_array($pageTitle, ['Gestion des articles', 'Nouvel article', 'Modifier l\'article', 'Gestion des formations', 'Nouvelle formation', 'Modifier la formation', 'Bibliothèque de médias']) ? 'active' : '' ?>" 
+                           href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-pencil-square"></i> Contenu
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="/admin/articles">
+                                    <i class="bi bi-file-earmark-text-fill text-primary"></i> Articles
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/admin/formations">
+                                    <i class="bi bi-mortarboard-fill text-success"></i> Formations
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/admin/media">
+                                    <i class="bi bi-images text-info"></i> Médias
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link <?= ($pageTitle === 'Messages de contact') ? 'active' : '' ?>" href="/admin/contacts">
                             <i class="bi bi-envelope-fill"></i> Messages
@@ -58,6 +82,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/campaigns">
                             <i class="bi bi-megaphone-fill"></i> Campagnes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= (strpos($pageTitle ?? '', 'Projets') !== false) ? 'active' : '' ?>" href="/admin/projects">
+                            <i class="bi bi-kanban-fill"></i> Projets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($pageTitle ?? '') === 'Analytics' ? 'active' : '' ?>" href="/admin/analytics">
+                            <i class="bi bi-graph-up"></i> Analytics
                         </a>
                     </li>
                 </ul>

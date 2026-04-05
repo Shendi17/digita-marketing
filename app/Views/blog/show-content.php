@@ -31,8 +31,11 @@
                     <h1 class="display-5 fw-bold mb-3"><?= htmlspecialchars($article['title']) ?></h1>
                     
                     <div class="d-flex gap-3 text-muted mb-4">
-                        <span><i class="bi bi-calendar"></i> <?= date('d/m/Y', strtotime($article['published_at'])) ?></span>
+                        <span><i class="bi bi-calendar"></i> <?= !empty($article['published_at']) ? date('d/m/Y', strtotime($article['published_at'])) : 'Non publié' ?></span>
                         <span><i class="bi bi-eye"></i> <?= number_format($article['views']) ?> vues</span>
+                        <?php if (!empty($readingTime)): ?>
+                            <span><i class="bi bi-clock"></i> <?= $readingTime ?> min de lecture</span>
+                        <?php endif; ?>
                     </div>
                 </div>
                 
@@ -45,6 +48,22 @@
                             <img src="<?= htmlspecialchars($article['image_url']) ?>" class="img-fluid rounded mb-4" alt="<?= htmlspecialchars($article['title']) ?>">
                         <?php endif; ?>
                         
+                        <!-- Table des matières -->
+                        <?php if (!empty($tableOfContents)): ?>
+                            <div class="bg-light rounded p-3 mb-4">
+                                <h6 class="fw-bold mb-2"><i class="bi bi-list-nested text-primary"></i> Table des matières</h6>
+                                <ul class="list-unstyled mb-0">
+                                    <?php foreach ($tableOfContents as $tocItem): ?>
+                                        <li class="<?= $tocItem['level'] === 3 ? 'ms-3' : '' ?> mb-1">
+                                            <a href="#<?= htmlspecialchars($tocItem['slug']) ?>" class="text-decoration-none small">
+                                                <?= $tocItem['level'] === 2 ? '&#9654;' : '&#9702;' ?> <?= htmlspecialchars($tocItem['text']) ?>
+                                            </a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+
                         <!-- Contenu de l'article -->
                         <div class="article-content">
                             <?php
@@ -76,22 +95,49 @@
                     </div>
                 </div>
                 
-                <!-- CTA -->
-                <div class="card shadow-sm mb-4 border-primary">
-                    <div class="card-body bg-primary bg-opacity-10">
-                        <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <h5 class="text-primary"><i class="bi bi-rocket"></i> Prêt à passer à l'action ?</h5>
-                                <p class="mb-0">Contactez-nous pour discuter de votre projet</p>
-                            </div>
-                            <div class="col-md-4 text-end">
-                                <a href="/contact" class="btn btn-primary">
-                                    <i class="bi bi-envelope"></i> Nous contacter
-                                </a>
+                <!-- CTA Tunnel de conversion -->
+                <?php if (!empty($relatedFormation)): ?>
+                    <div class="card shadow-sm mb-4 border-primary">
+                        <div class="card-body bg-primary bg-opacity-10">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="text-primary"><i class="bi bi-mortarboard"></i> Envie d'aller plus loin ?</h5>
+                                    <p class="mb-1 fw-bold"><?= htmlspecialchars($relatedFormation['title']) ?></p>
+                                    <p class="mb-0 text-muted small">
+                                        <i class="bi bi-clock"></i> <?= $relatedFormation['duration_hours'] ?? '—' ?>h
+                                        · <i class="bi bi-people"></i> <?= $relatedFormation['enrolled_count'] ?? 0 ?> inscrits
+                                        <?php if ((float)($relatedFormation['price'] ?? 0) > 0): ?>
+                                            · <strong><?= number_format($relatedFormation['price'], 2) ?> €</strong>
+                                        <?php else: ?>
+                                            · <span class="text-success fw-bold">Gratuit</span>
+                                        <?php endif; ?>
+                                    </p>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <a href="/formations/<?= htmlspecialchars($relatedFormation['slug']) ?>/landing" class="btn btn-primary">
+                                        <i class="bi bi-play-circle"></i> Voir la formation
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php else: ?>
+                    <div class="card shadow-sm mb-4 border-primary">
+                        <div class="card-body bg-primary bg-opacity-10">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="text-primary"><i class="bi bi-rocket"></i> Prêt à passer à l'action ?</h5>
+                                    <p class="mb-0">Contactez-nous pour discuter de votre projet</p>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <a href="/contact" class="btn btn-primary">
+                                        <i class="bi bi-envelope"></i> Nous contacter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 
                 <!-- Articles liés -->
                 <?php if (!empty($relatedArticles)): ?>
@@ -120,15 +166,35 @@
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <!-- Formation associée -->
-                <div class="card shadow-sm mb-4 bg-primary text-white">
-                    <div class="card-body">
-                        <h5 class="text-white"><i class="bi bi-mortarboard"></i> Formation disponible</h5>
-                        <p class="text-white">Maîtrisez ce sujet avec notre formation complète !</p>
-                        <a href="/formations" class="btn btn-light">
-                            <i class="bi bi-play-circle"></i> Voir les formations
-                        </a>
+                <?php if (!empty($relatedFormation)): ?>
+                    <div class="card shadow-sm mb-4 bg-primary text-white">
+                        <div class="card-body">
+                            <h5 class="text-white"><i class="bi bi-mortarboard"></i> Formation recommandée</h5>
+                            <h6 class="text-white fw-bold"><?= htmlspecialchars($relatedFormation['title']) ?></h6>
+                            <p class="text-white small">
+                                <?= $relatedFormation['duration_hours'] ?? '—' ?>h · <?= ucfirst($relatedFormation['level'] ?? 'Tous niveaux') ?>
+                            </p>
+                            <?php if ((float)($relatedFormation['price'] ?? 0) > 0): ?>
+                                <p class="text-white fw-bold fs-5 mb-2"><?= number_format($relatedFormation['price'], 2) ?> €</p>
+                            <?php else: ?>
+                                <p class="text-white fw-bold fs-5 mb-2">Gratuit</p>
+                            <?php endif; ?>
+                            <a href="/formations/<?= htmlspecialchars($relatedFormation['slug']) ?>/landing" class="btn btn-light w-100">
+                                <i class="bi bi-play-circle"></i> Découvrir la formation
+                            </a>
+                        </div>
                     </div>
-                </div>
+                <?php else: ?>
+                    <div class="card shadow-sm mb-4 bg-primary text-white">
+                        <div class="card-body">
+                            <h5 class="text-white"><i class="bi bi-mortarboard"></i> Formation disponible</h5>
+                            <p class="text-white">Maîtrisez ce sujet avec notre formation complète !</p>
+                            <a href="/formations" class="btn btn-light">
+                                <i class="bi bi-play-circle"></i> Voir les formations
+                            </a>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 
                 <!-- Articles populaires -->
                 <div class="card shadow-sm mb-4">

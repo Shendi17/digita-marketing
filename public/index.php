@@ -89,6 +89,299 @@ $router->get('/formations/:slug/learn', function($slug) {
     $controller->learn($slug);
 });
 
+// Marquer une leçon comme complétée (AJAX)
+$router->post('/formations/complete-lesson', function() {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->completeLesson();
+});
+
+// Quiz
+$router->get('/formations/quiz/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->quiz($id);
+});
+
+// Soumettre un quiz
+$router->post('/formations/quiz/:id/submit', function($id) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->submitQuiz($id);
+});
+
+// Résultats d'un quiz
+$router->get('/formations/quiz/:id/results', function($id) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->quizResults($id);
+});
+
+// Soumettre un avis
+$router->post('/formations/:id/review', function($id) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->review($id);
+});
+
+// Certificat
+$router->get('/formations/:id/certificate', function($id) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->certificate($id);
+});
+
+// Vérification publique de certificat
+$router->get('/certificat/verifier', function() {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->verifyCertificate();
+});
+
+// Landing page formation (page de vente)
+$router->get('/formations/:slug/landing', function($slug) {
+    require_once __DIR__ . '/../app/Controllers/FormationController.php';
+    $controller = new FormationController();
+    $controller->landing($slug);
+});
+
+// ==================== PAIEMENT ====================
+
+// Checkout formation
+$router->get('/formations/checkout/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->checkout($id);
+});
+
+// Traitement du paiement (création session Stripe)
+$router->post('/formations/checkout/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->processCheckout($id);
+});
+
+// Succès paiement
+$router->get('/paiement/succes', function() {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->success();
+});
+
+// Annulation paiement
+$router->get('/paiement/annulation', function() {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->cancel();
+});
+
+// Webhook Stripe
+$router->post('/webhook/stripe', function() {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->webhook();
+});
+
+// Validation code promo (AJAX)
+$router->post('/api/validate-promo', function() {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->validatePromo();
+});
+
+// Mes commandes
+$router->get('/mes-commandes', function() {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->myOrders();
+});
+
+// Détail commande
+$router->get('/mes-commandes/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->orderDetail($id);
+});
+
+// Facture
+$router->get('/facture/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/PaymentController.php';
+    $controller = new PaymentController();
+    $controller->invoice($id);
+});
+
+// ==================== PROJETS CLIENTS ====================
+
+// Formulaire de brief
+$router->get('/projets/brief', function() {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->briefForm();
+});
+
+// Soumettre le brief
+$router->post('/projets/brief', function() {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->submitBrief();
+});
+
+// Calcul devis AJAX
+$router->post('/api/project-quote', function() {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->ajaxQuote();
+});
+
+// Espace client (dashboard)
+$router->get('/espace-client', function() {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->dashboard();
+});
+
+// Détail projet client
+$router->get('/espace-client/projet/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->show($id);
+});
+
+// Envoyer un message client
+$router->post('/espace-client/projet/:id/message', function($id) {
+    require_once __DIR__ . '/../app/Controllers/ProjectController.php';
+    $controller = new ProjectController();
+    $controller->sendMessage($id);
+});
+
+// Webhook Webox → Digita
+$router->post('/webhook/webox', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->webhookWebox();
+});
+
+// ==================== CHATBOT IA ====================
+
+// Envoyer un message chatbot (AJAX)
+$router->post('/api/chatbot/message', function() {
+    require_once __DIR__ . '/../app/Controllers/ChatbotController.php';
+    $controller = new ChatbotController();
+    $controller->sendMessage();
+});
+
+// Historique chatbot (AJAX)
+$router->get('/api/chatbot/history', function() {
+    require_once __DIR__ . '/../app/Controllers/ChatbotController.php';
+    $controller = new ChatbotController();
+    $controller->getHistory();
+});
+
+// Qualifier un lead (AJAX)
+$router->post('/api/chatbot/qualify', function() {
+    require_once __DIR__ . '/../app/Controllers/ChatbotController.php';
+    $controller = new ChatbotController();
+    $controller->qualifyLead();
+});
+
+// Prendre un RDV (AJAX)
+$router->post('/api/chatbot/appointment', function() {
+    require_once __DIR__ . '/../app/Controllers/ChatbotController.php';
+    $controller = new ChatbotController();
+    $controller->bookAppointment();
+});
+
+// Créneaux disponibles (AJAX)
+$router->get('/api/chatbot/slots', function() {
+    require_once __DIR__ . '/../app/Controllers/ChatbotController.php';
+    $controller = new ChatbotController();
+    $controller->availableSlots();
+});
+
+// ==================== OUTILS GRATUITS ====================
+
+// Page index outils
+$router->get('/outils', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->index();
+});
+
+// Audit SEO gratuit
+$router->get('/outils/audit-seo', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->seoAudit();
+});
+
+$router->post('/outils/audit-seo', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->seoAudit();
+});
+
+// Générateur meta descriptions
+$router->get('/outils/meta-generator', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->metaGenerator();
+});
+
+$router->post('/outils/meta-generator', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->metaGenerator();
+});
+
+// Calculateur ROI
+$router->get('/outils/roi-calculator', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->roiCalculator();
+});
+
+$router->post('/outils/roi-calculator', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->roiCalculator();
+});
+
+// ROI AJAX
+$router->post('/api/roi-calculate', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->ajaxRoi();
+});
+
+// Calendrier éditorial
+$router->get('/outils/calendrier-editorial', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->editorialCalendar();
+});
+
+$router->post('/outils/calendrier-editorial', function() {
+    require_once __DIR__ . '/../app/Controllers/ToolsController.php';
+    $controller = new ToolsController();
+    $controller->editorialCalendar();
+});
+
+// ==================== ANALYTICS API ====================
+
+// Tracker page view (AJAX)
+$router->post('/api/analytics/pageview', function() {
+    require_once __DIR__ . '/../app/Controllers/AnalyticsController.php';
+    $controller = new AnalyticsController();
+    $controller->trackPageView();
+});
+
+// Tracker conversion (AJAX)
+$router->post('/api/analytics/conversion', function() {
+    require_once __DIR__ . '/../app/Controllers/AnalyticsController.php';
+    $controller = new AnalyticsController();
+    $controller->trackConversion();
+});
+
 // Détail d'une formation
 $router->get('/formations/:slug', function($slug) {
     require_once __DIR__ . '/../app/Controllers/FormationController.php';
@@ -313,6 +606,192 @@ $router->post('/admin/webhooks/test/:type', function($type) {
     require_once __DIR__ . '/../app/Controllers/AdminController.php';
     $controller = new AdminController();
     $controller->testWebhook($type);
+});
+
+// ========== ADMIN ARTICLES ==========
+// Liste des articles
+$router->get('/admin/articles', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->index();
+});
+
+// Créer un article (formulaire)
+$router->get('/admin/articles/new', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->create();
+});
+
+// Sauvegarder un nouvel article
+$router->post('/admin/articles/store', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->store();
+});
+
+// Éditer un article (formulaire)
+$router->get('/admin/articles/edit/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->edit($id);
+});
+
+// Mettre à jour un article
+$router->post('/admin/articles/update/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->update($id);
+});
+
+// Supprimer un article
+$router->post('/admin/articles/delete/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->delete($id);
+});
+
+// Upload d'image (AJAX pour TinyMCE)
+$router->post('/admin/articles/upload-image', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminArticleController.php';
+    $controller = new AdminArticleController();
+    $controller->uploadImage();
+});
+
+// ========== ADMIN FORMATIONS ==========
+// Liste des formations
+$router->get('/admin/formations', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->index();
+});
+
+// Créer une formation (formulaire)
+$router->get('/admin/formations/new', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->create();
+});
+
+// Sauvegarder une nouvelle formation
+$router->post('/admin/formations/store', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->store();
+});
+
+// Éditer une formation (formulaire)
+$router->get('/admin/formations/edit/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->edit($id);
+});
+
+// Mettre à jour une formation
+$router->post('/admin/formations/update/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->update($id);
+});
+
+// Supprimer une formation
+$router->post('/admin/formations/delete/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminFormationController.php';
+    $controller = new AdminFormationController();
+    $controller->delete($id);
+});
+
+// ========== ADMIN MÉDIAS ==========
+// Bibliothèque de médias
+$router->get('/admin/media', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminMediaController.php';
+    $controller = new AdminMediaController();
+    $controller->index();
+});
+
+// Upload de média
+$router->post('/admin/media/upload', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminMediaController.php';
+    $controller = new AdminMediaController();
+    $controller->upload();
+});
+
+// Supprimer un média
+$router->post('/admin/media/delete', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminMediaController.php';
+    $controller = new AdminMediaController();
+    $controller->delete();
+});
+
+// ========== ADMIN ANALYTICS ==========
+$router->get('/admin/analytics', function() {
+    require_once __DIR__ . '/../app/Controllers/AnalyticsController.php';
+    $controller = new AnalyticsController();
+    $controller->index();
+});
+
+// ========== ADMIN PROJETS ==========
+// Liste / Pipeline Kanban
+$router->get('/admin/projects', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->index();
+});
+
+// Détail projet admin
+$router->get('/admin/projects/:id', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->show($id);
+});
+
+// Mettre à jour le statut
+$router->post('/admin/projects/:id/status', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->updateStatus($id);
+});
+
+// Envoyer un message admin
+$router->post('/admin/projects/:id/message', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->sendMessage($id);
+});
+
+// Notes admin
+$router->post('/admin/projects/:id/note', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->addNote($id);
+});
+
+// Lancer génération Webox
+$router->post('/admin/projects/:id/generate', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->generateWebox($id);
+});
+
+// Ajouter une tâche
+$router->post('/admin/projects/:id/task', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->addTask($id);
+});
+
+// Mettre à jour une tâche (AJAX)
+$router->post('/admin/projects/task/update', function() {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->updateTask();
+});
+
+// Mettre à jour le prix
+$router->post('/admin/projects/:id/price', function($id) {
+    require_once __DIR__ . '/../app/Controllers/AdminProjectController.php';
+    $controller = new AdminProjectController();
+    $controller->updatePrice($id);
 });
 
 // Gestion des campagnes

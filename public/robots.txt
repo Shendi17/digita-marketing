@@ -1,0 +1,39 @@
+# Robots.txt - Digita Marketing
+# https://digita.tonyalpha80.com
+
+User-agent: *
+Allow: /
+
+# Pages publiques autorisées
+Allow: /blog
+Allow: /formations
+Allow: /services
+Allow: /solutions
+Allow: /a-propos
+Allow: /contact
+Allow: /catalogue
+Allow: /boutique
+Allow: /tarifs
+
+# Bloquer l'accès admin
+Disallow: /admin/
+Disallow: /connexion
+Disallow: /inscription
+
+# Bloquer les fichiers techniques
+Disallow: /config/
+Disallow: /includes/
+Disallow: /app/
+Disallow: /scripts/
+Disallow: /database/
+Disallow: /tests/
+Disallow: /vendor/
+Disallow: /node_modules/
+
+# Bloquer les fichiers temporaires
+Disallow: /temp_*
+Disallow: /*.sql$
+Disallow: /*.log$
+
+# Sitemap
+Sitemap: https://digita.tonyalpha80.com/sitemap.xml

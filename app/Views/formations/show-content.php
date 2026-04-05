@@ -227,6 +227,96 @@
                         </div>
                     </section>
                 <?php endif; ?>
+                
+                <!-- Avis et notation -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-warning bg-opacity-10">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="bi bi-star-fill text-warning"></i> Avis des apprenants</h5>
+                            <?php if (!empty($averageRating) && $averageRating['count'] > 0): ?>
+                                <div>
+                                    <span class="fw-bold fs-4"><?= number_format($averageRating['average'], 1) ?></span>
+                                    <span class="text-muted">/5</span>
+                                    <small class="text-muted d-block"><?= $averageRating['count'] ?> avis</small>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <?php if (!empty($reviews)): ?>
+                            <?php foreach ($reviews as $review): ?>
+                                <div class="border-bottom pb-3 mb-3">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <strong><?= htmlspecialchars($review['username']) ?></strong>
+                                            <div class="text-warning small">
+                                                <?php for ($s = 1; $s <= 5; $s++): ?>
+                                                    <i class="bi bi-star<?= $s <= $review['rating'] ? '-fill' : '' ?>"></i>
+                                                <?php endfor; ?>
+                                            </div>
+                                        </div>
+                                        <small class="text-muted"><?= date('d/m/Y', strtotime($review['created_at'])) ?></small>
+                                    </div>
+                                    <?php if (!empty($review['title'])): ?>
+                                        <h6 class="mt-2 mb-1"><?= htmlspecialchars($review['title']) ?></h6>
+                                    <?php endif; ?>
+                                    <?php if (!empty($review['comment'])): ?>
+                                        <p class="text-muted mb-0 small"><?= nl2br(htmlspecialchars($review['comment'])) ?></p>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <p class="text-muted text-center mb-0">Aucun avis pour le moment. Soyez le premier !</p>
+                        <?php endif; ?>
+
+                        <?php if ($isEnrolled && empty($userReview)): ?>
+                            <hr>
+                            <h6 class="fw-bold"><i class="bi bi-pencil-square"></i> Laisser un avis</h6>
+                            <form method="POST" action="/formations/<?= $formation['id'] ?>/review">
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold">Note</label>
+                                    <div class="d-flex gap-1" id="ratingStars">
+                                        <?php for ($s = 1; $s <= 5; $s++): ?>
+                                            <label style="cursor: pointer; font-size: 1.5rem;">
+                                                <input type="radio" name="rating" value="<?= $s ?>" class="d-none" <?= $s === 5 ? 'checked' : '' ?>>
+                                                <i class="bi bi-star<?= $s <= 5 ? '-fill' : '' ?> text-warning rating-star" data-value="<?= $s ?>"></i>
+                                            </label>
+                                        <?php endfor; ?>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" name="title" class="form-control form-control-sm" placeholder="Titre de votre avis" maxlength="100">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea name="comment" class="form-control form-control-sm" rows="3" placeholder="Votre commentaire..." maxlength="1000"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-sm w-100">
+                                    <i class="bi bi-send"></i> Publier mon avis
+                                </button>
+                            </form>
+                            <script>
+                            document.querySelectorAll('.rating-star').forEach(function(star) {
+                                star.addEventListener('click', function() {
+                                    var val = parseInt(this.dataset.value);
+                                    document.querySelectorAll('.rating-star').forEach(function(s, i) {
+                                        s.className = 'bi bi-star' + ((i + 1) <= val ? '-fill' : '') + ' text-warning rating-star';
+                                    });
+                                    this.closest('label').querySelector('input').checked = true;
+                                });
+                            });
+                            </script>
+                        <?php elseif (!empty($userReview)): ?>
+                            <hr>
+                            <div class="alert alert-info small mb-0">
+                                <i class="bi bi-check-circle"></i> Vous avez déjà laissé un avis 
+                                (<?= $userReview['rating'] ?>/5)
+                                <?php if ($userReview['status'] === 'pending'): ?>
+                                    — <em>En attente de modération</em>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
             </div>
             
             <!-- Sidebar -->

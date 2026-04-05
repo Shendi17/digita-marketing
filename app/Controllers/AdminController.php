@@ -4,6 +4,8 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../Models/User.php';
 require_once __DIR__ . '/../Models/Contact.php';
 require_once __DIR__ . '/../Models/Newsletter.php';
+require_once __DIR__ . '/../Models/Article.php';
+require_once __DIR__ . '/../Models/Formation.php';
 
 /**
  * Contrôleur Admin
@@ -36,6 +38,17 @@ class AdminController extends Controller {
         $recentNewsletters = $this->newsletterModel->getRecent(5);
         $newMessages = $this->contactModel->getNew();
         
+        // Stats articles et formations
+        $articleModel = new Article();
+        $formationModel = new Formation();
+        $articleStats = $articleModel->getStats();
+        $formationStats = $formationModel->getFormationStats();
+        
+        // Stats projets clients
+        require_once __DIR__ . '/../Models/Project.php';
+        $projectModel = new Project();
+        $projectStats = $projectModel->getStats();
+        
         // Calculer des métriques
         $stats = [
             'contacts' => [
@@ -53,6 +66,9 @@ class AdminController extends Controller {
                 'this_month' => $newsletterStats['this_month']
             ],
             'users' => $userStats,
+            'articles' => $articleStats,
+            'formations' => $formationStats,
+            'projects' => $projectStats,
             'conversion_rate' => $contactStats['total'] > 0 
                 ? round(($newsletterStats['active'] / $contactStats['total']) * 100, 1) 
                 : 0
@@ -62,6 +78,7 @@ class AdminController extends Controller {
         $data = [
             'pageTitle' => 'Dashboard',
             'stats' => $stats,
+            'projectStats' => $projectStats,
             'recentContacts' => $recentContacts,
             'recentNewsletters' => $recentNewsletters,
             'newMessages' => $newMessages,

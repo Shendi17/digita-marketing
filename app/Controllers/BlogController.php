@@ -29,6 +29,8 @@ class BlogController {
         // Utilisation du nouveau système MVC avec layout
         $data = [
             'title' => 'Blog - Actualités & Conseils | Digita Marketing',
+            'metaDescription' => 'Découvrez nos articles sur le marketing digital, l\'automatisation, l\'IA et les stratégies de croissance. Conseils d\'experts pour développer votre activité.',
+            'metaKeywords' => 'blog marketing digital, conseils SEO, automatisation, intelligence artificielle, stratégie digitale',
             'extraCss' => ['/assets/css/blog-layout.css'],
             'totalArticles' => $totalArticles,
             'articles' => $articles,
@@ -64,10 +66,52 @@ class BlogController {
         // Articles populaires
         $popularArticles = $this->articleModel->getPopular(5);
         
+        // Tunnel de conversion : formation associée à la catégorie
+        $relatedFormation = null;
+        if (!empty($article['category_id'])) {
+            require_once __DIR__ . '/../Models/Formation.php';
+            $formationModel = new Formation();
+            $formations = $formationModel->getRelated(0, $article['category_id'], 1);
+            if (!empty($formations)) {
+                $relatedFormation = $formations[0];
+            }
+        }
+        
+        // SEO Couche 3 : Temps de lecture + Table des matières + FAQ
+        $readingTime = Article::estimateReadingTime($article['content'] ?? '');
+        $tocData = Article::generateTableOfContents($article['content'] ?? '');
+        $tableOfContents = $tocData['toc'];
+        $article['content'] = $tocData['content']; // contenu avec ancres
+        $faqSchema = Article::extractFAQ($article['content'] ?? '');
+        
+        $baseUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . ($_SERVER['HTTP_HOST'] ?? 'digita.tonyalpha80.com');
+        
+        $breadcrumbs = [
+            ['name' => 'Accueil', 'url' => $baseUrl . '/'],
+            ['name' => 'Blog', 'url' => $baseUrl . '/blog']
+        ];
+        if (!empty($article['category_name'])) {
+            $breadcrumbs[] = ['name' => $article['category_name'], 'url' => $baseUrl . '/blog/categorie/' . $article['category_slug']];
+        }
+        $breadcrumbs[] = ['name' => $article['title'], 'url' => $baseUrl . '/blog/' . $article['slug']];
+        
         $data = [
-            'title' => $article['title'] . ' - Blog Digita Marketing',
+            'title' => (($article['meta_title'] ?? '') ?: $article['title']) . ' | Digita Marketing',
+            'metaDescription' => ($article['meta_description'] ?? '') ?: mb_strimwidth(strip_tags($article['content']), 0, 155, '...'),
+            'metaKeywords' => $article['meta_keywords'] ?? '',
+            'ogType' => 'article',
+            'ogTitle' => ($article['meta_title'] ?? '') ?: $article['title'],
+            'ogDescription' => ($article['meta_description'] ?? '') ?: mb_strimwidth(strip_tags($article['content']), 0, 155, '...'),
+            'ogImage' => !empty($article['featured_image']) ? $article['featured_image'] : null,
+            'schemaType' => 'article',
+            'schemaData' => $article,
+            'breadcrumbs' => $breadcrumbs,
             'extraCss' => ['/assets/css/blog-layout.css'],
             'article' => $article,
+            'readingTime' => $readingTime,
+            'tableOfContents' => $tableOfContents,
+            'faqSchema' => $faqSchema,
+            'relatedFormation' => $relatedFormation,
             'relatedArticles' => $relatedArticles,
             'popularArticles' => $popularArticles
         ];
