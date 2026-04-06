@@ -90,13 +90,16 @@ try {
                 echo "<div style='color:green;font-size:12px;'>✓ Requête exécutée</div>";
                 $executed++;
             } catch (PDOException $e) {
-                // Ignorer les erreurs "table already exists" ou "duplicate column"
-                if (strpos($e->getMessage(), 'already exists') !== false || 
-                    strpos($e->getMessage(), 'Duplicate column') !== false) {
+                $errorMsg = $e->getMessage();
+                // Ignorer les erreurs "table already exists", "duplicate column" ou "column already exists"
+                if (strpos($errorMsg, 'already exists') !== false || 
+                    strpos($errorMsg, 'Duplicate column') !== false ||
+                    strpos($errorMsg, "Duplicate key name") !== false ||
+                    strpos($errorMsg, "Can't DROP") !== false) {
                     echo "<div style='color:orange;font-size:12px;'>⚠️ Déjà existant (ignoré)</div>";
                     $skipped++;
                 } else {
-                    echo "<div class='error'>❌ Erreur: " . $e->getMessage() . "</div>";
+                    echo "<div class='error'>❌ Erreur: " . $errorMsg . "</div>";
                     echo "<pre>" . htmlspecialchars(substr($query, 0, 200)) . "...</pre>";
                     $errors++;
                 }

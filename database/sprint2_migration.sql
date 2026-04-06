@@ -13,17 +13,17 @@ SET CHARACTER SET utf8mb4;
 
 -- Colonnes SEO sur blog_articles
 ALTER TABLE blog_articles
-    ADD COLUMN IF NOT EXISTS meta_title VARCHAR(70) NULL AFTER content,
-    ADD COLUMN IF NOT EXISTS meta_description VARCHAR(170) NULL AFTER meta_title,
-    ADD COLUMN IF NOT EXISTS meta_keywords VARCHAR(255) NULL AFTER meta_description,
-    ADD COLUMN IF NOT EXISTS featured_image VARCHAR(500) NULL AFTER meta_keywords,
-    ADD COLUMN IF NOT EXISTS reading_time INT DEFAULT 0 AFTER featured_image;
+    ADD COLUMN meta_title VARCHAR(70) NULL AFTER content,
+    ADD COLUMN meta_description VARCHAR(170) NULL AFTER meta_title,
+    ADD COLUMN meta_keywords VARCHAR(255) NULL AFTER meta_description,
+    ADD COLUMN featured_image VARCHAR(500) NULL AFTER meta_keywords,
+    ADD COLUMN reading_time INT DEFAULT 0 AFTER featured_image;
 
 -- Colonnes SEO sur formations
 ALTER TABLE formations
-    ADD COLUMN IF NOT EXISTS meta_title VARCHAR(70) NULL AFTER description,
-    ADD COLUMN IF NOT EXISTS meta_description VARCHAR(170) NULL AFTER meta_title,
-    ADD COLUMN IF NOT EXISTS meta_keywords VARCHAR(255) NULL AFTER meta_description;
+    ADD COLUMN meta_title VARCHAR(70) NULL AFTER description,
+    ADD COLUMN meta_description VARCHAR(170) NULL AFTER meta_title,
+    ADD COLUMN meta_keywords VARCHAR(255) NULL AFTER meta_description;
 
 -- ============================================
 -- COUCHE 4 : LMS — SYSTÈME DE PROGRESSION

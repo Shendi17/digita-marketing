@@ -6,16 +6,16 @@
 -- Ajout colonne product_type et formation_id sur order_items
 -- pour lier les achats aux formations
 ALTER TABLE order_items 
-    ADD COLUMN IF NOT EXISTS product_type ENUM('formation', 'pack', 'consulting', 'subscription') DEFAULT 'formation' AFTER product_id,
-    ADD COLUMN IF NOT EXISTS product_name VARCHAR(255) DEFAULT NULL AFTER product_type;
+    ADD COLUMN product_type ENUM('formation', 'pack', 'consulting', 'subscription') DEFAULT 'formation' AFTER product_id,
+    ADD COLUMN product_name VARCHAR(255) DEFAULT NULL AFTER product_type;
 
 -- Ajout colonnes Stripe sur orders
 ALTER TABLE orders
-    ADD COLUMN IF NOT EXISTS stripe_payment_intent VARCHAR(255) DEFAULT NULL AFTER stripe_session_id,
-    ADD COLUMN IF NOT EXISTS invoice_number VARCHAR(50) DEFAULT NULL AFTER customer_email,
-    ADD COLUMN IF NOT EXISTS billing_name VARCHAR(255) DEFAULT NULL AFTER invoice_number,
-    ADD COLUMN IF NOT EXISTS billing_address TEXT DEFAULT NULL AFTER billing_name,
-    ADD COLUMN IF NOT EXISTS notes TEXT DEFAULT NULL AFTER billing_address;
+    ADD COLUMN stripe_payment_intent VARCHAR(255) DEFAULT NULL AFTER stripe_session_id,
+    ADD COLUMN invoice_number VARCHAR(50) DEFAULT NULL AFTER customer_email,
+    ADD COLUMN billing_name VARCHAR(255) DEFAULT NULL AFTER invoice_number,
+    ADD COLUMN billing_address TEXT DEFAULT NULL AFTER billing_name,
+    ADD COLUMN notes TEXT DEFAULT NULL AFTER billing_address;
 
 -- Table des factures
 CREATE TABLE IF NOT EXISTS invoices (
@@ -93,8 +93,8 @@ CREATE TABLE IF NOT EXISTS promo_codes (
 
 -- Ajout colonne promo_code_id sur orders
 ALTER TABLE orders
-    ADD COLUMN IF NOT EXISTS promo_code_id INT DEFAULT NULL AFTER notes,
-    ADD COLUMN IF NOT EXISTS discount_amount DECIMAL(10, 2) DEFAULT 0.00 AFTER promo_code_id;
+    ADD COLUMN promo_code_id INT DEFAULT NULL AFTER notes,
+    ADD COLUMN discount_amount DECIMAL(10, 2) DEFAULT 0.00 AFTER promo_code_id;
 
 -- Insertion des séquences email par défaut
 INSERT INTO email_sequences (name, trigger_event, delay_days, subject, body) VALUES
