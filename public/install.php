@@ -60,11 +60,23 @@ try {
         // Lire le fichier SQL
         $sql = file_get_contents($filepath);
         
-        // Séparer les requêtes
+        // Nettoyer les commentaires SQL
+        $lines = explode("\n", $sql);
+        $cleanedSql = '';
+        foreach ($lines as $line) {
+            $line = trim($line);
+            // Ignorer les lignes vides et les commentaires
+            if (empty($line) || strpos($line, '--') === 0) {
+                continue;
+            }
+            $cleanedSql .= $line . "\n";
+        }
+        
+        // Séparer les requêtes par point-virgule
         $queries = array_filter(
-            array_map('trim', explode(';', $sql)),
+            array_map('trim', explode(';', $cleanedSql)),
             function($query) {
-                return !empty($query) && strpos($query, '--') !== 0;
+                return !empty($query) && strlen($query) > 10;
             }
         );
         
