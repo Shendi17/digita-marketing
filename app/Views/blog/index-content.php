@@ -1,129 +1,115 @@
-<!-- Hero Section Blog -->
-<section class="page-hero hero-blog">
-    <div class="container">
+<!-- Hero Section Blog Premium -->
+<section class="page-hero hero-blog py-6 bg-premium-glow position-relative overflow-hidden">
+    <!-- Particules discrètes peuvent être ajoutées ici si besoin -->
+    <div class="container position-relative z-2">
         <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-3">📝 Blog Digita</h1>
-                <p class="lead mb-4">
-                    Découvrez nos guides complets, conseils d'experts et actualités du marketing digital.
-                    Plus de <?= $totalArticles ?> articles pour booster votre présence en ligne !
+            <div class="col-lg-8" data-aos="fade-right">
+                <span class="badge rounded-pill bg-premium-gold-gradient px-3 py-2 mb-3" style="background: linear-gradient(135deg, var(--gold), #f3d47c); color: var(--dark); font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase;">Intelligence Partagée</span>
+                <h1 class="display-3 fw-bold mb-3 text-white" style="font-family: var(--font-heading);">Le Mag <span class="text-gradient-gold">Stratégique</span></h1>
+                <p class="lead mb-5 text-white-50" style="font-size: 1.15rem; max-width: 600px;">
+                    Décryptages de l'IA, stratégies d'automatisation de pointe et visions prospectives pour les leaders de demain.
                 </p>
                 
-                <!-- Barre de recherche -->
-                <form action="/blog/search" method="GET" class="search-form">
-                    <div class="input-group input-group-lg">
-                        <input type="text" name="q" class="form-control" placeholder="Rechercher un article..." required>
-                        <button class="btn btn-light" type="submit">
-                            <i class="bi bi-search"></i> Rechercher
+                <!-- Barre de recherche Glass -->
+                <form action="/blog/search" method="GET" class="search-form" style="max-width: 500px;">
+                    <div class="input-group glass-card border-0 p-1" style="border-radius: 50px;">
+                        <input type="text" name="q" class="form-control bg-transparent border-0 text-white px-4" placeholder="Rechercher une expertise..." required style="box-shadow: none;">
+                        <button class="btn btn-premium btn-premium-gold rounded-pill px-4" type="submit" style="margin: 2px;">
+                            <i class="bi bi-search me-2"></i> Analyser
                         </button>
                     </div>
                 </form>
             </div>
-            <div class="col-lg-4 text-center d-none d-lg-block">
-                <i class="bi bi-file-text-fill hero-icon"></i>
+            <div class="col-lg-4 text-center d-none d-lg-block" data-aos="zoom-in">
+                <div class="position-absolute" style="top: 20%; right: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);"></div>
+                <i class="bi bi-journal-richtext text-gradient-gold" style="font-size: 12rem; filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.2));"></i>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Catégories -->
-<section class="py-4 bg-light border-bottom">
+<!-- Catégories Premium -->
+<section class="py-4 bg-premium-dark-blue border-bottom border-glass sticky-top" style="top: 0; z-index: 100;">
     <div class="container">
-        <div class="d-flex align-items-center gap-2 flex-wrap">
-            <a href="/blog" class="btn btn-primary">
-                <i class="bi bi-grid-fill"></i> Toutes
+        <div class="d-flex align-items-center gap-3 flex-wrap justify-content-center">
+            <a href="/blog" class="btn-premium btn-premium-blue py-2 px-4 <?php echo !isset($currentCategory) ? 'active shadow-blue-glow' : ''; ?>">
+                <i class="bi bi-grid-fill me-2"></i> Omnicanal
             </a>
             <?php foreach ($categories as $cat): ?>
-                <a href="/blog/categorie/<?= htmlspecialchars($cat['slug']) ?>" class="btn btn-outline-primary">
+                <a href="/blog/categorie/<?= htmlspecialchars($cat['slug']) ?>" class="btn-premium py-2 px-4 glass-card border-glass text-white <?php echo (isset($currentCategory) && $currentCategory == $cat['slug']) ? 'active border-gold text-gold' : ''; ?>">
                     <?php if (!empty($cat['icon'])): ?>
-                        <span class="category-icon"><?= $cat['icon'] ?></span>
+                        <span class="me-2"><?= $cat['icon'] ?></span>
                     <?php endif; ?>
                     <?= htmlspecialchars($cat['name']) ?>
-                    <?php if (isset($cat['article_count']) && $cat['article_count'] > 0): ?>
-                        <span class="badge bg-primary"><?= $cat['article_count'] ?></span>
-                    <?php endif; ?>
                 </a>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
 
-<!-- Articles -->
-<section class="main-content py-5">
+<!-- Articles Section -->
+<section class="main-content py-6 bg-premium-grid animated">
     <div class="container">
-        <h2 class="mb-4">📰 Articles Populaires</h2>
+        <!-- Articles Populaires (Sélection Premium) -->
+        <div class="mb-5" data-aos="fade-up">
+            <h5 class="text-gold mb-3 fw-bold" style="letter-spacing: 2px;">POUR LES LEADERS</h5>
+            <h2 class="display-5 fw-bold text-white mb-4">Analyses à Haut Impact</h2>
+        </div>
         
-        <div class="row g-4">
+        <div class="row g-4 mb-6">
             <?php foreach ($popularArticles as $article): ?>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <?php if (!empty($article['image_url'])): ?>
-                            <img src="<?= htmlspecialchars($article['image_url']) ?>" class="card-img-top card-img-article" alt="<?= htmlspecialchars($article['title']) ?>">
-                        <?php else: ?>
-                            <div class="card-img-top card-img-placeholder bg-primary d-flex align-items-center justify-content-center">
-                                <i class="bi bi-file-text text-white"></i>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="glass-card h-100 p-0 overflow-hidden border-glass hover-gold-border transition-all">
+                        <div class="article-image-wrapper position-relative overflow-hidden" style="height: 220px;">
+                            <?php if (!empty($article['image_url'])): ?>
+                                <img src="<?= htmlspecialchars($article['image_url']) ?>" class="w-100 h-100 object-fit-cover transition-all hover-zoom" alt="<?= htmlspecialchars($article['title']) ?>">
+                            <?php else: ?>
+                                <div class="w-100 h-100 bg-premium-dark-blue d-flex align-items-center justify-content-center">
+                                    <i class="bi bi-cpu text-gold opacity-50" style="font-size: 4rem;"></i>
+                                </div>
+                            <?php endif; ?>
+                            <div class="position-absolute top-0 start-0 m-3 px-3 py-1 glass-card border-gold rounded-pill" style="font-size: 0.7rem; font-weight: 700; color: var(--gold);">
+                                <?= htmlspecialchars($article['category_name'] ?? 'STRATÉGIE') ?>
                             </div>
-                        <?php endif; ?>
-                        <div class="card-body">
-                            <div class="mb-2">
-                                <span class="badge bg-primary">
-                                    <?php if (!empty($article['category_icon'])): ?>
-                                        <i class="bi bi-<?= htmlspecialchars($article['category_icon']) ?>"></i>
-                                    <?php endif; ?>
-                                    <?= htmlspecialchars($article['category_name'] ?? 'Non catégorisé') ?>
-                                </span>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex gap-3 text-white-50 small mb-3">
+                                <span><i class="bi bi-eye me-1 text-gold"></i> <?= number_format($article['views'] ?? 0) ?></span>
+                                <span><i class="bi bi-clock me-1 text-gold"></i> 5 min</span>
                             </div>
-                            <h5 class="card-title"><?= htmlspecialchars($article['title']) ?></h5>
-                            <p class="card-text text-muted small">
-                                <i class="bi bi-eye"></i> <?= number_format($article['views'] ?? 0) ?> vues
-                                <?php if (!empty($article['published_at'])): ?>
-                                    <i class="bi bi-calendar ms-2"></i> <?= date('d/m/Y', strtotime($article['published_at'])) ?>
-                                <?php endif; ?>
-                            </p>
-                            <p class="card-text"><?= htmlspecialchars(substr($article['excerpt'] ?? '', 0, 100)) ?>...</p>
-                            <a href="/blog/<?= htmlspecialchars($article['slug']) ?>" class="btn btn-primary btn-sm">
-                                Lire la suite <i class="bi bi-arrow-right"></i>
-                            </a>
+                            <h4 class="fw-bold mb-3 text-white mb-3" style="line-height: 1.4;"><?= htmlspecialchars($article['title']) ?></h4>
+                            <p class="text-white-50 small mb-4"><?= htmlspecialchars(substr($article['excerpt'] ?? '', 0, 120)) ?>...</p>
+                            <a href="/blog/<?= htmlspecialchars($article['slug']) ?>" class="btn-premium btn-premium-gold w-100 py-3">Explorer le dossier</a>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
         
-        <h2 class="mt-5 mb-4">🆕 Articles Récents</h2>
+        <hr class="border-glass my-6">
+
+        <!-- Flux Récent -->
+        <div class="mb-5" data-aos="fade-up">
+            <h5 class="text-blue mb-3 fw-bold" style="letter-spacing: 2px;">FLUX TECHNOLOGIQUE</h5>
+            <h2 class="display-5 fw-bold text-white mb-4">Dernières Prospectives</h2>
+        </div>
         
         <div class="row g-4">
             <?php foreach ($recentArticles as $article): ?>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100">
-                        <?php if (!empty($article['image_url'])): ?>
-                            <img src="<?= htmlspecialchars($article['image_url']) ?>" class="card-img-top card-img-article" alt="<?= htmlspecialchars($article['title']) ?>">
-                        <?php else: ?>
-                            <div class="card-img-top card-img-placeholder bg-success d-flex align-items-center justify-content-center">
-                                <i class="bi bi-file-text text-white"></i>
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="glass-card p-4 border-glass hover-blue-border transition-all">
+                        <div class="row align-items-center">
+                            <div class="col-sm-4 mb-3 mb-sm-0">
+                                <div class="rounded-3 overflow-hidden" style="height: 120px;">
+                                    <img src="<?= htmlspecialchars($article['image_url'] ?? '/assets/images/placeholder-blog.jpg') ?>" class="w-100 h-100 object-fit-cover" alt="">
+                                </div>
                             </div>
-                        <?php endif; ?>
-                        <div class="card-body">
-                            <div class="mb-2">
-                                <span class="badge bg-success">Nouveau</span>
-                                <?php if (!empty($article['category_name'])): ?>
-                                    <span class="badge bg-secondary ms-1">
-                                        <?php if (!empty($article['category_icon'])): ?>
-                                            <i class="bi bi-<?= htmlspecialchars($article['category_icon']) ?>"></i>
-                                        <?php endif; ?>
-                                        <?= htmlspecialchars($article['category_name']) ?>
-                                    </span>
-                                <?php endif; ?>
+                            <div class="col-sm-8">
+                                <span class="badge bg-premium-blue-gradient mb-2" style="font-size: 0.65rem; background: var(--blue-glow); color: white;">ACTUALITÉ</span>
+                                <h5 class="fw-bold text-white mb-2"><?= htmlspecialchars($article['title']) ?></h5>
+                                <p class="text-white-50 small mb-3"><?= htmlspecialchars(substr($article['excerpt'] ?? '', 0, 80)) ?>...</p>
+                                <a href="/blog/<?= htmlspecialchars($article['slug']) ?>" class="text-gold text-decoration-none small fw-bold">Lire l'article <i class="bi bi-arrow-right ms-1"></i></a>
                             </div>
-                            <h5 class="card-title"><?= htmlspecialchars($article['title']) ?></h5>
-                            <p class="card-text text-muted small">
-                                <i class="bi bi-calendar"></i> <?= date('d/m/Y', strtotime($article['created_at'])) ?>
-                                <i class="bi bi-eye ms-2"></i> <?= number_format($article['views'] ?? 0) ?> vues
-                            </p>
-                            <p class="card-text"><?= htmlspecialchars(substr($article['excerpt'] ?? '', 0, 100)) ?>...</p>
-                            <a href="/blog/<?= htmlspecialchars($article['slug']) ?>" class="btn btn-primary btn-sm">
-                                Lire la suite <i class="bi bi-arrow-right"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -132,12 +118,13 @@
     </div>
 </section>
 
-<!-- CTA Section -->
-<?php 
-$ctaTitle = 'Vous ne trouvez pas ce que vous cherchez ?';
-$ctaText = 'Contactez-nous pour des conseils personnalisés en marketing digital';
-$ctaLink = '/contact';
-$ctaButton = 'Nous contacter';
-$projectRoot = dirname(dirname(dirname(__DIR__)));
-require_once $projectRoot . '/includes/partials/cta-section.php'; 
-?>
+<!-- CTA Stratégique (Injected) -->
+<section class="py-6 bg-premium-glow">
+    <div class="container px-4 text-center">
+        <div class="glass-card p-5 border-gold shadow-gold-glow" data-aos="zoom-in">
+            <h2 class="display-5 fw-bold text-white mb-4">Une question sur votre stratégie digitale ?</h2>
+            <p class="text-white-50 mb-5 fs-5">Nos consultants analysent votre secteur et vous proposent un plan d'action personnalisé.</p>
+            <a href="/contact" class="btn-premium btn-premium-gold px-5 py-4 fs-5">Demander une Analyse</a>
+        </div>
+    </div>
+</section>

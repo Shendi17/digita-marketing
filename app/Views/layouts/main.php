@@ -35,6 +35,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Google Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <!-- CSS Principal -->
     <link rel="stylesheet" href="/assets/css/style.css">
     
@@ -240,7 +245,8 @@
         <?= $content ?>
     </main>
     
-    <?php require_once $projectRoot . '/includes/partials/footer.php'; ?>
+    <!-- Composants de Conversion Premium -->
+    <?php require_once $projectRoot . '/app/Views/components/conversion-modal.php'; ?>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

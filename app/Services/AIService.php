@@ -257,6 +257,32 @@ class AIService {
         return min($score, 100);
     }
     
+    /**
+     * Extraire le contexte business structuré d'une conversation
+     */
+    public function extractBusinessContext($conversationText) {
+        $prompt = "Analyse cette conversation de consulting digital. Extrais les informations business structurées suivantes au format JSON uniquement :\n";
+        $prompt .= "{\n";
+        $prompt .= "  \"business_sector\": \"Secteur d'activité (ex: Immobilier, E-commerce)\",\n";
+        $prompt .= "  \"business_goals\": \"Objectifs principaux (ex: Acquisition, Notoriété, Automatisation)\",\n";
+        $prompt .= "  \"target_audience\": \"Cible client (ex: B2B, Particuliers)\",\n";
+        $prompt .= "  \"estimated_budget\": \"Budget évoqué ou estimé\",\n";
+        $prompt .= "  \"current_pain_points\": \"Points de douleur ou obstacles actuels\",\n";
+        $prompt .= "  \"competitors\": \"Concurrents mentionnés\",\n";
+        $prompt .= "  \"preferred_expertise\": \"Expertise DIGITA la plus adaptée (strategic, seo, creative)\"\n";
+        $prompt .= "}\n";
+        $prompt .= "Si une information est manquante, mets null.\n\n";
+        $prompt .= "CONVERSATION :\n{$conversationText}";
+        
+        $response = $this->chat([['content' => $prompt]], "Tu es un analyste business expert.");
+        
+        // Nettoyage de la réponse (OpenAI peut parfois ajouter des backticks markdown)
+        $cleanResponse = trim(str_replace(['```json', '```'], '', $response));
+        $data = json_decode($cleanResponse, true);
+        
+        return is_array($data) ? $data : [];
+    }
+    
     // ==================== OUTILS GRATUITS IA ====================
     
     /**

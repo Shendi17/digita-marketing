@@ -210,6 +210,15 @@ $router->get('/facture/:id', function($id) {
     $controller->invoice($id);
 });
 
+// ==================== API CONVERSION & AUDIT ====================
+
+// Soumettre une demande d'audit stratégique
+$router->post('/api/audit-request', function() {
+    require_once __DIR__ . '/../app/Controllers/ContactController.php';
+    $controller = new ContactController();
+    $controller->submitAudit();
+});
+
 // ==================== PROJETS CLIENTS ====================
 
 // Formulaire de brief

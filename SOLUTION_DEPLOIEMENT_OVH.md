@@ -27,13 +27,13 @@ error: The following untracked working tree files would be overwritten by merge
    - User: `tonyalphzb`
    - Pass: `Boosterx80`
 
-2. Naviguez vers `/home/tonyalphzb/digita/`
+2. Naviguez vers `/digita/`
 
 3. **Supprimez TOUT** dans ce dossier (sauf si vous avez des données importantes)
    - Sélectionnez tous les fichiers/dossiers
    - Clic droit → Supprimer
 
-4. Le dossier `/home/tonyalphzb/digita/` doit être **complètement vide**
+4. Le dossier `/digita/` doit être **complètement vide**
 
 ### Étape 3: Configurer le Déploiement FTP GitHub Actions
 
@@ -46,7 +46,7 @@ error: The following untracked working tree files would be overwritten by merge
 | `FTP_HOST` | `ftp.cluster127.hosting.ovh.net` |
 | `FTP_USER` | `tonyalphzb` |
 | `FTP_PASS` | `Boosterx80` |
-| `FTP_PATH` | `/home/tonyalphzb/digita/` |
+| `FTP_PATH` | `/digita/` |
 
 ### Étape 4: Déclencher le Déploiement
 
@@ -58,7 +58,7 @@ Le workflow va déployer tous les fichiers par FTP (pas Git).
 
 ### Étape 5: Créer le fichier .env
 
-Via FileZilla, créez `/home/tonyalphzb/digita/.env`:
+Via FileZilla, créez `/digita/.env`:
 
 ```env
 APP_ENV=production
@@ -92,8 +92,8 @@ Cela créera les dossiers `logs/`, `cache/`, etc.
 ### Étape 8: Sécurité
 
 Supprimez via FTP:
-- `/home/tonyalphzb/digita/public/setup.php`
-- `/home/tonyalphzb/digita/public/diagnostic.php`
+- `/digita/public/setup.php`
+- `/digita/public/diagnostic.php`
 
 ---
 

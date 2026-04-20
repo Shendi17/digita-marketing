@@ -11,71 +11,199 @@ ob_start();
 ?>
 
 <!-- ============================================================
-     MODAL DIAGNOSTIC - Bootstrap 5.3 (DOIT être dans <body>)
+     MODAL DIAGNOSTIC PREMIUM — Bootstrap 5.3
      ============================================================ -->
 <div class="modal fade" id="auditModal" tabindex="-1" aria-labelledby="auditModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content" style="background: #0a0f1a; border: 1px solid rgba(212,175,55,0.3); border-radius: 20px;">
-      <div class="modal-header border-0 pb-0">
-        <div>
-          <span class="badge px-3 py-2 mb-2" style="background: rgba(212,175,55,0.15); color: #D4AF37; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;">Consultation Gratuite</span>
-          <h4 class="modal-title fw-bold text-white" id="auditModalLabel">Votre Diagnostic Stratégique <span style="color: #D4AF37;">Gratuit</span></h4>
-          <p class="text-white-50 small mb-0">30 minutes avec un consultant expert pour identifier vos leviers de croissance</p>
-        </div>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="auditForm" class="mt-3">
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Prénom & Nom *</label>
-              <input type="text" class="form-control" placeholder="Jean Dupont" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 10px; padding: 0.8rem 1rem;" required>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Email Professionnel *</label>
-              <input type="email" class="form-control" placeholder="jean@entreprise.fr" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 10px; padding: 0.8rem 1rem;" required>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Entreprise</label>
-              <input type="text" class="form-control" placeholder="Ma Société SAS" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 10px; padding: 0.8rem 1rem;">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Votre Secteur</label>
-              <select class="form-select" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 10px; padding: 0.8rem 1rem;">
-                <option value="" style="background: #0a0f1a;">Choisir un secteur...</option>
-                <option value="ecommerce" style="background: #0a0f1a;">E-Commerce / Retail</option>
-                <option value="services" style="background: #0a0f1a;">Services B2B</option>
-                <option value="conseil" style="background: #0a0f1a;">Conseil / Coaching</option>
-                <option value="industrie" style="background: #0a0f1a;">Industrie / BTP</option>
-                <option value="sante" style="background: #0a0f1a;">Santé / Bien-être</option>
-                <option value="autre" style="background: #0a0f1a;">Autre</option>
-              </select>
-            </div>
-            <div class="col-12">
-              <label class="form-label text-white-50 small text-uppercase fw-bold" style="letter-spacing: 1px;">Votre principal défi</label>
-              <textarea class="form-control" rows="3" placeholder="Décrivez brièvement votre situation actuelle et vos objectifs..." style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 10px; padding: 0.8rem 1rem;"></textarea>
-            </div>
-            <div class="col-12">
-              <button type="submit" class="btn w-100 fw-bold py-3" style="background: linear-gradient(135deg, #D4AF37, #f0d060); color: #050505; border-radius: 50px; font-size: 1rem; letter-spacing: 1px; transition: all 0.3s ease;">
-                <i class="bi bi-calendar-check me-2"></i>RÉSERVER MON DIAGNOSTIC GRATUIT
-              </button>
+  <div class="modal-dialog modal-dialog-centered modal-xl" style="max-width: 900px;">
+    <div class="modal-content" style="background: transparent; border: none; border-radius: 24px; overflow: hidden;">
+      <div class="row g-0" style="border-radius: 24px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6);">
+
+        <!-- === COLONNE GAUCHE : VALEUR & SOCIAL PROOF === -->
+        <div class="col-md-5 d-none d-md-flex flex-column justify-content-between p-5 position-relative" style="background: linear-gradient(160deg, #0a1628 0%, #07111f 100%); border-right: 1px solid rgba(212,175,55,0.2);">
+          <!-- Glow décor -->
+          <div class="position-absolute top-0 start-0 rounded-circle" style="width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%); transform: translate(-30%, -30%); pointer-events:none;"></div>
+          <div>
+            <span style="display:inline-block; background: rgba(212,175,55,0.12); color: #D4AF37; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(212,175,55,0.25); margin-bottom: 1.5rem;">Offre Exclusive</span>
+            <h3 class="fw-black text-white mb-3" style="font-family:'Outfit'; font-size: 1.6rem; line-height: 1.2;">Votre Diagnostic Stratégique <span style="color:#D4AF37;">Offert</span></h3>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.7; margin-bottom: 2rem;">30 minutes avec un consultant senior pour identifier vos leviers de croissance immédiate et votre roadmap IA personnalisée.</p>
+
+            <!-- Bénéfices -->
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex align-items-start gap-3 mb-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:34px; height:34px; background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.3);">
+                  <i class="bi bi-search" style="color:#D4AF37; font-size:0.85rem;"></i>
+                </div>
+                <div>
+                  <div class="fw-bold text-white" style="font-size:0.88rem;">Audit de votre stack digitale</div>
+                  <div style="color:rgba(255,255,255,0.5); font-size:0.78rem;">Identification des pertes et gisements de valeur</div>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-3 mb-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:34px; height:34px; background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.3);">
+                  <i class="bi bi-lightning-charge" style="color:#60a5fa; font-size:0.85rem;"></i>
+                </div>
+                <div>
+                  <div class="fw-bold text-white" style="font-size:0.88rem;">Quick-wins IA & Automatisation</div>
+                  <div style="color:rgba(255,255,255,0.5); font-size:0.78rem;">Actions à fort impact déployables en 30 jours</div>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-3">
+                <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:34px; height:34px; background: rgba(52,211,153,0.12); border: 1px solid rgba(52,211,153,0.3);">
+                  <i class="bi bi-graph-up-arrow" style="color:#34d399; font-size:0.85rem;"></i>
+                </div>
+                <div>
+                  <div class="fw-bold text-white" style="font-size:0.88rem;">Trajectoire ROI sur 6 mois</div>
+                  <div style="color:rgba(255,255,255,0.5); font-size:0.78rem;">Plan d'actions chiffré et priorisé</div>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Social Proof -->
+            <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="d-flex">
+                  <?php for($s=0;$s<5;$s++): ?>
+                  <i class="bi bi-star-fill" style="color:#D4AF37; font-size:0.75rem;"></i>
+                  <?php endfor; ?>
+                </div>
+                <span style="color:rgba(255,255,255,0.5); font-size:0.75rem;">+250 dirigeants accompagnés</span>
+              </div>
+              <p style="color:rgba(255,255,255,0.6); font-size:0.78rem; margin:0; font-style:italic;">"En 30 minutes, DIGITA a identifié 3 leviers que nous n'avions pas vus depuis 2 ans."</p>
+              <div style="color:rgba(255,255,255,0.35); font-size:0.72rem; margin-top:6px;">— Thomas M., CEO · SaaS B2B</div>
             </div>
           </div>
-        </form>
-        <div id="auditSuccess" class="text-center py-4 d-none">
-          <div style="font-size: 4rem;">🎯</div>
-          <h4 class="text-white fw-bold mt-3">Demande Envoyée !</h4>
-          <p class="text-white-50">Notre équipe vous contactera sous 24h pour confirmer votre rendez-vous.</p>
+
+          <!-- Urgency indicator -->
+          <div class="d-flex align-items-center gap-2 mt-4" style="background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 10px 14px;">
+            <span class="rounded-circle" style="width:8px; height:8px; background:#D4AF37; box-shadow: 0 0 6px #D4AF37; animation: pulse 2s infinite; flex-shrink:0;"></span>
+            <span style="color:rgba(255,255,255,0.7); font-size:0.75rem;"><strong style="color:#D4AF37;">3 créneaux disponibles</strong> cette semaine</span>
+          </div>
         </div>
+
+        <!-- === COLONNE DROITE : FORMULAIRE === -->
+        <div class="col-md-7" style="background: #080e1c;">
+          <div class="p-4 p-md-5">
+            <div class="d-flex justify-content-between align-items-start mb-4">
+              <div>
+                <h4 class="fw-bold text-white mb-1" style="font-family:'Outfit';">Réservez votre créneau</h4>
+                <p class="mb-0" style="color:rgba(255,255,255,0.45); font-size:0.82rem;">Gratuit · Sans engagement · Réponse sous 2h</p>
+              </div>
+              <button type="button" class="btn-close btn-close-white opacity-50" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Indicateur de progression -->
+            <div class="d-flex gap-2 mb-4">
+              <div style="flex:1; height:3px; border-radius:3px; background: linear-gradient(90deg, #D4AF37, #f0d060);"></div>
+              <div style="flex:1; height:3px; border-radius:3px; background: rgba(255,255,255,0.1);"></div>
+              <div style="flex:1; height:3px; border-radius:3px; background: rgba(255,255,255,0.1);"></div>
+            </div>
+            <p style="color:rgba(255,255,255,0.35); font-size:0.72rem; text-transform:uppercase; letter-spacing:2px; margin-bottom:1.2rem;">Étape 1 / 3 — Votre profil</p>
+
+            <form id="auditForm">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="audit-label">Prénom & Nom *</label>
+                  <input type="text" class="audit-input" placeholder="Jean Dupont" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="audit-label">Email Professionnel *</label>
+                  <input type="email" class="audit-input" placeholder="jean@entreprise.fr" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="audit-label">Entreprise</label>
+                  <input type="text" class="audit-input" placeholder="Ma Société SAS">
+                </div>
+                <div class="col-md-6">
+                  <label class="audit-label">Secteur d'activité</label>
+                  <select class="audit-input">
+                    <option value="" style="background:#0a0f1a;">Choisir...</option>
+                    <option value="ecommerce" style="background:#0a0f1a;">E-Commerce / Retail</option>
+                    <option value="services" style="background:#0a0f1a;">Services B2B / SaaS</option>
+                    <option value="conseil" style="background:#0a0f1a;">Conseil / Coaching</option>
+                    <option value="industrie" style="background:#0a0f1a;">Industrie / BTP</option>
+                    <option value="sante" style="background:#0a0f1a;">Santé / Bien-être</option>
+                    <option value="immobilier" style="background:#0a0f1a;">Immobilier</option>
+                    <option value="autre" style="background:#0a0f1a;">Autre</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="audit-label">Votre principal objectif</label>
+                  <select class="audit-input">
+                    <option value="" style="background:#0a0f1a;">Choisir votre priorité...</option>
+                    <option value="acquisition" style="background:#0a0f1a;">Augmenter mon acquisition client</option>
+                    <option value="automatisation" style="background:#0a0f1a;">Automatiser mes processus</option>
+                    <option value="ia" style="background:#0a0f1a;">Intégrer l'IA dans mon business</option>
+                    <option value="visibilite" style="background:#0a0f1a;">Améliorer ma visibilité digitale</option>
+                    <option value="roi" style="background:#0a0f1a;">Optimiser mon ROI marketing</option>
+                    <option value="scale" style="background:#0a0f1a;">Scaler mon activité</option>
+                  </select>
+                </div>
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn w-100 fw-black py-3" style="background: linear-gradient(135deg, #D4AF37, #f0d060); color: #050505; border-radius: 50px; font-size: 0.95rem; letter-spacing: 1.5px; border: none; box-shadow: 0 8px 30px rgba(212,175,55,0.35); transition: all 0.3s ease; text-transform: uppercase;">
+                    <i class="bi bi-calendar-check me-2"></i>RÉSERVER MON DIAGNOSTIC GRATUIT
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success state -->
+            <div id="auditSuccess" class="text-center py-5 d-none">
+              <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4" style="width:80px; height:80px; background: rgba(52,211,153,0.12); border: 2px solid rgba(52,211,153,0.4);">
+                <i class="bi bi-check-lg" style="color:#34d399; font-size:2.5rem;"></i>
+              </div>
+              <h4 class="text-white fw-bold mb-2" style="font-family:'Outfit';">Demande confirmée !</h4>
+              <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; max-width:280px; margin:0 auto;">Notre équipe vous contactera dans les <strong style="color:#D4AF37;">2 heures ouvrées</strong> pour finaliser votre créneau.</p>
+            </div>
+
+            <div class="mt-3 text-center">
+              <p style="color:rgba(255,255,255,0.25); font-size:0.72rem; margin:0;"><i class="bi bi-shield-lock me-1" style="color:rgba(52,211,153,0.6);"></i>Données strictement confidentielles · Jamais revendues</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
+<style>
+.audit-label {
+    display: block;
+    color: rgba(255,255,255,0.45);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: 'Outfit', sans-serif;
+}
+.audit-input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.audit-input:focus {
+    background: rgba(212,175,55,0.05);
+    border-color: rgba(212,175,55,0.4);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.08);
+    color: #fff;
+}
+.audit-input::placeholder { color: rgba(255,255,255,0.22); }
+.audit-input option { background: #0a0f1a; color: #fff; }
+</style>
+
 <!-- ============================================================
      1. HERO SECTION PREMIUM
      ============================================================ -->
-<section id="hero" class="position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: radial-gradient(ellipse at 15% 50%, rgba(37,99,235,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(212,175,55,0.1) 0%, transparent 40%), #050505;">
+<section id="hero-premium" class="position-relative overflow-hidden d-flex align-items-center" style="min-height: 100vh; background: radial-gradient(ellipse at 15% 50%, rgba(37,99,235,0.12) 0%, transparent 50%), radial-gradient(ellipse at 85% 20%, rgba(212,175,55,0.1) 0%, transparent 40%), #050505;">
 
     <!-- Animated Grid Background -->
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px); background-size: 60px 60px; animation: gridShift 25s linear infinite; pointer-events:none;"></div>
@@ -83,51 +211,51 @@ ob_start();
     <!-- Particles Canvas -->
     <canvas id="premiumParticles" class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1; pointer-events: none; opacity: 0.5;"></canvas>
 
-    <div class="container position-relative" style="z-index: 2;">
-        <div class="row align-items-center g-5">
+    <div class="container position-relative py-5" style="z-index: 2;">
+        <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-7" data-aos="fade-right" data-aos-duration="1000">
                 <!-- Badge Prestige -->
-                <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill mb-4" style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);">
+                <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill mb-3" style="background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);">
                     <span class="rounded-circle d-inline-block" style="width:8px; height:8px; background:#D4AF37; box-shadow: 0 0 8px #D4AF37; animation: pulse 2s infinite;"></span>
                     <span style="color: #D4AF37; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 700;">Cabinet de Conseil Stratégique Premium</span>
                 </div>
 
                 <!-- Title Principal -->
-                <h1 class="fw-black mb-4" style="font-family: 'Outfit', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.05; color: #fff;">
+                <h1 class="fw-black mb-3" style="font-family: 'Outfit', sans-serif; font-size: clamp(2.6rem, 5.5vw, 4.6rem); line-height: 1.08; color: #fff;">
                     DIGITA —<br>
                     Un Écosystème<br>
                     <span style="background: linear-gradient(135deg, #D4AF37 0%, #f0d060 40%, #2563eb 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: titleShine 4s ease-in-out infinite;">Intelligent & Automatisé</span>
                 </h1>
 
-                <p class="mb-5" style="color: rgba(255,255,255,0.8); font-size: 1.2rem; line-height: 1.8; max-width: 580px;">
-                    Nous fusionnons l'<strong style="color: #D4AF37;">Intelligence Artificielle</strong>, l'<strong style="color: #2563eb;">automatisation avancée</strong> et le conseil stratégique pour propulser votre activité vers de nouveaux sommets — sans friction technique.
+                <p class="mb-4" style="color: rgba(255,255,255,0.78); font-size: 1.12rem; line-height: 1.8; max-width: 560px;">
+                    Nous fusionnons l'<strong style="color: #D4AF37;">Intelligence Artificielle</strong>, l'<strong style="color: #60a5fa;">automatisation avancée</strong> et le conseil stratégique pour propulser votre activité vers de nouveaux sommets — sans friction technique.
                 </p>
 
                 <!-- CTAs -->
-                <div class="d-flex flex-wrap gap-3 mb-5">
+                <div class="d-flex flex-wrap gap-3 mb-4">
                     <button class="btn fw-bold px-5 py-3" data-bs-toggle="modal" data-bs-target="#auditModal" style="background: linear-gradient(135deg, #D4AF37, #f0d060); color: #050505; border-radius: 50px; font-size: 1rem; box-shadow: 0 0 30px rgba(212,175,55,0.4); transition: all 0.3s ease; border: none;">
                         <i class="bi bi-lightning-charge-fill me-2"></i>Diagnostic Gratuit
                     </button>
-                    <a href="#ecosysteme" class="btn fw-bold px-5 py-3" style="background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(0,210,255,0.2)); color: #fff; border: 1px solid rgba(37,99,235,0.5); border-radius: 50px; font-size: 1rem; transition: all 0.3s ease; text-decoration: none;">
+                    <a href="#ecosysteme" class="btn fw-bold px-4 py-3" style="background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(0,210,255,0.2)); color: #fff; border: 1px solid rgba(37,99,235,0.5); border-radius: 50px; font-size: 1rem; transition: all 0.3s ease; text-decoration: none;">
                         <i class="bi bi-grid-3x3-gap me-2"></i>Explorer l'Écosystème
                     </a>
                 </div>
 
                 <!-- Trust Signals -->
-                <div class="d-flex flex-wrap gap-4">
+                <div class="d-flex flex-wrap gap-4 align-items-center">
                     <div class="d-flex align-items-center gap-2">
                         <span class="fw-black" style="color: #D4AF37; font-size: 1.5rem; font-family: 'Outfit';">+250</span>
-                        <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Clients<br>accompagnés</span>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.3;">Clients<br>accompagnés</span>
                     </div>
-                    <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+                    <div style="width: 1px; height: 36px; background: rgba(255,255,255,0.12);"></div>
                     <div class="d-flex align-items-center gap-2">
                         <span class="fw-black" style="color: #D4AF37; font-size: 1.5rem; font-family: 'Outfit';">x2.5</span>
-                        <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">ROI moyen<br>constaté</span>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.3;">ROI moyen<br>constaté</span>
                     </div>
-                    <div style="width: 1px; background: rgba(255,255,255,0.1);"></div>
+                    <div style="width: 1px; height: 36px; background: rgba(255,255,255,0.12);"></div>
                     <div class="d-flex align-items-center gap-2">
                         <span class="fw-black" style="color: #D4AF37; font-size: 1.5rem; font-family: 'Outfit';">24/7</span>
-                        <span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">Systèmes<br>autonomes actifs</span>
+                        <span style="color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.3;">Systèmes<br>autonomes actifs</span>
                     </div>
                 </div>
             </div>
@@ -209,8 +337,8 @@ ob_start();
         <div class="row align-items-center g-5 mb-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <span class="d-inline-block px-3 py-1 rounded-pill mb-3" style="background: rgba(212,175,55,0.1); color: #D4AF37; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.25);">Le Constat</span>
-                <h2 class="fw-black mb-4" style="font-family:'Outfit',sans-serif; font-size: clamp(2rem,4vw,3rem); color: #fff;">Vous vous reconnaissez dans ces situations ?</h2>
-                <p style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; max-width: 500px;">Dans un marché saturé et en constante accélération, les entreprises qui n'automatisent pas perdent du terrain chaque jour. Ce n'est pas une question de taille — c'est une question de méthode.</p>
+                <h2 class="fw-black mb-4" style="font-family:'Outfit',sans-serif; font-size: clamp(2rem,4vw,3rem); color: #fff;">Ces blocages coûtent-ils de la croissance à votre entreprise ?</h2>
+                <p style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; max-width: 500px;">Dans un marché saturé et en constante accélération, les entreprises qui n'automatisent pas perdent du terrain chaque jour. Ce n'est pas une question de taille — c'est une question de méthode et d'outillage.</p>
                 <button class="btn mt-3 fw-bold px-5 py-3" data-bs-toggle="modal" data-bs-target="#auditModal" style="background: linear-gradient(135deg, #D4AF37, #f0d060); color: #050505; border-radius: 50px; border: none;">
                     <i class="bi bi-arrow-right-circle me-2"></i>Obtenir une Solution
                 </button>
@@ -258,15 +386,15 @@ ob_start();
         <div class="text-center mb-6" data-aos="fade-up" style="margin-bottom: 70px;">
             <span class="d-inline-block px-3 py-1 rounded-pill mb-3" style="background: rgba(37,99,235,0.1); color: #60a5fa; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(37,99,235,0.3);">Intelligence & Architecture</span>
             <h2 class="fw-black text-white mb-3" style="font-family:'Outfit',sans-serif; font-size: clamp(2rem,4vw,3rem);">L'Écosystème Digital de Demain</h2>
-            <p style="color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Cinq piliers interconnectés orchestrés par une intelligence centrale pour maximiser votre impact et votre liberté opérationnelle.</p>
+            <p style="color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; font-size: 1.05rem;">Sept piliers interconnectés orchestrés par une intelligence centrale pour maximiser votre impact, votre organisation et votre liberté opérationnelle.</p>
         </div>
 
         <!-- Top Row -->
         <div class="row g-4 justify-content-center mb-4">
             <?php
             $topCards = [
-                ['bi bi-stars',       '#D4AF37', 'Identité & Marque',   'Branding haut de gamme pour imposer votre leadership dès le premier contact visuel.', ['Charte Graphique Premium','Storytelling de Marque','Positionnement Stratégique']],
-                ['bi bi-cpu',         '#60a5fa', 'IA Générative',       'Agents IA sur-mesure pour scaler votre production de contenu et automatiser vos ventes.', ['Agents Conversationnels','Génération de Contenu IA','Analyse Prédictive']],
+                ['bi bi-stars',       '#D4AF37', 'Identité & Marque',   'Branding haut de gamme conçu pour imposer votre leadership dès le premier contact visuel et ancrer durablement votre positionnement premium.', ['Charte Graphique Premium','Storytelling de Marque','Positionnement Stratégique']],
+                ['bi bi-cpu',         '#60a5fa', 'IA Générative',       'Agents IA sur-mesure entraînés sur votre secteur pour scaler votre production de contenu, qualifier vos leads et automatiser vos cycles de vente.', ['Agents Conversationnels','Génération de Contenu IA','Analyse Prédictive']],
             ];
             foreach ($topCards as $i => $c):
             $glowColor = $c[1] === '#D4AF37' ? 'rgba(212,175,55,0.15)' : 'rgba(37,99,235,0.15)';
@@ -298,7 +426,12 @@ ob_start();
                     <div class="position-absolute top-0 start-0 rounded-circle" style="width: 120px; height: 120px; background: radial-gradient(circle, rgba(212,175,55,0.1), transparent); transform: translate(-30%, -30%); pointer-events:none;"></div>
                     <i class="bi bi-trophy d-block mb-3" style="font-size: 2.2rem; color: #D4AF37;"></i>
                     <h4 class="fw-bold text-white mb-2" style="font-family:'Outfit';">Conseil Stratégique</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Un partenaire de réflexion qui pilote votre croissance sur le long terme. Nous devenons votre DSI et CMO externalisé.</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">Un partenaire de réflexion qui pilote votre croissance sur le long terme. Nous devenons votre DSI et CMO externalisé, alignés sur vos objectifs business.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>Audit & Roadmap Stratégique</li>
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>DSI / CMO Externalisé</li>
+                        <li class="d-flex align-items-center gap-2" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>Pilotage OKR & KPI</li>
+                    </ul>
                 </div>
             </div>
 
@@ -320,18 +453,41 @@ ob_start();
                     <div class="position-absolute top-0 end-0 rounded-circle" style="width: 120px; height: 120px; background: radial-gradient(circle, rgba(37,99,235,0.1), transparent); transform: translate(30%, -30%); pointer-events:none;"></div>
                     <i class="bi bi-megaphone d-block mb-3" style="font-size: 2.2rem; color: #60a5fa;"></i>
                     <h4 class="fw-bold text-white mb-2" style="font-family:'Outfit';">Acquisition & Conversion</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">SEO avancé, campagnes Ads pilotées par IA et tunnels de conversion haute performance pour attirer et transformer vos prospects idéaux.</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">SEO avancé, campagnes Ads pilotées par IA et tunnels de conversion haute performance pour attirer et transformer vos prospects idéaux en clients.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #60a5fa; font-size: 0.75rem;"></i>SEO Sémantique & Technique</li>
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #60a5fa; font-size: 0.75rem;"></i>Ads IA (Google, Meta, LinkedIn)</li>
+                        <li class="d-flex align-items-center gap-2" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #60a5fa; font-size: 0.75rem;"></i>Tunnels & CRO Avancé</li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Row -->
+        <!-- Bottom Row (2 cards) -->
         <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="p-4 h-100 position-relative overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.25); border-radius: 20px; transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(212,175,55,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
                     <i class="bi bi-building-gear d-block mb-3" style="font-size: 2.2rem; color: #D4AF37;"></i>
                     <h4 class="fw-bold text-white mb-2" style="font-family:'Outfit';">Architecture Web</h4>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7;">Sites vitrines premium, plateformes e-commerce sur-mesure et applications métiers à très haute vélocité, conçus pour convertir.</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">Sites vitrines premium, plateformes e-commerce sur-mesure et applications métiers à très haute vélocité, conçus pour convertir et performer.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>Sites Vitrines & E-Commerce</li>
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>Applications Métier Sur-Mesure</li>
+                        <li class="d-flex align-items-center gap-2" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #D4AF37; font-size: 0.75rem;"></i>Performance & Sécurité Web</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 h-100 position-relative overflow-hidden" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(167,139,250,0.25); border-radius: 20px; transition: all 0.4s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(167,139,250,0.1)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                    <div class="position-absolute top-0 end-0 rounded-circle" style="width: 120px; height: 120px; background: radial-gradient(circle, rgba(167,139,250,0.1), transparent); transform: translate(30%, -30%); pointer-events:none;"></div>
+                    <i class="bi bi-kanban d-block mb-3" style="font-size: 2.2rem; color: #a78bfa;"></i>
+                    <h4 class="fw-bold text-white mb-2" style="font-family:'Outfit';">Organisation & Gouvernance</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">Structuration des processus internes, pilotage agile des projets et gouvernance des données pour une organisation haute performance et scalable.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #a78bfa; font-size: 0.75rem;"></i>Pilotage Agile & OKR</li>
+                        <li class="d-flex align-items-center gap-2 mb-1" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #a78bfa; font-size: 0.75rem;"></i>Gouvernance des Données</li>
+                        <li class="d-flex align-items-center gap-2" style="font-size: 0.82rem; color: rgba(255,255,255,0.7);"><i class="bi bi-check-circle-fill" style="color: #a78bfa; font-size: 0.75rem;"></i>Management d'Équipes & Prestataires</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -340,59 +496,7 @@ ob_start();
 
 
 <!-- ============================================================
-     5. MÉTHODE (Timeline Verticale Pulsia-style)
-     ============================================================ -->
-<section id="methode" class="py-6 position-relative" style="background: #050505; padding: 120px 0;">
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(rgba(37,99,235,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.02) 1px, transparent 1px); background-size: 50px 50px; animation: gridShift 30s linear infinite; pointer-events: none;"></div>
-
-    <div class="container position-relative" style="z-index: 1;">
-        <div class="text-center mb-5" data-aos="fade-up" style="margin-bottom: 80px;">
-            <span class="d-inline-block px-3 py-1 rounded-pill mb-3" style="background: rgba(212,175,55,0.1); color: #D4AF37; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.25);">La Méthode DIGITA</span>
-            <h2 class="fw-black text-white mb-3" style="font-family:'Outfit',sans-serif; font-size: clamp(2rem,4vw,3rem);">Le Parcours vers l'Excellence</h2>
-            <p style="color: rgba(255,255,255,0.5); max-width: 550px; margin: 0 auto; font-size: 1.05rem;">Une approche structurée et rigoureuse, de la vision à l'exploitation, pour un résultat mesurable et durable.</p>
-        </div>
-
-        <!-- Vertical Timeline -->
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <?php
-                $steps = [
-                    ['01', 'bi bi-search-heart', '#D4AF37', 'Diagnostic 360°', 'Audit complet de votre organisation digitale : processus, outils, positionnement et concurrence. Identification des leviers de croissance immédiats avec un plan de priorisation ROI.'],
-                    ['02', 'bi bi-cpu',           '#60a5fa', 'Architecture',    'Conception de votre écosystème intelligent et personnalisé : sélection des outils, intégrations API, agents IA, CRM et workflows d\'automatisation interconnectés.'],
-                    ['03', 'bi bi-rocket-takeoff','#a78bfa', 'Déploiement',    'Mise en œuvre agile et itérative. Chaque sprint délivre de la valeur immédiate avec des indicateurs de performance clairs et des point d\'étape réguliers.'],
-                    ['04', 'bi bi-graph-up-arrow','#34d399', 'Optimisation',   'Suivi continu des performances, tests A/B, ajustements algorithmiques et amélioration des agents IA pour une optimisation permanente du ROI.'],
-                ];
-                foreach ($steps as $i => $step):
-                $isEven = $i % 2 === 0;
-                ?>
-                <div class="d-flex gap-4 mb-4 position-relative" data-aos="fade-up" data-aos-delay="<?= $i * 120 ?>">
-                    <!-- Step Number & Icon -->
-                    <div class="d-flex flex-column align-items-center" style="min-width: 70px;">
-                        <div class="d-flex align-items-center justify-content-center rounded-circle fw-black position-relative" style="width: 64px; height: 64px; background: linear-gradient(135deg, <?= $step[2] ?>22, <?= $step[2] ?>11); border: 2px solid <?= $step[2] ?>; box-shadow: 0 0 20px <?= $step[2] ?>33; color: <?= $step[2] ?>; font-family: 'Outfit'; font-size: 1.1rem; z-index: 1;">
-                            <?= $step[0] ?>
-                        </div>
-                        <?php if ($i < count($steps) - 1): ?>
-                        <div class="flex-grow-1 my-2" style="width: 2px; background: linear-gradient(to bottom, <?= $step[2] ?>60, transparent); min-height: 40px;"></div>
-                        <?php endif; ?>
-                    </div>
-                    <!-- Content -->
-                    <div class="p-4 flex-grow-1 mb-2" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; transition: all 0.3s ease;" onmouseover="this.style.borderColor='<?= $step[2] ?>44'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <i class="<?= $step[1] ?>" style="color: <?= $step[2] ?>; font-size: 1.4rem;"></i>
-                            <h4 class="fw-bold text-white mb-0" style="font-family:'Outfit';"><?= $step[3] ?></h4>
-                        </div>
-                        <p style="color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.75; margin: 0;"><?= $step[4] ?></p>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ============================================================
-     6. SECTION COLLABORATION (Partenariat Stratégique)
+     5. SECTION COLLABORATION (Partenariat Stratégique)
      ============================================================ -->
 <section id="collaboration" class="py-6 position-relative" style="background: linear-gradient(135deg, #030a17, #050505); padding: 120px 0;">
     <div class="position-absolute bottom-0 start-0 rounded-circle" style="width: 500px; height: 500px; background: radial-gradient(circle, rgba(212,175,55,0.05), transparent); pointer-events:none;"></div>
@@ -460,6 +564,58 @@ ob_start();
                         <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin: 0;">Résultats moyens constatés chez nos clients · 6 premiers mois</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     6. MÉTHODE (Timeline Verticale Pulsia-style)
+     ============================================================ -->
+<section id="methode" class="py-6 position-relative" style="background: #050505; padding: 120px 0;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-image: linear-gradient(rgba(37,99,235,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.02) 1px, transparent 1px); background-size: 50px 50px; animation: gridShift 30s linear infinite; pointer-events: none;"></div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="text-center mb-5" data-aos="fade-up" style="margin-bottom: 80px;">
+            <span class="d-inline-block px-3 py-1 rounded-pill mb-3" style="background: rgba(212,175,55,0.1); color: #D4AF37; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.25);">La Méthode DIGITA</span>
+            <h2 class="fw-black text-white mb-3" style="font-family:'Outfit',sans-serif; font-size: clamp(2rem,4vw,3rem);">Le Parcours vers l'Excellence</h2>
+            <p style="color: rgba(255,255,255,0.5); max-width: 550px; margin: 0 auto; font-size: 1.05rem;">Une approche structurée et rigoureuse en 5 étapes, de la vision à l'exploitation, pour un résultat mesurable et durable.</p>
+        </div>
+
+        <!-- Vertical Timeline -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <?php
+                $steps = [
+                    ['01', 'bi bi-search-heart',  '#D4AF37', 'Diagnostique',    'Audit complet de votre organisation digitale : processus, outils, positionnement et concurrence. Identification des leviers de croissance immédiats avec un plan de priorisation ROI.'],
+                    ['02', 'bi bi-map',            '#f97316', 'Stratégie',       'Élaboration de votre roadmap personnalisée sur 90 jours : priorisation des actions à fort impact, définition des KPIs cibles, choix des leviers d\'activation et planning d\'exécution.'],
+                    ['03', 'bi bi-cpu',            '#60a5fa', 'Architecture',    'Conception de votre écosystème intelligent et personnalisé : sélection des outils, intégrations API, agents IA, CRM et workflows d\'automatisation interconnectés.'],
+                    ['04', 'bi bi-robot',          '#a78bfa', 'Automatisation',  'Déploiement agile des workflows, des agents IA et des intégrations. Chaque sprint délivre de la valeur immédiate avec des indicateurs de performance clairs et des points d\'étape réguliers.'],
+                    ['05', 'bi bi-graph-up-arrow', '#34d399', 'Optimisation',    'Suivi continu des performances, tests A/B, ajustements algorithmiques et amélioration continue des agents IA pour maximiser votre ROI sur le long terme.'],
+                ];
+                foreach ($steps as $i => $step):
+                ?>
+                <div class="d-flex gap-4 mb-4 position-relative" data-aos="fade-up" data-aos-delay="<?= $i * 100 ?>">
+                    <!-- Step Number & Icon -->
+                    <div class="d-flex flex-column align-items-center" style="min-width: 70px;">
+                        <div class="d-flex align-items-center justify-content-center rounded-circle fw-black position-relative" style="width: 64px; height: 64px; background: linear-gradient(135deg, <?= $step[2] ?>22, <?= $step[2] ?>11); border: 2px solid <?= $step[2] ?>; box-shadow: 0 0 20px <?= $step[2] ?>33; color: <?= $step[2] ?>; font-family: 'Outfit'; font-size: 1.1rem; z-index: 1;">
+                            <?= $step[0] ?>
+                        </div>
+                        <?php if ($i < count($steps) - 1): ?>
+                        <div class="flex-grow-1 my-2" style="width: 2px; background: linear-gradient(to bottom, <?= $step[2] ?>60, transparent); min-height: 40px;"></div>
+                        <?php endif; ?>
+                    </div>
+                    <!-- Content -->
+                    <div class="p-4 flex-grow-1 mb-2" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; transition: all 0.3s ease;" onmouseover="this.style.borderColor='<?= $step[2] ?>44'" onmouseout="this.style.borderColor='rgba(255,255,255,0.06)'">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <i class="<?= $step[1] ?>" style="color: <?= $step[2] ?>; font-size: 1.4rem;"></i>
+                            <h4 class="fw-bold text-white mb-0" style="font-family:'Outfit';"><?= $step[3] ?></h4>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.65); font-size: 0.92rem; line-height: 1.75; margin: 0;"><?= $step[4] ?></p>
+                    </div>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

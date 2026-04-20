@@ -1,32 +1,45 @@
-/* ==================== STYLES GLOBAUX LAYOUT ==================== */
+/* ==================== STYLES GLOBAUX PREMIUM (DIGITA v2) ==================== */
 
-/* Body */
+:root {
+    /* Palette de Couleurs */
+    --gold: #D4AF37;
+    --gold-glow: rgba(212, 175, 55, 0.4);
+    --blue: #2563eb;
+    --blue-glow: rgba(37, 99, 235, 0.4);
+    --dark: #050505;
+    --dark-alt: #0a0f1a;
+    
+    /* Typographie */
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Textes */
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.8);
+    
+    /* Effets Vitre (Glassmorphism) */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(12px);
+    
+    /* Layout */
+    --sidebar-width: 280px;
+}
+
+/* Base Body Premium */
 body { 
-    background: #f7f7f7; 
+    background-color: var(--dark);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
 }
 
-/* Header/navbar TOUJOURS blanc */
-.navbar, .navbar.bg-white, .navbar.navbar-light, .navbar.fixed-top {
-    background: #fff !important;
-    box-shadow: 0 2px 16px #2325260f;
-    border-bottom: 1px solid #eee;
-}
-
-.navbar .nav-link, .navbar .navbar-brand, .navbar .btn {
-    color: #232323 !important;
-}
-
-/* Style des sous-titres de navigation */
-.nav-item {
-    text-align: center;
-    padding: 0.5rem 1rem;
-}
-
-.nav-subtitle {
-    font-size: 0.75rem;
-    color: #666;
-    margin-top: -0.25rem;
-    white-space: nowrap;
+/* Titres Premium */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
 /* Liens cliquables dans les descriptions */
@@ -50,14 +63,112 @@ body {
     font-weight: 500;
 }
 
-/* Effet hover sur les cartes */
-.hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* --- Animations de Fond Premium --- */
+
+.bg-premium-grid {
+    background-color: var(--dark);
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    position: relative;
 }
 
-.hover-lift:hover {
+.bg-premium-grid.animated {
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+.bg-premium-dark-blue {
+    background: linear-gradient(135deg, #020617 0%, #0a0f1a 100%);
+    position: relative;
+}
+
+.bg-premium-glow {
+    background: var(--dark);
+    background-image: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+}
+
+/* Texte Lueur Or */
+.glow-text-gold {
+    text-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* --- Fin des Utilitaires --- */
+
+/* --- Utilitaires de Design Premium --- */
+
+/* Glassmorphism */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--gold-glow);
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Boutons Premium */
+.btn-premium {
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-premium-gold {
+    background: var(--gold);
+    color: var(--dark) !important;
+    box-shadow: 0 4px 15px var(--gold-glow);
+}
+
+.btn-premium-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--gold-glow);
+    background: #e5c158;
+}
+
+.btn-premium-blue {
+    background: var(--blue);
+    color: white !important;
+    box-shadow: 0 4px 15px var(--blue-glow);
+}
+
+.btn-premium-blue:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px var(--blue-glow);
+    filter: brightness(1.1);
+}
+
+/* Gradients de Texte */
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold), #f3d47c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue {
+    background: linear-gradient(135deg, #60a5fa, var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Compensation pour le header fixe - UNIQUEMENT pour pages formations */

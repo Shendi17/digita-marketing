@@ -1,249 +1,523 @@
-<!-- Formulaire de Brief Client - Multi-étapes -->
-<section class="brief-page" style="padding-top: 120px; padding-bottom: 60px;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bold">Créez votre projet digital</h1>
-                    <p class="lead text-muted">Décrivez votre besoin et recevez un devis instantané</p>
-                </div>
+<!-- Atelier Stratégique DIGITA - Brief Interactif v2.0 -->
+<section class="brief-page bg-premium-dark-blue" style="padding-top: 150px; padding-bottom: 100px; min-height: 100vh; position: relative;">
+    <div class="bg-premium-grid"></div>
+    <div class="bg-premium-glow" style="top: 20%; left: 10%;"></div>
 
-                <?php if (!empty($_SESSION['error_message'])): ?>
-                    <div class="alert alert-danger alert-dismissible fade show">
-                        <?= htmlspecialchars($_SESSION['error_message']) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="container relative-z">
+        <div class="row g-5">
+            <!-- Colonne Principale : Le Formulaire -->
+            <div class="col-lg-8" data-aos="fade-right">
+                <div class="glass-card p-4 p-md-5">
+                    <div class="mb-5">
+                        <span class="badge bg-gold-gradient text-dark mb-2 px-3 py-2 uppercase tracking-wide">Workshop Stratégique</span>
+                        <h1 class="display-5 fw-bold text-white">Donnez vie à votre ambition</h1>
+                        <p class="text-white-50">Décrivez vos enjeux et obtenez une trajectoire budgétaire instantanée.</p>
                     </div>
-                    <?php unset($_SESSION['error_message']); ?>
-                <?php endif; ?>
 
-                <!-- Indicateur d'étapes -->
-                <div class="d-flex justify-content-center mb-5">
-                    <div class="step-indicator d-flex align-items-center gap-2">
-                        <span class="step-dot active" data-step="1">1</span>
-                        <span class="step-line"></span>
-                        <span class="step-dot" data-step="2">2</span>
-                        <span class="step-line"></span>
-                        <span class="step-dot" data-step="3">3</span>
-                    </div>
-                </div>
-
-                <form action="/projets/brief" method="POST" id="briefForm">
-                    <!-- Étape 1 : Type de projet -->
-                    <div class="brief-step" id="step1">
-                        <h3 class="mb-4"><i class="bi bi-1-circle text-primary"></i> Type de projet</h3>
-                        
-                        <div class="row g-3 mb-4">
-                            <?php
-                            $icons = [
-                                'website' => 'bi-globe',
-                                'ecommerce' => 'bi-cart3',
-                                'landing' => 'bi-file-earmark-richtext',
-                                'app' => 'bi-phone',
-                                'seo' => 'bi-search',
-                                'marketing' => 'bi-megaphone'
-                            ];
-                            foreach ($projectTypes as $key => $label):
-                            ?>
-                                <div class="col-md-4 col-6">
-                                    <input type="radio" name="project_type" value="<?= $key ?>" id="type_<?= $key ?>" class="btn-check" required>
-                                    <label class="btn btn-outline-primary w-100 py-3 text-center" for="type_<?= $key ?>">
-                                        <i class="bi <?= $icons[$key] ?? 'bi-folder' ?> fs-3 d-block mb-2"></i>
-                                        <?= htmlspecialchars($label) ?>
-                                    </label>
-                                </div>
-                            <?php endforeach; ?>
+                    <?php if (!empty($_SESSION['error_message'])): ?>
+                        <div class="alert bg-danger bg-opacity-10 border-danger text-danger alert-dismissible fade show mb-4">
+                            <i class="bi bi-exclamation-triangle me-2"></i><?= htmlspecialchars($_SESSION['error_message']) ?>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
                         </div>
+                        <?php unset($_SESSION['error_message']); ?>
+                    <?php endif; ?>
 
-                        <div class="mb-3">
-                            <label for="title" class="form-label fw-bold">Nom du projet *</label>
-                            <input type="text" name="title" id="title" class="form-control form-control-lg" placeholder="Ex: Site vitrine pour mon restaurant" required>
-                        </div>
-
-                        <div class="text-end">
-                            <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(2)">
-                                Suivant <i class="bi bi-arrow-right"></i>
-                            </button>
+                    <!-- Indicateur de progression Premium -->
+                    <div class="brief-stepper mb-5">
+                        <div class="d-flex justify-content-between position-relative px-2">
+                            <div class="step-progress-bar">
+                                <div class="step-progress-fill" id="stepProgress" style="width: 33%;"></div>
+                            </div>
+                            <div class="step-item active" data-step="1">
+                                <div class="step-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                                <span class="step-label">Vision</span>
+                            </div>
+                            <div class="step-item" data-step="2">
+                                <div class="step-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                                <span class="step-label">Détails</span>
+                            </div>
+                            <div class="step-item" data-step="3">
+                                <div class="step-icon"><i class="bi bi-trophy"></i></div>
+                                <span class="step-label">Finitions</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Étape 2 : Détails du brief -->
-                    <div class="brief-step d-none" id="step2">
-                        <h3 class="mb-4"><i class="bi bi-2-circle text-primary"></i> Détails du projet</h3>
-
-                        <div class="mb-3">
-                            <label for="business_name" class="form-label fw-bold">Nom de l'entreprise</label>
-                            <input type="text" name="business_name" id="business_name" class="form-control" placeholder="Votre entreprise">
-                        </div>
-
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="business_type" class="form-label fw-bold">Secteur d'activité</label>
-                                <select name="business_type" id="business_type" class="form-select">
-                                    <option value="">Sélectionner...</option>
-                                    <option value="restaurant">Restaurant / Hôtellerie</option>
-                                    <option value="commerce">Commerce / Retail</option>
-                                    <option value="services">Services / Conseil</option>
-                                    <option value="sante">Santé / Bien-être</option>
-                                    <option value="immobilier">Immobilier</option>
-                                    <option value="tech">Tech / Startup</option>
-                                    <option value="artisan">Artisanat / BTP</option>
-                                    <option value="education">Éducation / Formation</option>
-                                    <option value="autre">Autre</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="target_audience" class="form-label fw-bold">Public cible</label>
-                                <input type="text" name="target_audience" id="target_audience" class="form-control" placeholder="Ex: Particuliers 25-45 ans">
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="brief" class="form-label fw-bold">Décrivez votre projet *</label>
-                            <textarea name="brief" id="brief" class="form-control" rows="5" placeholder="Décrivez en détail ce que vous souhaitez : objectifs, fonctionnalités, inspirations..." required></textarea>
-                        </div>
-
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="existing_url" class="form-label fw-bold">Site existant (si applicable)</label>
-                                <input type="url" name="existing_url" id="existing_url" class="form-control" placeholder="https://...">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="competitors" class="form-label fw-bold">Sites concurrents / inspirations</label>
-                                <input type="text" name="competitors" id="competitors" class="form-control" placeholder="URLs séparées par des virgules">
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-outline-secondary btn-lg" onclick="nextStep(1)">
-                                <i class="bi bi-arrow-left"></i> Retour
-                            </button>
-                            <button type="button" class="btn btn-primary btn-lg" onclick="nextStep(3)">
-                                Suivant <i class="bi bi-arrow-right"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Étape 3 : Options & Devis -->
-                    <div class="brief-step d-none" id="step3">
-                        <h3 class="mb-4"><i class="bi bi-3-circle text-primary"></i> Options & Devis</h3>
-
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-4">
-                                <label for="style" class="form-label fw-bold">Style visuel</label>
-                                <select name="style" id="style" class="form-select">
-                                    <option value="modern">Moderne</option>
-                                    <option value="minimal">Minimaliste</option>
-                                    <option value="corporate">Corporate</option>
-                                    <option value="creative">Créatif</option>
-                                    <option value="elegant">Élégant</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="pages" class="form-label fw-bold">Nombre de pages</label>
-                                <input type="number" name="pages" id="pages" class="form-control" value="5" min="1" max="50">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="content_tone" class="form-label fw-bold">Ton du contenu</label>
-                                <select name="content_tone" id="content_tone" class="form-select">
-                                    <option value="professionnel">Professionnel</option>
-                                    <option value="decontracte">Décontracté</option>
-                                    <option value="luxe">Luxe / Premium</option>
-                                    <option value="dynamique">Dynamique</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Fonctionnalités souhaitées</label>
-                            <div class="row g-2">
+                    <form action="/projets/brief" method="POST" id="briefForm">
+                        <!-- Étape 1 : Vision & Type -->
+                        <div class="brief-step" id="step1">
+                            <h3 class="h4 text-gold mb-4 fw-bold">1. Quelle est la nature de votre ambition ?</h3>
+                            
+                            <div class="row g-3 mb-5">
                                 <?php
-                                $features = [
-                                    'contact_form' => 'Formulaire de contact',
-                                    'blog' => 'Blog / Actualités',
-                                    'gallery' => 'Galerie photos',
-                                    'booking' => 'Réservation en ligne',
-                                    'newsletter' => 'Newsletter',
-                                    'social' => 'Réseaux sociaux',
-                                    'maps' => 'Carte Google Maps',
-                                    'chat' => 'Chat en ligne',
-                                    'multilingual' => 'Multilingue',
-                                    'analytics' => 'Analytics / Statistiques'
+                                $icons = [
+                                    'website' => 'bi-globe',
+                                    'ecommerce' => 'bi-cart3',
+                                    'landing' => 'bi-lightning-charge',
+                                    'app' => 'bi-cpu',
+                                    'seo' => 'bi-search',
+                                    'marketing' => 'bi-megaphone'
                                 ];
-                                foreach ($features as $fKey => $fLabel):
+                                foreach ($projectTypes as $key => $label):
                                 ?>
-                                    <div class="col-md-6">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="features[]" value="<?= $fKey ?>" id="feat_<?= $fKey ?>">
-                                            <label class="form-check-label" for="feat_<?= $fKey ?>"><?= $fLabel ?></label>
-                                        </div>
+                                    <div class="col-md-4 col-6">
+                                        <input type="radio" name="project_type" value="<?= $key ?>" id="type_<?= $key ?>" class="btn-check" required>
+                                        <label class="project-type-card h-100" for="type_<?= $key ?>">
+                                            <i class="bi <?= $icons[$key] ?? 'bi-folder' ?>"></i>
+                                            <span><?= htmlspecialchars($label) ?></span>
+                                        </label>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
-                        </div>
 
-                        <div class="row g-3 mb-3">
-                            <div class="col-md-6">
-                                <label for="colors" class="form-label fw-bold">Couleurs préférées</label>
-                                <input type="text" name="colors" id="colors" class="form-control" placeholder="Ex: bleu, blanc, gris">
+                            <div class="mb-4">
+                                <label for="title" class="form-label text-white-50 fw-bold">NOM DE VOTRE PROJET</label>
+                                <input type="text" name="title" id="title" class="form-control form-control-premium" placeholder="Ex: Expansion Digitale 2025" required>
                             </div>
-                            <div class="col-md-6">
-                                <label for="deadline" class="form-label fw-bold">Délai souhaité</label>
-                                <select name="deadline" id="deadline" class="form-select">
-                                    <option value="">Pas de contrainte</option>
-                                    <option value="1week">1 semaine</option>
-                                    <option value="2weeks">2 semaines</option>
-                                    <option value="1month">1 mois</option>
-                                    <option value="3months">3 mois</option>
-                                </select>
-                            </div>
-                        </div>
 
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" name="urgent" id="urgent" value="1">
-                            <label class="form-check-label" for="urgent">
-                                <i class="bi bi-lightning-charge text-warning"></i> Projet urgent (livraison accélérée, +50%)
-                            </label>
-                        </div>
-
-                        <!-- Devis estimé -->
-                        <div class="card bg-primary bg-opacity-10 border-primary mb-4">
-                            <div class="card-body text-center">
-                                <h5 class="text-primary mb-1">Devis estimé</h5>
-                                <div class="display-4 fw-bold text-primary" id="quotePrice">—</div>
-                                <small class="text-muted">Ce prix est indicatif et sera confirmé après étude de votre brief</small>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <button type="button" class="btn btn-outline-secondary btn-lg" onclick="nextStep(2)">
-                                <i class="bi bi-arrow-left"></i> Retour
-                            </button>
-                            <?php if (isset($_SESSION['user_id'])): ?>
-                                <button type="submit" class="btn btn-success btn-lg">
-                                    <i class="bi bi-send"></i> Soumettre mon projet
+                            <div class="d-flex justify-content-end mt-5">
+                                <button type="button" class="btn btn-premium px-5" onclick="nextStep(2)">
+                                    Continuer vers les détails <i class="bi bi-arrow-right ms-2"></i>
                                 </button>
-                            <?php else: ?>
-                                <a href="/connexion" class="btn btn-success btn-lg">
-                                    <i class="bi bi-box-arrow-in-right"></i> Connectez-vous pour soumettre
-                                </a>
-                            <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2 : Détails Stratégiques -->
+                        <div class="brief-step d-none" id="step2">
+                            <h3 class="h4 text-gold mb-4 fw-bold">2. Contextualisez votre écosystème</h3>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label for="business_name" class="form-label text-white-50 fw-bold">NOM DE L'ENTREPRISE / MARQUE</label>
+                                    <input type="text" name="business_name" id="business_name" class="form-control form-control-premium" placeholder="Structure">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="business_type" class="form-label text-white-50 fw-bold">SECTEUR D'ACTIVITÉ</label>
+                                    <select name="business_type" id="business_type" class="form-select form-control-premium">
+                                        <option value="">Sélectionner un domaine...</option>
+                                        <option value="business">Services B2B / Conseil</option>
+                                        <option value="luxe">Luxe / Premium</option>
+                                        <option value="commerce">Social Commerce / E-shop</option>
+                                        <option value="immo">Real Estate / Immobilier</option>
+                                        <option value="tech">Saas / Tech</option>
+                                        <option value="autre">Autre secteur stratégique</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="brief" class="form-label text-white-50 fw-bold">VOTRE BRIEF STRATÉGIQUE *</label>
+                                <textarea name="brief" id="brief" class="form-control form-control-premium" rows="5" placeholder="Quels sont vos objectifs principaux ? (ex: Doubler les leads, refondre l'image de marque...)" required></textarea>
+                            </div>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <label for="target_audience" class="form-label text-white-50 fw-bold">AVATAR CLIENT / CIBLE</label>
+                                    <input type="text" name="target_audience" id="target_audience" class="form-control form-control-premium" placeholder="Ex: Décideurs IT 35-50 ans">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="existing_url" class="form-label text-white-50 fw-bold">PLATEFORME EXISTANTE (URL)</label>
+                                    <input type="url" name="existing_url" id="existing_url" class="form-control form-control-premium" placeholder="https://votre-site.com">
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mt-5">
+                                <button type="button" class="btn btn-outline-light px-4" onclick="nextStep(1)">
+                                    <i class="bi bi-arrow-left me-2"></i> Retour
+                                </button>
+                                <button type="button" class="btn btn-premium px-5" onclick="nextStep(3)">
+                                    Finaliser les options <i class="bi bi-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3 : Devis & Validation -->
+                        <div class="brief-step d-none" id="step3">
+                            <h3 class="h4 text-gold mb-4 fw-bold">3. Configuration & Validation</h3>
+
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <label for="style" class="form-label text-white-50 fw-bold">STYLE VISUEL</label>
+                                    <select name="style" id="style" class="form-select form-control-premium">
+                                        <option value="elegant">Élégance Premium (Minimal)</option>
+                                        <option value="modern">Futuriste / Tech</option>
+                                        <option value="corporate">Haut Standing / Institutionnel</option>
+                                        <option value="creative">Artistique / Typographique</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="pages" class="form-label text-white-50 fw-bold">VOLUME (PAGES)</label>
+                                    <input type="number" name="pages" id="pages" class="form-control form-control-premium" value="5" min="1" max="50">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="content_tone" class="form-label text-white-50 fw-bold">TON DE VOIX</label>
+                                    <select name="content_tone" id="content_tone" class="form-select form-control-premium">
+                                        <option value="luxe">Exclusif / Luxe</option>
+                                        <option value="professionnel">Expert / Autoritaire</option>
+                                        <option value="dynamique">Engagé / Disruptif</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="card bg-white bg-opacity-5 border-glass mb-4">
+                                <div class="card-body p-4">
+                                    <label class="form-label text-white-50 fw-bold mb-3 small tracking-widest">MODULES D'EXPÉRIENCE</label>
+                                    <div class="row g-3">
+                                        <?php
+                                        $features = [
+                                            'contact_form' => 'Lead Gen Advanced',
+                                            'blog' => 'Thought Leadership (Blog)',
+                                            'booking' => 'Online Conciergerie',
+                                            'newsletter' => 'Engagement Automatisé',
+                                            'multilingual' => 'Portée Internationale',
+                                            'analytics' => 'Tracking Data Insight'
+                                        ];
+                                        foreach ($features as $fKey => $fLabel):
+                                        ?>
+                                            <div class="col-md-4 col-6">
+                                                <div class="premium-checkbox">
+                                                    <input type="checkbox" name="features[]" value="<?= $fKey ?>" id="feat_<?= $fKey ?>" class="form-check-input">
+                                                    <label for="feat_<?= $fKey ?>"><?= $fLabel ?></label>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check mb-5 p-0">
+                                <div class="premium-urgent-toggle">
+                                    <input type="checkbox" name="urgent" id="urgent" value="1">
+                                    <label for="urgent">
+                                        <i class="bi bi-lightning-charge-fill me-2 text-warning"></i> DÉPLOIEMENT ACCÉLÉRÉ (Priority Desk)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Devis Premium dynamique -->
+                            <div class="glass-card mb-5 border-gold-subtle overflow-hidden">
+                                <div class="card-body p-0 d-flex overflow-hidden">
+                                    <div class="p-4 bg-gold-gradient text-dark d-flex flex-column justify-content-center align-items-center" style="min-width: 180px;">
+                                        <small class="fw-bold tracking-widest text-uppercase" style="font-size: 10px;">Estimation</small>
+                                        <div class="h2 fw-black mb-0" id="quotePrice">0.00 €</div>
+                                    </div>
+                                    <div class="p-4 flex-grow-1 text-white">
+                                        <h5 class="mb-1 text-gold">Note de Conseils</h5>
+                                        <p class="mb-0 small text-white-50">Cette estimation inclut l'accompagnement stratégique et le design haute-fidélité. Un expert révisera ce brief dans les 24h.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center gap-3">
+                                <button type="button" class="btn btn-outline-light px-4" onclick="nextStep(2)">
+                                    <i class="bi bi-arrow-left me-2"></i> Retour
+                                </button>
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <button type="submit" class="btn btn-premium btn-lg px-5">
+                                        DÉPOSER MON BRIEF <i class="bi bi-rocket-takeoff-fill ms-2"></i>
+                                    </button>
+                                <?php else: ?>
+                                    <a href="/connexion" class="btn btn-premium btn-lg px-5">
+                                        CONNECTEZ-VOUS POUR VALIDER <i class="bi bi-box-arrow-in-right ms-2"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Colonne Latérale : L'Expert IA (Sidebar de Conseil) -->
+            <div class="col-lg-4" data-aos="fade-left">
+                <div class="sticky-sidebar">
+                    <div class="glass-card overflow-hidden">
+                        <div class="p-4 bg-white bg-opacity-5 border-bottom border-glass">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <div class="expert-avatar">
+                                    <i class="bi bi-shield-check text-gold"></i>
+                                    <div class="expert-pulse"></div>
+                                </div>
+                                <h4 class="h6 text-white mb-0 uppercase tracking-widest">DIGITA Intelligence</h4>
+                            </div>
+                            <div id="agent-type-badge" class="badge text-gold p-0 small fw-light">ASSISTANT STRATÉGIQUE</div>
+                        </div>
+                        <div class="p-4">
+                            <div id="expert-tip" class="expert-message-box">
+                                <p class="text-white-50 mb-0 italic">Initialisation de la console de conseil...</p>
+                            </div>
+                            
+                            <hr class="border-glass my-4">
+                            
+                            <div class="mini-brief-summary">
+                                <h5 class="text-gold uppercase small tracking-widest mb-3">Récapitulatif de Vision</h5>
+                                <ul class="list-unstyled mb-0" id="briefSummary">
+                                    <li class="mb-2"><span class="text-white-50">Type :</span> <span id="summary-type" class="text-white">—</span></li>
+                                    <li><span class="text-white-50">Ambition :</span> <span id="summary-title" class="text-white">—</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-gold bg-opacity-5">
+                            <div class="d-flex gap-2">
+                                <i class="bi bi-info-circle text-gold mt-1"></i>
+                                <p class="small text-white-50 mb-0">Ce parcours accélère de 48h la mise en œuvre de votre projet.</p>
+                            </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<style>
+    /* Spécifiques à la page brief Premium */
+    .form-control-premium {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid var(--border-glass) !important;
+        color: white !important;
+        padding: 12px 18px !important;
+        border-radius: 12px !important;
+    }
+    .form-control-premium:focus {
+        border-color: var(--gold) !important;
+        box-shadow: 0 0 15px var(--gold-glow) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+    }
+    .project-type-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-glass);
+        border-radius: 16px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+    }
+    .project-type-card i {
+        font-size: 2rem;
+        margin-bottom: 12px;
+        color: var(--gold);
+        opacity: 0.7;
+    }
+    .project-type-card span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .btn-check:checked + .project-type-card {
+        background: var(--gold-gradient);
+        border-color: transparent;
+        color: var(--dark);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px var(--gold-glow);
+    }
+    .btn-check:checked + .project-type-card i {
+        color: var(--dark);
+        opacity: 1;
+    }
+
+    .brief-stepper {
+        position: relative;
+    }
+    .step-progress-bar {
+        position: absolute;
+        top: 25px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.05);
+        z-index: 1;
+    }
+    .step-progress-fill {
+        height: 100%;
+        background: var(--gold-gradient);
+        transition: width 0.4s ease;
+    }
+    .step-item {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+    }
+    .step-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--dark);
+        border: 2px solid var(--border-glass);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+        margin-bottom: 8px;
+    }
+    .step-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.3);
+        font-weight: 600;
+    }
+    .step-item.active .step-icon {
+        border-color: var(--gold);
+        color: var(--gold);
+        box-shadow: 0 0 15px var(--gold-glow);
+    }
+    .step-item.active .step-label {
+        color: var(--gold);
+    }
+
+    .expert-avatar {
+        width: 40px;
+        height: 40px;
+        background: var(--gold-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark);
+        font-size: 1.2rem;
+        position: relative;
+    }
+    .expert-pulse {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        background: var(--gold);
+        opacity: 0.3;
+        animation: pulseAvatar 2s infinite;
+    }
+    @keyframes pulseAvatar {
+        0% { transform: scale(1); opacity: 0.3; }
+        70% { transform: scale(1.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 0; }
+    }
+    .expert-message-box {
+        background: rgba(255, 255, 255, 0.03);
+        border-left: 3px solid var(--gold);
+        padding: 16px;
+        border-radius: 0 12px 12px 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #e0e0e0;
+    }
+    .premium-checkbox {
+        position: relative;
+    }
+    .premium-checkbox input { display: none; }
+    .premium-checkbox label {
+        display: block;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-glass);
+        border-radius: 8px;
+        color: white;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: center;
+    }
+    .premium-checkbox input:checked + label {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--gold);
+        color: var(--gold);
+    }
+
+    .premium-urgent-toggle {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        background: rgba(255, 193, 7, 0.05);
+        border: 1px dashed rgba(255, 193, 7, 0.3);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .premium-urgent-toggle:hover {
+        background: rgba(255, 193, 7, 0.08);
+    }
+    .premium-urgent-toggle input {
+        width: 20px;
+        height: 20px;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    .premium-urgent-toggle label {
+        cursor: pointer;
+        color: #ffc107;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+</style>
+
 <script>
+const expertTips = {
+    1: "Choisir la bonne vision est crucial. Un site e-commerce demande une architecture de conversion, tandis qu'une landing page se concentre sur l'impact immédiat. Quelle est votre priorité ?",
+    2: "Plus vos détails sont précis, plus notre analyse sera pertinente. N'oubliez pas vos concurrents : c'est là que nous trouverons vos opportunités de différenciation.",
+    3: "Les options technologiques définissent la solidité de votre futur écosystème. Un tunnel de vente automatisé combiné à une newsletter stratégique démultiplie votre ROI."
+};
+
+const agentBadges = {
+    1: "ASSISTANT STRATÉGIQUE",
+    2: "EXPERT GROWTH & ANALYSIS",
+    3: "ARCHITECTE SOLUTIONS"
+};
+
 function nextStep(step) {
-    document.querySelectorAll('.brief-step').forEach(s => s.classList.add('d-none'));
-    document.getElementById('step' + step).classList.remove('d-none');
-    document.querySelectorAll('.step-dot').forEach(d => {
-        d.classList.toggle('active', parseInt(d.dataset.step) <= step);
+    // Animation de transition
+    document.querySelectorAll('.brief-step').forEach(s => {
+        s.classList.add('d-none');
     });
+    
+    document.getElementById('step' + step).classList.remove('d-none');
+    
+    // Update Stepper
+    document.querySelectorAll('.step-item').forEach(item => {
+        const itemStep = parseInt(item.dataset.step);
+        item.classList.toggle('active', itemStep <= step);
+    });
+    
+    // Progress Bar
+    const progress = ((step - 1) / 2) * 100;
+    document.getElementById('stepProgress').style.width = (progress || 33) + '%';
+    
+    // Update Expert Sidebar
+    const tipBox = document.getElementById('expert-tip');
+    tipBox.style.opacity = '0';
+    setTimeout(() => {
+        tipBox.innerHTML = `<p class="mb-0 italic">${expertTips[step]}</p>`;
+        tipBox.style.opacity = '1';
+        document.getElementById('agent-type-badge').innerText = agentBadges[step];
+    }, 300);
+
+    // Update Summary
+    updateSummary();
+
     if (step === 3) updateQuote();
+    
     window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function updateSummary() {
+    const typeChecked = document.querySelector('input[name="project_type"]:checked');
+    if (typeChecked) {
+        document.getElementById('summary-type').innerText = typeChecked.nextElementSibling.innerText;
+    }
+    const titleVal = document.getElementById('title').value;
+    if (titleVal) {
+        document.getElementById('summary-title').innerText = titleVal;
+    }
 }
 
 function updateQuote() {
@@ -266,7 +540,18 @@ function updateQuote() {
     });
 }
 
-document.getElementById('pages').addEventListener('change', updateQuote);
-document.getElementById('urgent').addEventListener('change', updateQuote);
-document.querySelectorAll('input[name="project_type"]').forEach(r => r.addEventListener('change', updateQuote));
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+    nextStep(1);
+    
+    // Listeners pour mise à jour résumé en temps réel
+    document.getElementById('title').addEventListener('input', updateSummary);
+    document.querySelectorAll('input[name="project_type"]').forEach(r => {
+        r.addEventListener('change', updateSummary);
+    });
+    
+    // Listeners pour devis
+    document.getElementById('pages').addEventListener('change', updateQuote);
+    document.getElementById('urgent').addEventListener('change', updateQuote);
+});
 </script>

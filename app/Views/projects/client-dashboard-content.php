@@ -1,125 +1,279 @@
-<!-- Espace Client - Dashboard -->
-<section class="client-dashboard" style="padding-top: 120px; padding-bottom: 60px;">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-4">
+<!-- Espace Client Premium - Dashboard Stratégique -->
+<section class="client-dashboard bg-premium-dark-blue" style="padding-top: 140px; padding-bottom: 80px; min-height: 100vh; position: relative;">
+    <div class="bg-premium-grid"></div>
+    <div class="bg-premium-glow" style="top: 10%; right: 5%;"></div>
+    
+    <div class="container relative-z">
+        <!-- Header Dashboard -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5" data-aos="fade-down">
             <div>
-                <h1 class="fw-bold">Espace Client</h1>
-                <p class="text-muted mb-0">Gérez vos projets et suivez leur avancement</p>
+                <span class="badge bg-gold-gradient text-dark mb-2 px-3 py-1 uppercase tracking-wider small fw-bold">Espace Stratégique</span>
+                <h1 class="display-6 fw-black text-white mb-1">Bienvenue dans votre Cabinet Digital</h1>
+                <p class="text-white-50 mb-0">Pilotage de vos ambitions et suivi de performance.</p>
             </div>
-            <a href="/projets/brief" class="btn btn-primary">
-                <i class="bi bi-plus-circle"></i> Nouveau projet
-            </a>
+            <div class="mt-3 mt-md-0 d-flex gap-3">
+                <a href="/projets/brief" class="btn btn-premium shadow-lg">
+                    <i class="bi bi-rocket-takeoff-fill me-2"></i> Lancer une initiative
+                </a>
+            </div>
         </div>
 
         <?php if (!empty($_SESSION['success_message'])): ?>
-            <div class="alert alert-success alert-dismissible fade show">
-                <?= htmlspecialchars($_SESSION['success_message']) ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <div class="alert bg-success bg-opacity-10 border-success text-success alert-dismissible fade show mb-5">
+                <i class="bi bi-check2-all me-2"></i><?= htmlspecialchars($_SESSION['success_message']) ?>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
             </div>
             <?php unset($_SESSION['success_message']); ?>
         <?php endif; ?>
 
-        <!-- Stats rapides -->
-        <div class="row g-3 mb-4">
-            <div class="col-md-3 col-6">
-                <div class="card shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="fs-2 fw-bold text-primary"><?= count($projects) ?></div>
-                        <small class="text-muted">Projets total</small>
+        <div class="row g-4 mb-5">
+            <!-- Widget 1 : Score de Maturité (Le highlight de Phase 3) -->
+            <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="glass-card p-4 h-100 text-center d-flex flex-column justify-content-center align-items-center">
+                    <h5 class="text-gold uppercase small tracking-widest mb-4">Maturité Digitale</h5>
+                    
+                    <div class="maturity-gauge-container mb-4">
+                        <svg class="maturity-gauge" viewBox="0 0 100 100">
+                            <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="gauge-fill" cx="50" cy="50" r="45" style="stroke-dasharray: <?= ($maturityScore / 100) * 283 ?>, 283;"></circle>
+                        </svg>
+                        <div class="gauge-content">
+                            <span class="gauge-value"><?= $maturityScore ?>%</span>
+                        </div>
+                    </div>
+                    
+                    <p class="small text-white-50"><?= $maturityScore < 50 ? 'Profil en cours de définition.' : 'Excellente visibilité stratégique.' ?></p>
+                    <a href="/intelligence/chatbot" class="btn btn-link btn-sm text-gold-dim text-decoration-none p-0">
+                        <i class="bi bi-plus-circle me-1"></i> Optimiser mon score
+                    </a>
+                </div>
+            </div>
+
+            <!-- Widget 2 : Profil Stratégique (Extrait en Phase 2) -->
+            <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
+                <div class="glass-card p-4 h-100">
+                    <h5 class="text-gold uppercase small tracking-widest mb-4"><i class="bi bi-shield-check me-2"></i>Votre Profil Client Analysé</h5>
+                    
+                    <div class="strategic-profile-list">
+                        <div class="row mb-3">
+                            <div class="col-5 text-white-50 small">Secteur :</div>
+                            <div class="col-7 text-white fw-medium"><?= htmlspecialchars($clientContext['business_sector'] ?? 'Non identifié') ?></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 text-white-50 small">Objectif :</div>
+                            <div class="col-7 text-white fw-medium small lh-sm"><?= htmlspecialchars($clientContext['business_goals'] ?? 'En cours d\'analyse...') ?></div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 text-white-50 small">Audience :</div>
+                            <div class="col-7 text-white fw-medium"><?= htmlspecialchars($clientContext['target_audience'] ?? 'Inconnue') ?></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 text-white-50 small">Expertise Favorisée :</div>
+                            <div class="col-7">
+                                <span class="badge bg-white bg-opacity-10 text-gold-dim border border-glass px-2 py-1">
+                                    <?= strtoupper($clientContext['preferred_expertise'] ?? 'Générale') ?>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
-                <div class="card shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="fs-2 fw-bold text-warning"><?= count($activeProjects) ?></div>
-                        <small class="text-muted">En cours</small>
+
+            <!-- Widget 3 : Alertes & Activité -->
+            <div class="col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                <div class="glass-card h-100 overflow-hidden">
+                    <div class="p-4 bg-white bg-opacity-5 border-bottom border-glass">
+                        <h5 class="text-white uppercase small tracking-widest mb-0"><i class="bi bi-bell-fill me-2"></i>Notifications</h5>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="card shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="fs-2 fw-bold text-success"><?= count($completedProjects) ?></div>
-                        <small class="text-muted">Terminés</small>
+                    <div class="p-4">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <div class="notification-dot <?= count($activeProjects) > 0 ? 'bg-warning' : 'bg-white-50' ?>"></div>
+                            <div>
+                                <div class="text-white small fw-bold"><?= count($activeProjects) ?> Initiative(s) Active(s)</div>
+                                <div class="text-white-50" style="font-size: 11px;">Suivi de production en temps réel.</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-0">
+                            <div class="notification-dot <?= $unreadMessages > 0 ? 'bg-danger pulse-dot' : 'bg-white-50' ?>"></div>
+                            <div>
+                                <div class="text-white small fw-bold"><?= $unreadMessages ?> Message(s) en attente</div>
+                                <div class="text-white-50" style="font-size: 11px;">Consultation de l'équipe support.</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="card shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="fs-2 fw-bold text-danger"><?= $unreadMessages ?></div>
-                        <small class="text-muted">Messages non lus</small>
-                    </div>
+                    <a href="#projects" class="d-block p-2 text-center bg-gold text-dark text-decoration-none small fw-black tracking-widest">
+                        VOIR MES PROJETS <i class="bi bi-arrow-down-short"></i>
+                    </a>
                 </div>
             </div>
         </div>
 
-        <!-- Liste des projets -->
-        <?php if (empty($projects)): ?>
-            <div class="card shadow-sm">
-                <div class="card-body text-center py-5">
-                    <i class="bi bi-folder2-open text-muted" style="font-size: 4rem;"></i>
-                    <h4 class="mt-3">Aucun projet pour le moment</h4>
-                    <p class="text-muted">Créez votre premier projet en décrivant votre besoin.</p>
-                    <a href="/projets/brief" class="btn btn-primary btn-lg">
-                        <i class="bi bi-plus-circle"></i> Créer un projet
-                    </a>
+        <!-- Section Projets -->
+        <div id="projects" class="mt-5 pt-5" data-aos="fade-up">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <h3 class="h4 text-white mb-0 fw-black uppercase tracking-widest">Portefeuille d'Initiatives</h3>
+                <div class="filters d-none d-md-flex gap-2">
+                    <span class="badge bg-white bg-opacity-5 border border-glass px-3 py-2 text-white-50">Tout</span>
+                    <span class="badge bg-warning bg-opacity-10 text-warning px-3 py-2">En cours</span>
                 </div>
             </div>
-        <?php else: ?>
-            <div class="row g-4">
-                <?php foreach ($projects as $project): ?>
-                    <div class="col-md-6">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-start mb-2">
-                                    <div>
-                                        <span class="badge bg-secondary"><?= htmlspecialchars($types[$project['project_type']] ?? $project['project_type']) ?></span>
+
+            <?php if (empty($projects)): ?>
+                <div class="glass-card p-5 text-center">
+                    <div class="mb-4 text-white-50 opacity-25">
+                        <i class="bi bi-stack" style="font-size: 5rem;"></i>
+                    </div>
+                    <h4 class="text-white">Votre tableau de bord est vierge</h4>
+                    <p class="text-white-50 mb-4">Prêt à lancer votre première initiative stratégique ? Notre brief interactif prend moins de 5 minutes.</p>
+                    <a href="/projets/brief" class="btn btn-premium px-5 py-3">
+                        DÉMARRER MON PREMIER BRIEF <i class="bi bi-plus-circle-fill ms-2"></i>
+                    </a>
+                </div>
+            <?php else: ?>
+                <div class="row g-4">
+                    <?php foreach ($projects as $project): ?>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="glass-card h-100 project-card-premium overflow-hidden transition-all">
+                                <div class="project-card-header p-4">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <span class="badge bg-gold-gradient text-dark fw-bold uppercase tracking-widest" style="font-size: 9px;">
+                                            <?= htmlspecialchars($types[$project['project_type']] ?? $project['project_type']) ?>
+                                        </span>
                                         <?php
                                         $statusColors = [
                                             'draft' => 'light', 'pending' => 'warning', 'generating' => 'info',
-                                            'review' => 'primary', 'revision' => 'orange', 'approved' => 'success',
-                                            'delivered' => 'success', 'completed' => 'dark', 'cancelled' => 'danger'
+                                            'review' => 'primary', 'approved' => 'success', 'delivered' => 'gold'
                                         ];
                                         $color = $statusColors[$project['status']] ?? 'secondary';
                                         ?>
-                                        <span class="badge bg-<?= $color ?>"><?= htmlspecialchars($statuses[$project['status']] ?? $project['status']) ?></span>
+                                        <span class="status-indicator-badge status-<?= $project['status'] ?>">
+                                            <?= htmlspecialchars($statuses[$project['status']] ?? $project['status']) ?>
+                                        </span>
                                     </div>
-                                    <?php if ($project['unread_messages'] > 0): ?>
-                                        <span class="badge bg-danger rounded-pill"><?= $project['unread_messages'] ?> <i class="bi bi-chat-dots"></i></span>
-                                    <?php endif; ?>
+                                    <h5 class="h6 text-white fw-black mb-2 uppercase tracking-wide"><?= htmlspecialchars($project['title']) ?></h5>
+                                    <p class="text-white-50 mb-0 small line-clamp-2"><?= htmlspecialchars($project['brief']) ?></p>
                                 </div>
-                                
-                                <h5 class="card-title fw-bold"><?= htmlspecialchars($project['title']) ?></h5>
-                                <p class="text-muted small mb-2"><?= htmlspecialchars(mb_strimwidth($project['brief'], 0, 120, '...')) ?></p>
-                                
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <?php if ($project['price'] > 0): ?>
-                                            <span class="fw-bold text-primary"><?= number_format($project['price'], 2) ?> €</span>
-                                        <?php endif; ?>
-                                        <small class="text-muted ms-2">
-                                            <i class="bi bi-calendar3"></i> <?= date('d/m/Y', strtotime($project['created_at'])) ?>
-                                        </small>
+                                <div class="project-card-footer p-4 bg-white bg-opacity-5 d-flex justify-content-between align-items-center">
+                                    <div class="text-white small fw-medium">
+                                        <i class="bi bi-calendar3 me-1 text-gold"></i> <?= date('d.m.y', strtotime($project['created_at'])) ?>
                                     </div>
-                                    <a href="/espace-client/projet/<?= $project['id'] ?>" class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-eye"></i> Voir
+                                    <a href="/espace-client/projet/<?= $project['id'] ?>" class="btn btn-outline-gold btn-sm px-3 uppercase tracking-widest fw-black" style="font-size: 10px;">
+                                        EXPLORER <i class="bi bi-chevron-right ms-1"></i>
                                     </a>
                                 </div>
                             </div>
-                            
-                            <?php if (!empty($project['preview_url'])): ?>
-                                <div class="card-footer bg-light">
-                                    <a href="<?= htmlspecialchars($project['preview_url']) ?>" target="_blank" class="text-decoration-none small">
-                                        <i class="bi bi-box-arrow-up-right"></i> Voir la preview
-                                    </a>
-                                </div>
-                            <?php endif; ?>
                         </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- Section de Conversion Bas de Page (Cross-selling) -->
+        <div class="mt-5 mb-4" data-aos="fade-up">
+            <div class="glass-card p-4 p-md-5 border-gold shadow-gold overflow-hidden position-relative">
+                <div class="row align-items-center relative-z">
+                    <div class="col-lg-8">
+                        <h4 class="text-white fw-black uppercase tracking-widest mb-2">Audit Stratégique Annuel Offert</h4>
+                        <p class="text-white-50 mb-lg-0">En tant que client DIGITA, bénéficiez de 30 minutes de consultation avec un expert IA pour identifier vos prochains leviers de croissance.</p>
                     </div>
-                <?php endforeach; ?>
+                    <div class="col-lg-4 text-lg-end">
+                        <button class="btn btn-premium btn-lg px-4 pulse-glow" data-bs-toggle="modal" data-bs-target="#auditModal">
+                            <i class="bi bi-calendar-check me-2"></i> SOLICITER L'AUDIT
+                        </button>
+                    </div>
+                </div>
+                <div class="bg-premium-glow" style="bottom: -50%; right: -10%; opacity: 0.2;"></div>
             </div>
-        <?php endif; ?>
+        </div>
     </div>
 </section>
+
+<style>
+    .maturity-gauge-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+    }
+    .maturity-gauge { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .gauge-bg { fill: none; stroke: rgba(255, 255, 255, 0.05); stroke-width: 8; }
+    .gauge-fill {
+        fill: none;
+        stroke: url(#goldGradient);
+        stroke-width: 8;
+        stroke-linecap: round;
+        transition: stroke-dasharray 1s ease;
+    }
+    /* SVG Linear Gradient for dasharray hack */
+    .gauge-fill { stroke: var(--gold); filter: drop-shadow(0 0 5px var(--gold-glow)); }
+
+    .gauge-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .gauge-value {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: white;
+        line-height: 1;
+    }
+
+    .notification-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+    .pulse-dot {
+        animation: pulseRed 2s infinite;
+    }
+    @keyframes pulseRed {
+        0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+    }
+
+    .project-card-premium {
+        border: 1px solid var(--border-glass);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .project-card-premium:hover {
+        transform: translateY(-8px);
+        border-color: var(--gold-dim);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        background: rgba(255, 255, 255, 0.04);
+    }
+
+    .status-indicator-badge {
+        font-size: 9px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+    }
+    .status-pending { background: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid rgba(255, 193, 7, 0.2); }
+    .status-completed { background: rgba(25, 135, 84, 0.1); color: #198754; border: 1px solid rgba(25, 135, 84, 0.2); }
+    .status-delivered { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 1px solid var(--gold-dim); }
+
+    .btn-outline-gold {
+        border: 1px solid var(--gold-dim);
+        color: var(--gold);
+        background: transparent;
+    }
+    .btn-outline-gold:hover {
+        background: var(--gold-gradient);
+        color: var(--dark);
+        border-color: transparent;
+    }
+
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

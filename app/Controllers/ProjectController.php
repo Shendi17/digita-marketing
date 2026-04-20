@@ -154,6 +154,12 @@ class ProjectController extends Controller {
         $completedProjects = array_filter($projects, function($p) {
             return $p['status'] === 'completed';
         });
+
+        // NOUVEAU : Intelligence Contextuelle & Score de Maturité
+        require_once __DIR__ . '/../Services/ContextManager.php';
+        $contextManager = new ContextManager();
+        $clientContext = $contextManager->getContext(session_id(), $userId);
+        $maturityScore = $contextManager->calculateMaturityScore($clientContext, $projects);
         
         $data = [
             'title' => 'Espace Client — Digita Marketing',
@@ -161,6 +167,8 @@ class ProjectController extends Controller {
             'activeProjects' => $activeProjects,
             'completedProjects' => $completedProjects,
             'unreadMessages' => $unreadMessages,
+            'clientContext' => $clientContext,
+            'maturityScore' => $maturityScore,
             'statuses' => Project::$statuses,
             'types' => Project::$types
         ];

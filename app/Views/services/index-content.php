@@ -1,45 +1,37 @@
-<!-- Hero Section -->
-<section class="services-hero py-5 bg-primary text-white">
-  <div class="container">
+<!-- Hero Section Premium -->
+<section class="services-hero py-6 bg-premium-glow text-white overflow-hidden position-relative">
+  <div class="container position-relative z-2">
     <div class="row align-items-center">
-      <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-        <h1 class="display-4 fw-bold mb-4">Nos Services Digitaux</h1>
-        <p class="lead mb-0">Découvrir nos services</p>
+      <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
+        <span class="badge rounded-pill bg-premium-gold-gradient px-3 py-2 mb-3" style="background: linear-gradient(135deg, var(--gold), #f3d47c); color: var(--dark); font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase;">Expertise Convergence</span>
+        <h1 class="display-3 fw-bold mb-4" style="font-family: var(--font-heading);">Nos Solutions Stratégiques</h1>
+        <p class="lead mb-0 text-white-50" style="font-size: 1.2rem;">L'intelligence artificielle et l'automatisation au service de votre excellence opérationnelle.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Introduction -->
-<section class="py-5 bg-light">
+<!-- Introduction Premium -->
+<section class="py-5 bg-premium-dark-blue border-bottom border-glass">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-10 text-center" data-aos="fade-up">
-        <h2 class="mb-4">Plus de 300 Services Digitaux à Votre Disposition</h2>
-        <p class="lead text-muted">De la création d'identité visuelle à l'intelligence artificielle, découvrez notre gamme complète de services pour propulser votre présence digitale.</p>
+        <h2 class="mb-4 text-gradient-gold fw-bold">Un Écosystème de Services Haute Performance</h2>
+        <p class="lead text-white-50">De la direction artistique prestige à l'orchestration de systèmes autonomes, nous couvrons l'intégralité de votre chaîne de valeur numérique.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Navigation par Catégories -->
-<section class="py-4 bg-white sticky-nav shadow-sm">
+<!-- Navigation par Catégories Premium (Sticky Glass) -->
+<section class="py-4 sticky-nav shadow-lg" style="background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid var(--glass-border); z-index: 1000;">
   <div class="container">
     <div class="d-flex flex-wrap gap-2 justify-content-center">
-      <a href="#reseaux-sociaux" class="btn btn-sm btn-outline-primary scroll-link" data-target="#reseaux">Réseaux Sociaux</a>
-      <a href="#identite-visuelle" class="btn btn-sm btn-outline-primary scroll-link" data-target="#identite">Identité Visuelle</a>
-      <a href="#video-multimedia" class="btn btn-sm btn-outline-primary scroll-link" data-target="#video">Vidéo & Multimédia</a>
-      <a href="#sites-web" class="btn btn-sm btn-outline-primary scroll-link" data-target="#sites">Sites Web</a>
-      <a href="#seo" class="btn btn-sm btn-outline-primary scroll-link" data-target="#seo-collapse">SEO</a>
-      <a href="#publicite" class="btn btn-sm btn-outline-primary scroll-link" data-target="#publicite-collapse">Publicité</a>
-      <a href="#email-marketing" class="btn btn-sm btn-outline-primary scroll-link" data-target="#email">Email Marketing</a>
-      <a href="#analytics" class="btn btn-sm btn-outline-primary scroll-link" data-target="#analytics-collapse">Analytics</a>
-      <a href="#strategie" class="btn btn-sm btn-outline-primary scroll-link" data-target="#strategie-collapse">Stratégie</a>
-      <a href="#redaction" class="btn btn-sm btn-outline-primary scroll-link" data-target="#redaction-collapse">Rédaction</a>
-      <a href="#ia-automation" class="btn btn-sm btn-outline-primary scroll-link" data-target="#ia-collapse">IA & Automation</a>
-      <a href="#ecommerce" class="btn btn-sm btn-outline-primary scroll-link" data-target="#ecommerce-collapse">E-commerce</a>
-      <a href="#mobile" class="btn btn-sm btn-outline-primary scroll-link" data-target="#mobile-collapse">Mobile</a>
-      <a href="#formation" class="btn btn-sm btn-outline-primary scroll-link" data-target="#formation-collapse">Formation</a>
+      <a href="#reseaux-sociaux" class="btn btn-sm btn-premium btn-premium-blue py-1 px-3 scroll-link" data-target="#reseaux" style="font-size: 0.75rem;">Visibilité Sociale</a>
+      <a href="#identite-visuelle" class="btn btn-sm btn-premium btn-premium-gold py-1 px-3 scroll-link" data-target="#identite" style="font-size: 0.75rem;">Identité Prestige</a>
+      <a href="#sites-web" class="btn btn-sm btn-premium btn-premium-blue py-1 px-3 scroll-link" data-target="#sites" style="font-size: 0.75rem;">Architecture Web</a>
+      <a href="#ia-automation" class="btn btn-sm btn-premium btn-premium-gold py-1 px-3 scroll-link" data-target="#ia-collapse" style="font-size: 0.75rem;">IA & Automation</a>
+      <a href="#strategie" class="btn btn-sm btn-premium btn-premium-blue py-1 px-3 scroll-link" data-target="#strategie-collapse" style="font-size: 0.75rem;">Stratégie & ROI</a>
     </div>
   </div>
 </section>
@@ -86,17 +78,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Services par Catégories (Accordéons) -->
-<section class="py-5 bg-white">
+<!-- Services par Catégories (Accordéons Premium) -->
+<section class="py-5 bg-premium-grid animated">
   <div class="container">
-    <div class="accordion" id="servicesAccordion">
+    <div class="accordion accordion-premium" id="servicesAccordion">
       
       <!-- RÉSEAUX SOCIAUX -->
-      <div id="reseaux-sociaux" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="reseaux-sociaux" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#reseaux">
-            <i class="bi bi-people-fill text-primary me-3 fs-4"></i>
-            <strong>Réseaux Sociaux & Community Management</strong>
+          <button class="accordion-button glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#reseaux" style="background: rgba(37, 99, 235, 0.05);">
+            <i class="bi bi-people-fill text-blue me-3 fs-4"></i>
+            <span class="fw-bold" style="letter-spacing: 1px;">ORCHESTRATION SOCIALE & INFLUENCE</span>
           </button>
         </h2>
         <div id="reseaux" class="accordion-collapse collapse show">
@@ -143,11 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <!-- IDENTITÉ VISUELLE -->
-      <div id="identite-visuelle" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="identite-visuelle" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#identite">
-            <i class="bi bi-palette-fill text-primary me-3 fs-4"></i>
-            <strong>Identité Visuelle & Design Graphique</strong>
+          <button class="accordion-button collapsed glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#identite" style="background: rgba(212, 175, 55, 0.05);">
+            <i class="bi bi-palette-fill text-gold me-3 fs-4"></i>
+            <span class="fw-bold" style="letter-spacing: 1px;">DIRECTION ARTISTIQUE & PRESTIGE</span>
           </button>
         </h2>
         <div id="identite" class="accordion-collapse collapse">
@@ -229,11 +221,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <!-- SITES WEB -->
-      <div id="sites-web" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="sites-web" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#sites">
-            <i class="bi bi-window-desktop text-primary me-3 fs-4"></i>
-            <strong>Création de Sites Web</strong>
+          <button class="accordion-button collapsed glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#sites" style="background: rgba(37, 99, 235, 0.05);">
+            <i class="bi bi-window-desktop text-blue me-3 fs-4"></i>
+            <span class="fw-bold" style="letter-spacing: 1px;">ARCHITECTURE WEB & ÉCOSYSTÈMES</span>
           </button>
         </h2>
         <div id="sites" class="accordion-collapse collapse">
@@ -272,11 +264,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <!-- SEO -->
-      <div id="seo" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="seo" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#seo-collapse">
-            <i class="bi bi-search text-primary me-3 fs-4"></i>
-            <strong>SEO & Référencement</strong>
+          <button class="accordion-button collapsed glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#seo-collapse" style="background: rgba(212, 175, 55, 0.05);">
+            <i class="bi bi-search text-gold me-3 fs-4"></i>
+            <span class="fw-bold" style="letter-spacing: 1px;">RÉFÉRENCEMENT STRATÉGIQUE (SEO)</span>
           </button>
         </h2>
         <div id="seo-collapse" class="accordion-collapse collapse">
@@ -444,11 +436,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <!-- STRATÉGIE -->
-      <div id="strategie" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="strategie" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#strategie-collapse">
-            <i class="bi bi-lightbulb-fill text-primary me-3 fs-4"></i>
-            <strong>Stratégie Digitale</strong>
+          <button class="accordion-button collapsed glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#strategie-collapse" style="background: rgba(37, 99, 235, 0.05);">
+            <i class="bi bi-lightbulb-fill text-blue me-3 fs-4"></i>
+            <span class="fw-bold" style="letter-spacing: 1px;">CONSEIL STRATÉGIQUE & CRO</span>
           </button>
         </h2>
         <div id="strategie-collapse" class="accordion-collapse collapse">
@@ -524,11 +516,11 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <!-- IA & AUTOMATION -->
-      <div id="ia-automation" class="accordion-item border-0 shadow-sm mb-3" data-aos="fade-up">
+      <div id="ia-automation" class="accordion-item bg-transparent border-glass mb-4" data-aos="fade-up">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed bg-primary bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#ia-collapse">
-            <i class="bi bi-cpu-fill text-primary me-3 fs-4"></i>
-            <strong>IA & Automatisation</strong>
+          <button class="accordion-button collapsed glass-card border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#ia-collapse" style="background: rgba(0, 210, 255, 0.08); border-color: #00d2ff !important; box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);">
+            <i class="bi bi-cpu-fill text-info me-3 fs-4" style="color: #00d2ff !important;"></i>
+            <span class="fw-bold" style="letter-spacing: 1px; color: #00d2ff !important;">INTELLIGENCE ARTIFICIELLE & SYSTÈMES AUTONOMES</span>
           </button>
         </h2>
         <div id="ia-collapse" class="accordion-collapse collapse">
@@ -680,14 +672,16 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="py-5 bg-light">
+<!-- CTA Section Premium -->
+<section class="py-6 bg-premium-glow">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-8 text-center" data-aos="fade-up">
-        <h3 class="mb-4">Besoin d'une solution sur-mesure ?</h3>
-        <p class="lead mb-4">Chaque projet est unique. Contactez-nous pour discuter de vos besoins spécifiques et obtenir un devis personnalisé.</p>
-        <a href="/contact" class="btn btn-primary btn-lg px-5">Demander un devis gratuit</a>
+      <div class="col-lg-10 text-center" data-aos="fade-up">
+        <div class="glass-card p-5 border-gold shadow-gold-glow">
+            <h3 class="display-5 fw-bold text-white mb-4">Prêt à élever vos standards ?</h3>
+            <p class="lead text-white-50 mb-5">Chaque projet prestige bénéficie d'un diagnostic stratégique initial. Discutons de votre vision et des leviers d'automatisation activables immédiatement.</p>
+            <a href="/contact" class="btn-premium btn-premium-gold px-5 py-3">Demander un Diagnostic Stratégique</a>
+        </div>
       </div>
     </div>
   </div>

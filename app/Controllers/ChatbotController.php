@@ -2,17 +2,23 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../Services/AIService.php';
+require_once __DIR__ . '/../Services/AgentOrchestrator.php';
+require_once __DIR__ . '/../Services/ContextManager.php';
 
 /**
- * Contrôleur Chatbot
- * Gère les conversations chatbot IA, qualification leads, prise de RDV
+ * Contrôleur Chatbot (v2.0)
+ * Gère les conversations chatbot IA via un Orchestrateur d'Agents et une Mémoire Contextuelle.
  */
 class ChatbotController extends Controller {
     
     private $aiService;
+    private $orchestrator;
+    private $contextManager;
     
     public function __construct() {
         $this->aiService = new AIService();
+        $this->orchestrator = new AgentOrchestrator();
+        $this->contextManager = new ContextManager();
     }
     
     /**
@@ -64,8 +70,13 @@ class ChatbotController extends Controller {
             );
             $history = array_reverse($history);
             
-            // Générer la réponse IA
-            $reply = $this->aiService->chatbotReply($userMessage, $history, $pageContext);
+            // Récupérer le contexte business actuel (Brief)
+            $clientBrief = $this->contextManager->getContext($sessionId, $_SESSION['user_id'] ?? null);
+            
+            // Générer la réponse via l'Orchestrateur d'Agents
+            $orchestrationResult = $this->orchestrator->processRequest($userMessage, $history, $clientBrief);
+            $reply = $orchestrationResult['response'];
+            $activeAgent = $orchestrationResult['agent'];
             
             // Sauvegarder la réponse
             $db->query(
@@ -73,24 +84,22 @@ class ChatbotController extends Controller {
                 [$conversationId, $reply]
             );
             
-            // Mettre à jour la conversation
+            // Mettre à jour la conversation et extraire le nouveau contexte
             $db->query(
                 "UPDATE chatbot_conversations SET updated_at = NOW() WHERE id = ?",
                 [$conversationId]
             );
             
-            // Tenter la qualification automatique (tous les 5 messages)
-            $msgCount = $db->fetch(
-                "SELECT COUNT(*) as cnt FROM chatbot_messages WHERE conversation_id = ? AND role = 'user'",
-                [$conversationId]
-            );
-            if (($msgCount['cnt'] ?? 0) % 5 === 0 && ($msgCount['cnt'] ?? 0) >= 5) {
-                $this->tryQualifyLead($conversationId, $db);
+            // Tenter l'extraction de contexte business après 2 messages (pour enrichir le brief)
+            if (($msgCount['cnt'] ?? 0) >= 2) {
+                $this->updateInteractionContext($conversationId, $sessionId, $db);
             }
             
             echo json_encode([
                 'success' => true,
                 'reply' => $reply,
+                'agent' => $activeAgent,
+                'intent' => $orchestrationResult['intent'] ?? 'info',
                 'conversation_id' => $conversationId
             ]);
             
@@ -303,6 +312,30 @@ class ChatbotController extends Controller {
             
         } catch (Exception $e) {
             error_log('Qualification lead échouée: ' . $e->getMessage());
+        }
+    }
+    
+    /**
+     * Extraire et mettre à jour le contexte business au fil de la discussion
+     */
+    private function updateInteractionContext($conversationId, $sessionId, $db) {
+        $messages = $db->fetchAll(
+            "SELECT role, content FROM chatbot_messages WHERE conversation_id = ? ORDER BY created_at ASC",
+            [$conversationId]
+        );
+        
+        $conversationText = '';
+        foreach ($messages as $msg) {
+            $conversationText .= ($msg['role'] === 'user' ? 'Client' : 'Expert') . ': ' . $msg['content'] . "\n";
+        }
+        
+        try {
+            $newData = $this->aiService->extractBusinessContext($conversationText);
+            if (!empty($newData)) {
+                $this->contextManager->updateContext($sessionId, $newData, $_SESSION['user_id'] ?? null);
+            }
+        } catch (Exception $e) {
+            error_log('Échec de la mise à jour du contexte business : ' . $e->getMessage());
         }
     }
     
